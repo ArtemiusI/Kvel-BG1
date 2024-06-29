@@ -1,0 +1,17 @@
+
+IF
+    Global("C0KvelBegin","GLOBAL",25)
+	Global("C0SpawnEcthel","MYAREA",0)
+THEN
+    RESPONSE #100
+        SetGlobal("C0SpawnEcthel","MYAREA",18)
+	    CreateCreature("C0KVNP01",[880.890],W)
+		AddStoreItem("C0KVST01","POTN06",2,1)
+		AddStoreItem("C0KVST01","POTN41",2,1)
+		AddStoreItem("C0KVST01","POTN14",5,1)
+		AddStoreItem("C0KVST01","POTN17",10,1)
+		AddStoreItem("C0KVST01","POTN52",10,1)
+		AddStoreItem("C0KVST01","BDAMUL25",1,1)
+		AddStoreItem("C0KVST01","BDRING07",1,1)
+		AddStoreItem("C0KVST01","BDSHLD01",1,1)
+END

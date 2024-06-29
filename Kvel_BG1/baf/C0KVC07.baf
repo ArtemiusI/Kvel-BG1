@@ -1,0 +1,21 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0KVDR02")
+	Wait(2)
+	DisplayStringHead("C0KVDR03",~Stop!~)
+	MoveToObject("C0KVDR01")
+	DisplayStringHeadDead("C0KVDR01",~No...!~)
+	ApplyDamagePercent("C0KVDR01",100,SLASHING)
+	Kill("C0KVDR01")
+	SetSequence(SEQ_ATTACK_SLASH)
+	Wait(2)
+	DisplayStringHead("C0KVDR03",~Tch...~)
+	Wait(1)
+	ActionOverride("C0KVDR03",MoveToPoint([1112.2890]))
+	ActionOverride("C0KVDR03",SmallWait(2))
+	ActionOverride("C0KVDR03",Face(S))
+	ActionOverride("C0KVDR03",Wait(2))
+	ActionOverride("C0KVDR03",StartDialogNoSet(Myself))
+END

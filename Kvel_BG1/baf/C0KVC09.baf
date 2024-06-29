@@ -1,0 +1,22 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(2)
+	MoveViewPoint([4504.1045],BD_WALK)
+	ActionOverride(Player2,MoveToPoint([4730.978]))
+	ActionOverride(Player3,MoveToPoint([4745.1028]))
+	ActionOverride(Player4,MoveToPoint([4764.1098]))
+	ActionOverride(Player5,MoveToPoint([4786.968]))
+	ActionOverride(Player6,MoveToPoint([4804.1027]))
+	SmallWait(1)
+	ActionOverride("C0KVEL",MoveToPoint([4658.999]))
+	MoveToPoint([4672.1055])
+	Wait(2)
+	ActionOverride("C0KVDR04",MoveToPoint([4387.996]))
+	ActionOverride("C0KVDR05",MoveToPoint([4428.1147]))
+	ActionOverride("C0KVDR02",MoveToPoint([4475.1060]))
+	Wait(4)
+	ActionOverride("C0KVDR02",StartDialogNoSet(Player1))
+END

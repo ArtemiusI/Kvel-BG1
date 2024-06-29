@@ -1,0 +1,411 @@
+COPY ~%MOD_FOLDER%/are~ ~override~
+COPY ~%MOD_FOLDER%/bam~ ~override~
+COPY ~%MOD_FOLDER%/portraits~ ~override~
+COPY ~%MOD_FOLDER%/itm~ ~override~
+COPY ~%MOD_FOLDER%/spl~ ~override~
+
+////////////////////////////////////////
+/////////AUDIO//////////////////////////
+////////////////////////////////////////
+
+LAF HANDLE_AUDIO END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~DWHALB01.ITM~ THEN BEGIN
+COPY ~%MOD_FOLDER%/itm/drow/DWHALB01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Halberd~
+SAY NAME2 ~Drow Halberd +3~
+SAY DESC ~Like others of its type, this halberd consists of a cleaver-like axe blade mounted on a staff approximately six feet in length. Magic has been used to forge this particular weapon, gifting it with enhanced abilities to slaughter foes.
+
+This item, like most drow equipment, is created using adamantine, an alloy of adamantite that quickly turns to dust if removed from the Underdark.
+
+STATISTICS:
+
+THAC0: +3
+Damage: 1d10+3 (piercing)
+Speed Factor: 6
+Proficiency Type: Halberd
+Type: Two-handed
+Requires:
+ 13 Strength
+
+Weight: 15~
+END
+
+////////////////////////////////////////
+/////////ITEMS//////////////////////////
+////////////////////////////////////////
+
+COPY_EXISTING ~C0KVBK01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Book~
+SAY NAME2 ~Business Ledger~
+SAY DESC ~This is the personal ledger of one Ecthel Darcourt, filled with records of his various trade deals. It has been foolishly misplaced by him and entrusted to you by a disapproving Bentley Mirrorshade to be returned to its owner.
+
+Weight: 2~
+
+COPY_EXISTING ~C0KVLE01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Studded Leather Armor~
+SAY NAME2 ~K'Vel's Leather Armor +3~
+SAY DESC ~Studded leather armor has little in common with normal leather armor. While leather armor is a hardened shell, studded leather armor is soft and supple with hundreds of metal rivets affixed. The rivets are so close together that they form a flexible coating of hard metal that turns aside slashing and cutting attacks. The soft leather backing is little more than a means of securing the rivets in place.
+
+K'Vel's custom-made suit of leather armor is somewhat lighter and easier to move in than the standard design, allowing the wearer to cast spells while wearing it, with protective enchantments to provide slight protection against fire and cold, on top of being colored with a dark dye which makes it easier for the wearer to move unnoticed.
+
+STATISTICS:
+
+Equipped abilities:
+– Hide In Shadows: +10%
+– Fire Resistance: +10%
+– Cold Resistance: +10%
+– Spellcasting is not disabled
+
+Armor Class: 4 (2 vs. slashing, 3 vs. piercing and missile)
+Requires:
+ 6 Strength
+
+Weight: 15~
+
+COPY_EXISTING ~C0KVAM01.ITM~ ~OVERRIDE~
+SAY NAME2 ~House Au'dayrr Insignia~
+SAY DESC ~This drow house insignia, depicting a warped and twisted claw, is the symbol of House Au'dayrr of Eryndlyn. Though possession of it would be a symbol of status in any drow city, to display something such as this openly on the surface would do more harm than good. K'Vel claims that were it not for its protective enchantments giving it practical value, he would have discarded it a long time ago.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: +1
+– Saving Throws: +1, an extra +3 vs. Death
+– Immunity to backstab
+
+Weight: 0~
+OUTER_SET strref = RESOLVE_STR_REF (~When you reach for the insignia, K'Vel tucks it more deeply beneath his collar. "Much as possession of this distastes me, it is still too useful to simply let go."~ [GAM_47])
+APPEND item_use.2da ~C0KVAM01 K'Vel %strref% 3~
+
+COPY_EXISTING ~C0KVCH01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Elven Chain Mail~
+SAY NAME2 ~Dark Elven Chain of Celerity +2~
+SAY DESC ~This appears to be a suit of drow armor, somehow immune to the usual effects of adamantite under the sun, yet closer examination shows that it is in fact of wood elven design and merely refitted with drow aesthetics and lacquered over with a dark coloring. Whether this is merely to substitute for actual drow craft or a spit in the face of their hated cousins, it is still an elegant piece of work, with enchantments to enhance the wearer's mobility.
+
+STATISTICS:
+
+Equipped abilities:
+– Dexterity: +1
+– Spellcasting is not disabled
+
+Armor Class: 3 (1 vs. slashing, 5 vs. crushing)
+Requires:
+ 5 Strength
+
+Weight: 8~
+
+COPY_EXISTING ~C0KVMI01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Broken Helmet~
+SAY NAME2 ~Broken Helmet~
+SAY DESC ~The iron crisis sweeping across the Sword Coast region seemingly knows no mercy. This once fine helmet now lies in a misshapen heap of metal and leather before you.
+
+STATISTICS:
+
+Weight: 2~
+
+COPY_EXISTING ~C0KVSW01.ITM~ ~OVERRIDE~
+SAY NAME1 ~Long Sword~
+SAY NAME2 ~Ll'enwithel +3~
+SAY UNIDENTIFIED_DESC ~These swords are usually referred to as double-edged swords, war swords, or military swords. In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture and may vary within the same culture depending on the era. Among the most common characteristics of all long swords is their length, which ranges from thirty-five inches to forty-seven inches. In the latter case, the blade is known to take up forty inches of the total length. Most long swords have a double-edged blade and a sharp point at the tip. Despite the tip, the long sword is designed for slashing, not thrusting.
+
+STATISTICS:
+
+Damage: 1d8 (slashing)
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 4~
+SAY DESC ~These swords are usually referred to as double-edge swords, war swords, or military swords. In many cases, the long sword has a single-edged blade. Most long swords have a double-edged blade and a sharp point at the tip. Despite the tip, the long sword is designed for slashing, not thrusting.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: +3 vs. slashing attacks
+
+THAC0: +3
+Damage: 1d8+3 (slashing)
+Speed Factor: 2
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 4~
+
+COPY_EXISTING ~C0KVSW02.ITM~ ~OVERRIDE~
+SAY NAME1 ~Long Sword~
+SAY NAME2 ~Zaatharien +3~
+SAY UNIDENTIFIED_DESC ~These swords are usually referred to as double-edged swords, war swords, or military swords. In many cases, the long sword has a single-edged blade. There is no single version of the long sword; the design and length vary from culture to culture and may vary within the same culture depending on the era. Among the most common characteristics of all long swords is their length, which ranges from thirty-five inches to forty-seven inches. In the latter case, the blade is known to take up forty inches of the total length. Most long swords have a double-edged blade and a sharp point at the tip. Despite the tip, the long sword is designed for slashing, not thrusting.
+
+STATISTICS:
+
+Damage: 1d8 (slashing)
+Speed Factor: 5
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 4~
+SAY DESC ~These swords are usually referred to as double-edge swords, war swords, or military swords. In many cases, the long sword has a single-edged blade. Most long swords have a double-edged blade and a sharp point at the tip. Despite the tip, the long sword is designed for slashing, not thrusting.
+
+STATISTICS:
+
+Equipped abilities:
+– Critical Hit Chance: +20% (this weapon)
+
+THAC0: +3
+Damage: 1d8+3 (slashing)
+Speed Factor: 2
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 4~
+
+////////////////////////////////////////
+/////////SPELLS/////////////////////////
+////////////////////////////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~SPWI228.SPL~ THEN BEGIN
+COPY_EXISTING ~SPWI228.SPL~ ~OVERRIDE~
+WRITE_ASCII 0x3A ~SPWI228C~
+LPF ALTER_SPELL_HEADER STR_VAR icon = SPWI228B END
+END
+
+////////////////////////////////////////
+/////////CREATURES//////////////////////
+////////////////////////////////////////
+
+COPY ~%MOD_FOLDER%/cre/C0Kvel.cre~ ~override~
+  SAY NAME1 ~Kvel~
+  SAY NAME2 ~Kvel~
+  SAY BIO ~When asked about his past, K'VEL tells you there are only three things that you need to know about him - first, that he was born in the drow city of Eryndlyn, second, that he no longer belongs there, and third, that he is now a sellsword making his living on the surface through any means necessary. What more you can tell of him is merely through observation.
+  
+Though primarily a swordsman by trade, K'Vel has nonetheless a passing knowledge of arcane magic and thievery that seems more learned by experience rather than study. You have read about the drow in your childhood, and though the drow mercenary is distant and self-reliant, he seems to lack most of the cruelty and arrogance expected of his kin, and approaches every situation with a calm, calculated awareness, as though nothing is ever completely beyond his expectations.~
+  SAY INITIAL_MEETING ~Hmm?~ [C0KV000]
+  SAY MORALE ~Not worth it!~ [C0KV001]
+  SAY LEADER ~Follow me.~ [C0KV002]
+  SAY TIRED ~Could use some rest.~ [C0KV003]
+  SAY BORED ~*sigh*~ [C0KV004]
+  SAY BATTLE_CRY1 ~Take 'em down!~ [C0KV005]
+  SAY BATTLE_CRY2 ~Let's go!~ [C0KV006]
+  SAY BATTLE_CRY3 ~~ [C0KV007]
+  SAY DAMAGE ~~ [C0KV008]
+  SAY DYING ~~ [C0KV009]
+  SAY HURT ~I'm bleeding.~ [C0KV010]
+  SAY SELECT_COMMON1 ~Hmm?~ [C0KV000]
+  SAY SELECT_COMMON2 ~Yeah?~ [C0KV011]
+  SAY SELECT_COMMON3 ~Huh?~ [C0KV012]
+  SAY SELECT_ACTION1 ~Sure.~ [C0KV013]
+  SAY SELECT_ACTION2 ~Right.~ [C0KV014]
+  SAY SELECT_ACTION3 ~Mm-hmm.~ [C0KV015]
+  SAY SELECT_ACTION4 ~Stop that.~ [C0KV016]
+  SAY CRITICAL_HIT ~Got 'em!~ [C0KV017]
+  SAY CRITICAL_MISS ~~ [C0KV018]
+  SAY TARGET_IMMUNE ~No good.~ [C0KV019]
+  SAY INVENTORY_FULL ~Can't move now.~ [C0KV020]
+  SAY SPELL_DISRUPTED ~That's not supposed to happen.~ [C0KV021]
+  SAY HIDDEN_IN_SHADOWS ~Keeping quiet.~ [C0KV022]
+  SAY REACT_TO_DIE_GENERAL ~Down by one!~ [C0KV023]
+  SAY PICKED_POCKET ~Found something.~ [C0KV024]
+  WRITE_ASCII SCRIPT_OVERRIDE ~C0Kvel~ #8  //override script
+  WRITE_ASCII DEATHVAR ~C0Kvel~ #32  //DV
+  WRITE_ASCII DIALOG ~C0Kvel~ #8   //pre-joining dialogue file
+  WRITE_ASCII SCRIPT_GENERAL ~WTARSGT~ #8   //pre-joining dialogue file
+  WRITE_ASCII SCRIPT_DEFAULT ~BDMAGE01~ #8   //pre-joining dialogue file
+  WRITE_ASCII PORTRAIT_SMALL ~C0KvelH~ #8   //small portrait
+  WRITE_ASCII PORTRAIT_LARGE ~C0KvelH~ #8   //medium portrait
+
+APPEND ~pdialog.2da~ ~C0Kvel C0KvelP C0KvelJ C0KvelD~
+  UNLESS ~C0Kvel~
+
+APPEND ~interdia.2da~ ~C0Kvel BC0Kvel~
+  UNLESS ~C0Kvel~
+  
+COPY ~%MOD_FOLDER%/cre/C0KVNP01.cre~ ~override/C0KVNP01.CRE~
+SAY NAME1 ~Ecthel Darcourt~
+SAY NAME2 ~Ecthel Darcourt~
+  WRITE_ASCII DEATHVAR ~C0KVNP01~ #32
+  WRITE_ASCII DIALOG ~C0KVNP01~ #8
+  WRITE_ASCII SCRIPT_OVERRIDE ~SHOUT~ #8   //pre-joining dialogue file
+  WRITE_ASCII SCRIPT_GENERAL ~WTARSGT~ #8   //pre-joining dialogue file
+  WRITE_ASCII SCRIPT_RACE ~C0KVNP01~ #8
+  WRITE_ASCII SCRIPT_DEFAULT ~~ #8
+
+COPY_EXISTING ~IRON5.cre~ ~override/C0KVNP02.CRE~
+SAY NAME1 ~Caravan Bodyguard~
+SAY NAME2 ~Caravan Bodyguard~
+  WRITE_ASCII DEATHVAR ~C0KVNP02~ #32
+  WRITE_ASCII DIALOG ~C0KVNP02~ #8
+  WRITE_ASCII SCRIPT_CLASS ~~ #8
+  WRITE_ASCII SCRIPT_DEFAULT ~~ #8
+
+COPY_EXISTING ~C0KVNP02.cre~ ~override/C0KVNP03.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP03~ #32
+  WRITE_ASCII DIALOG ~C0KVNP03~ #8
+COPY_EXISTING ~C0KVNP02.cre~ ~override/C0KVNP04.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP04~ #32
+  WRITE_ASCII DIALOG ~C0KVNP04~ #8
+
+COPY_EXISTING ~BDOROG1D.cre~ ~override/C0KVOG01.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVOG01~ #32
+COPY_EXISTING ~BDOROG01.cre~ ~override/C0KVOG02.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVOG02~ #32
+  WRITE_BYTE 0x26 ~30~
+COPY_EXISTING ~BDOROG02.cre~ ~override/C0KVOG03.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVOG03~ #32
+  WRITE_BYTE 0x24 ~10~
+  WRITE_BYTE 0x48 ~8~
+  WRITE_BYTE 0x52 ~18~
+  REMOVE_CRE_ITEM ~POTN08~
+
+COPY_EXISTING ~CUTSPY.cre~ ~override/C0KV4809.CRE~
+LPF DELETE_EFFECT INT_VAR match_opcode = 268 END
+  WRITE_ASCII DEATHVAR ~C0KV4809~ #32
+  WRITE_ASCII SCRIPT_DEFAULT ~C0KV4809~ #8
+
+COPY ~%MOD_FOLDER%/cre/C0KVNP05.cre~ ~override/C0KVNP05.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP05~ #32
+  WRITE_ASCII DIALOG ~C0KVNP05~ #8
+  SAY NAME1 ~Oxley~
+  SAY NAME2 ~Oxley~
+
+COPY ~%MOD_FOLDER%/cre/C0KVNP06.cre~ ~override/C0KVNP06.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP06~ #32
+  WRITE_ASCII DIALOG ~C0KVNP06~ #8
+  SAY NAME1 ~Thug~
+  SAY NAME2 ~Thug~
+
+COPY_EXISTING ~C0KVNP06.cre~ ~override/C0KVNP07.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP07~ #32
+  WRITE_ASCII DIALOG ~C0KVNP07~ #8
+
+COPY ~%MOD_FOLDER%/cre/C0KVNP08.cre~ ~override/C0KVNP08.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVNP08~ #32
+  WRITE_ASCII DIALOG ~C0KVNP08~ #8
+  SAY NAME1 ~Mercenary~
+  SAY NAME2 ~Mercenary~
+
+COPY ~%MOD_FOLDER%/cre/C0KVDR01.cre~ ~override/C0KVDR01.CRE~
+  WRITE_ASCII SCRIPT_OVERRIDE ~C0KVDR01~ #8
+  WRITE_ASCII DEATHVAR ~C0KVDR01~ #32
+  WRITE_ASCII DIALOG ~C0KVDR01~ #8
+  SAY NAME1 ~Musaj Zaer'iyon~
+  SAY NAME2 ~Musaj Zaer'iyon~
+
+COPY ~%MOD_FOLDER%/cre/C0KVDR02.cre~ ~override/C0KVDR02.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVDR02~ #32
+  WRITE_ASCII DIALOG ~C0KVDR02~ #8
+  SAY NAME1 ~Jhan Zaer'iyon~
+  SAY NAME2 ~Jhan Zaer'iyon~
+
+COPY ~%MOD_FOLDER%/cre/C0KVDR03.cre~ ~override/C0KVDR03.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVDR03~ #32
+  WRITE_ASCII DIALOG ~C0KVDR03~ #8
+  SAY NAME1 ~Androsz Zaer'iyon~
+  SAY NAME2 ~Androsz Zaer'iyon~
+
+COPY ~%MOD_FOLDER%/cre/C0KVDR04.cre~ ~override/C0KVDR04.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVDR04~ #32
+  WRITE_ASCII DIALOG ~C0KVDR04~ #8
+  SAY NAME1 ~Champion of Selvetarm~
+  SAY NAME2 ~Champion of Selvetarm~
+
+COPY ~%MOD_FOLDER%/cre/C0KVDR05.cre~ ~override/C0KVDR05.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVDR05~ #32
+  WRITE_ASCII DIALOG ~C0KVDR05~ #8
+  SAY NAME1 ~Drow Assassin~
+  SAY NAME2 ~Drow Assassin~
+
+////////////////////////////////////////
+/////////DIALOGUE///////////////////////
+////////////////////////////////////////
+
+// BAELOTH BANTER
+
+ACTION_IF FILE_EXISTS_IN_GAME ~neera.dlg~ THEN BEGIN
+ PRINT ~BG:EE detected - Baeloth interdia.2da append - set Baeloth's banter file (BBAELOTH)~
+    APPEND ~interdia.2da~ ~BAELOTH BBAELOTH~
+    UNLESS ~BAELOTH~
+   ACTION_IF NOT (FILE_EXISTS_IN_GAME ~BBAELOTH.dlg~) THEN BEGIN
+   COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/BBAELOTHFix.d~
+  END
+END
+
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+
+COMPILE ~%MOD_FOLDER%/DLG/BC0KVEL.D~
+COMPILE ~%MOD_FOLDER%/DLG/C0KVEL.D~
+COMPILE ~%MOD_FOLDER%/DLG/C0KVELJ.D~
+COMPILE ~%MOD_FOLDER%/DLG/DIALOG.D~
+COMPILE ~%MOD_FOLDER%/DLG/PID.D~
+
+////////////////////////////////////////
+/////////STORES/////////////////////////
+////////////////////////////////////////
+
+COPY ~%MOD_FOLDER%/sto/C0KVST01.STO~ ~OVERRIDE~
+SAY 0xc ~Darcourt Enterprises~
+
+////////////////////////////////////////
+/////////SCRIPTS////////////////////////
+////////////////////////////////////////
+
+EXTEND_TOP ~baldur.BCS~ ~%MOD_FOLDER%/BAF/baldur.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~bdbaldur.BCS~ ~%MOD_FOLDER%/BAF/baldur.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~baldur.BCS~ ~%MOD_FOLDER%/BAF/baldur-drowitem.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~bdbaldur.BCS~ ~%MOD_FOLDER%/BAF/baldur-drowitem.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~FFHUNT.BCS~ ~%MOD_FOLDER%/BAF/FFHUNT.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%0123.BCS~ ~%MOD_FOLDER%/BAF/AR0123.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%0127.BCS~ ~%MOD_FOLDER%/BAF/AR0127.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%0615.BCS~ ~%MOD_FOLDER%/BAF/AR0615.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%0607.BCS~ ~%MOD_FOLDER%/BAF/AR0607.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%0705.BCS~ ~%MOD_FOLDER%/BAF/AR0705.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%1100.BCS~ ~%MOD_FOLDER%/BAF/AR1100.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%2300.BCS~ ~%MOD_FOLDER%/BAF/AR2300.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%4800.BCS~ ~%MOD_FOLDER%/BAF/AR4800.BAF~ EVALUATE_BUFFER 
+EXTEND_TOP ~%bg1_eet_symbol%5000.BCS~ ~%MOD_FOLDER%/BAF/AR5000.BAF~ EVALUATE_BUFFER 
+
+COPY_EXISTING ~%bg1_eet_symbol%4809.are~ ~override~
+ LPF fj_are_structure
+ INT_VAR
+ fj_loc_x = 364
+ fj_loc_y = 111
+ fj_dest_x = 364
+ fj_dest_y = 111
+ fj_orientation = 6
+ STR_VAR
+ fj_structure_type = actor
+ fj_name = C0KV4809
+ fj_cre_resref = C0KV4809
+ END
+
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVFIX.BAF~ 
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KV01.BAF~ 
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVEL.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC01.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC02.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC03.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC04.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC05.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC06.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC07.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC08.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC09.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC10.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC11.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC12.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC13.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC14.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC15.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVDR01.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVNP01.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KV4809.BAF~

@@ -1,0 +1,45 @@
+IF
+	Global("C0KvelAmbushSpawn","C0KV01",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelAmbushSpawn","C0KV01",1)
+	Explore()
+	CreateCreature("C0KVNP01",[786.605],SW)
+	ActionOverride("C0KVNP01",EquipRanged())
+	GiveItemCreate("IMOENHP1","C0KVNP01",0,0,0)
+    ActionOverride("C0KVNP01",FillSlot(SLOT_BELT))
+	CreateCreature("C0KVOG01",[786.403],S)
+	CreateCreature("C0KVOG03",[706.450],SE)
+	CreateCreature("C0KVOG01",[667.510],W)
+	CreateCreature("C0KVEL",[778.460],NW)
+	ActionOverride("C0KVEL",MakeGlobal())
+	GiveItemCreate("IMOENHP1","C0KVEL",0,0,0)
+    ActionOverride("C0KVEL",FillSlot(SLOT_BELT))
+	CreateCreature("C0KVNP02",[743.636],SW)
+	CreateCreature("C0KVOG02",[739.673],NE)
+	CreateCreature("C0KVNP03",[835.673],E)
+	CreateCreature("C0KVOG02",[865.690],N)
+	CreateCreature("C0KVNP04",[916.618],SE)
+	CreateCreature("C0KVOG02",[992.640],NW)
+	ActionOverride("C0KVNP01",StartDialogNoSet(Player1))
+	Continue()
+END
+
+IF
+	Global("C0KvelAmbushSpawn","C0KV01",1)
+	Global("C0KvelBegin","GLOBAL",4)
+	NumDeadGT("C0KVOG02",2)
+	Dead("C0KVOG03")
+	CombatCounter(0)
+	Delay(2)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelBegin","GLOBAL",5)
+	ChangeEnemyAlly("C0KVEL",NEUTRAL)
+	ChangeEnemyAlly("C0KVNP01",NEUTRAL)
+	ChangeEnemyAlly("C0KVNP02",NEUTRAL)
+	ChangeEnemyAlly("C0KVNP03",NEUTRAL)
+	ChangeEnemyAlly("C0KVNP04",NEUTRAL)
+	ActionOverride("C0KVNP01",Dialogue(Player1))
+	Continue()
+END

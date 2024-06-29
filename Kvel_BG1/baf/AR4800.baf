@@ -1,0 +1,11 @@
+IF
+	InMyArea(Player1)
+	Global("C0KvelBegin","GLOBAL",15)
+THEN
+RESPONSE #100
+	ClearAllActions()
+	StartCutSceneMode()
+	CreateCreature("CUTSPY",[2229.2249],S)
+	CreateCreature("C0KVEL",[2178.2303],NW)
+	StartCutScene("C0KVC01")
+END

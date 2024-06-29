@@ -1,0 +1,6 @@
+IF
+	Global("C0KvelFlamingFistC7Kill","GLOBAL",1)
+THEN
+RESPONSE #100
+	Kill(Myself)
+END

@@ -1,0 +1,10 @@
+
+IF
+    Global("C0KvelBegin","GLOBAL",6)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelBegin","GLOBAL",7)
+	    CreateCreature("C0KVEL",[279.181],SW)
+	    CreateCreature("C0KVNP01",[338.160],SE)
+		DestroySelf()
+END

@@ -1,0 +1,28 @@
+IF
+    InParty("C0Kvel")
+    Global("C0KvelJoinedParty","GLOBAL",0)
+THEN
+    RESPONSE #100
+        ReputationInc(-2)
+        SetGlobal("C0KvelJoinedParty","GLOBAL",1)
+END
+
+IF
+    !InParty("C0Kvel")
+    !Dead("C0Kvel")
+    !Global("C0KvelAngeloTorture","GLOBAL",2)
+    !Global("C0KvelAngeloTorture","GLOBAL",3)
+    Global("C0KvelJoinedParty","GLOBAL",1)
+THEN
+    RESPONSE #100
+        ReputationInc(2)
+        SetGlobal("C0KvelJoinedParty","GLOBAL",0)
+END
+
+IF
+    Global("EnteredElderCity","GLOBAL",-1)
+    GlobalGT("C0KvelBG1Event","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("EnteredElderCity","GLOBAL",0)
+END

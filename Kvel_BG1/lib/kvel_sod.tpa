@@ -1,0 +1,43 @@
+COPY ~%MOD_FOLDER%/cre/C02Kvel.cre~ ~override~
+  SAY NAME1 ~K'Vel~
+  SAY NAME2 ~K'Vel~
+  WRITE_ASCII 0x248 ~C02Kvel~ #8  //override script
+  WRITE_ASCII 0x280 ~C0Kvel~ #32  //DV
+  WRITE_ASCII 0x2cc ~C02Kvel~ #8   //pre-joining dialogue file
+  WRITE_ASCII 0x34 ~C0KvelM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~C0KvelL~ #8   //medium portrait
+  SAY BIO ~When asked about his past, K'VEL tells you there are only three things that you need to know about him - first, that he was born in the drow city of Eryndlyn, second, that he no longer belongs there, and third, that he is now a sellsword making his living on the surface through any means necessary. What more you can tell of him is merely through observation.
+  
+Though primarily a swordsman by trade, K'Vel has nonetheless a passing knowledge of arcane magic and thievery that seems more learned by experience rather than study. You have read about the drow in your childhood, and though the drow mercenary is distant and self-reliant, he seems to lack most of the cruelty and arrogance expected of his kin, and approaches every situation with a calm, calculated awareness, as though nothing is ever completely beyond his expectations.
+  
+As an opportunist who seeks means of self-preservation, K'Vel has signed a contract as a sellsword to the Grand Dukes, offering his service in standing against the crusade and allowing him a degree of freedom against the typical scrutiny against the drow, though he does not expect it to last and believes your company to be an additional safety measure.~
+  SAY INITIAL_MEETING ~Hmm?~ [C0KV000]
+  SAY MORALE ~Not worth it!~ [C0KV001]
+  SAY LEADER ~Follow me.~ [C0KV002]
+  SAY TIRED ~Could use some rest.~ [C0KV003]
+  SAY BORED ~*sigh*~ [C0KV004]
+  SAY BATTLE_CRY1 ~Take 'em down!~ [C0KV005]
+  SAY BATTLE_CRY2 ~Let's go!~ [C0KV006]
+  SAY BATTLE_CRY3 ~~ [C0KV007]
+  SAY DAMAGE ~~ [C0KV008]
+  SAY DYING ~~ [C0KV009]
+  SAY HURT ~I'm bleeding.~ [C0KV010]
+  SAY SELECT_COMMON1 ~Hmm?~ [C0KV000]
+  SAY SELECT_COMMON2 ~Yeah?~ [C0KV011]
+  SAY SELECT_COMMON3 ~Huh?~ [C0KV012]
+  SAY SELECT_ACTION1 ~Sure.~ [C0KV013]
+  SAY SELECT_ACTION2 ~Right.~ [C0KV014]
+  SAY SELECT_ACTION3 ~Mm-hmm.~ [C0KV015]
+  SAY SELECT_ACTION4 ~Stop that.~ [C0KV016]
+  SAY CRITICAL_HIT ~Got 'em!~ [C0KV017]
+  SAY CRITICAL_MISS ~~ [C0KV018]
+  SAY TARGET_IMMUNE ~No good.~ [C0KV019]
+  SAY INVENTORY_FULL ~Can't move now.~ [C0KV020]
+  SAY SPELL_DISRUPTED ~That's not supposed to happen.~ [C0KV021]
+  SAY HIDDEN_IN_SHADOWS ~Keeping quiet.~ [C0KV022]
+  SAY REACT_TO_DIE_GENERAL ~Down by one!~ [C0KV023]
+  SAY PICKED_POCKET ~Found something.~ [C0KV024]
+  
+APPEND ~bddialog.2da~
+~C0Kvel        C02Kvel	C02KvelJ	C02KvelD~
+UNLESS ~C0Kvel~

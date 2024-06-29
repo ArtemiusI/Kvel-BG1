@@ -1,0 +1,20 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0KVEL")
+	XEquipItem("C0KVHE01","C0KVEL",SLOT_HELMET,UNEQUIP)
+	Wait(2)
+	MoveViewPoint([2333.2285],BD_SLOW)
+	Wait(4)
+	CreateVisualEffectObject("BDSPLASH","C0KVEL")
+	Wait(3)
+	PlaySound("GAM_22B")
+	XEquipItem("C0KVHE01","C0KVEL",SLOT_HELMET,EQUIP)
+	Wait(2)
+	Face(SE)
+	Wait(1)
+	MoveToPoint([2574.2365])
+	SmallWait(5)
+	StartDialogNoSet(Player1)
+END

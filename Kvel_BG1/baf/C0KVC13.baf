@@ -1,0 +1,21 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(1)
+	PlaySound("GAM_41B")
+	SmallWait(2)
+	PlaySound("GAM_41B")
+	ActionOverride("C0KVDR03",DestroyItem("C0KVSW01"))
+	ActionOverride("C0KVDR03",DestroyItem("C0KVSW02"))
+	Wait(2)
+	ActionOverride("C0KVDR03",MoveToObjectOffset("C0KVDR02",[0.0])
+	Wait(1)
+	ActionOverride("C0KVDR02",DestroySelf())
+	ActionOverride("C0KVDR03",EscapeAreaObject("Door0125"))
+	Wait(4)
+	ActionOverride("C0KVEL",FaceObject(Player1))
+	FaceObject("C0KVEL")
+	ActionOverride("C0KVEL",StartDialogNoSet(Player1))
+END

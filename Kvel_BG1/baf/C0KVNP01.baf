@@ -1,0 +1,37 @@
+IF
+	Global("C0KvelBegin","GLOBAL",14)
+	!See("C0KVEL")
+THEN
+RESPONSE #100
+	StartDialogNoSet(Player1)
+	Continue()
+END
+
+IF
+	Global("C0KvelBegin","GLOBAL",16)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelBegin","GLOBAL",17)
+	CreateCreature("C0KVEL",[238.239],NW)
+	Continue()
+END
+
+IF
+	AreaCheck("AR4809")
+	!BeenInParty("C0KVEL")
+	GlobalGT("Chapter","GLOBAL",3)
+THEN
+RESPONSE #100
+	ActionOverride("C0KVEL",DestroySelf())
+	DestroySelf()
+	Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	!InParty("C0KVEL")
+    Allegiance("C0KVEL",ENEMY)
+THEN
+    RESPONSE #100
+		Enemy()
+END

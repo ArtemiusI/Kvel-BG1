@@ -1,0 +1,15 @@
+
+IF
+	InParty("C0KVEL")
+	Global("EnteredElderCity","GLOBAL",1)
+    Global("C0KvelBG1Event","GLOBAL",5)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelBG1Event","GLOBAL",6)
+	    CreateCreature("C0KVDR02",[4184.1126],E)
+	    CreateCreature("C0KVDR04",[4091.1040],E)
+	    CreateCreature("C0KVDR05",[4234.1135],E)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("C0KVC09")
+END

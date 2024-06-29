@@ -1,0 +1,10 @@
+
+IF
+	InParty("C0KVEL")
+    Global("C0KvelAngeloTorture","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelAngeloTorture","GLOBAL",2)
+		ActionOverride("C0KVEL",LeaveParty())
+		ActionOverride("C0KVEL",DestroySelf())
+END

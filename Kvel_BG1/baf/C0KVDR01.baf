@@ -1,0 +1,11 @@
+IF
+	HPLT(Myself,2)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelBegin","GLOBAL",20)
+	DisplayStringHead(Myself,~Bah...~)
+	SmallWait(1)
+	PlaySound("ACT_07")
+	ReallyForceSpell(Myself,WIZARD_INVISIBILITY)
+	DestroySelf()
+END

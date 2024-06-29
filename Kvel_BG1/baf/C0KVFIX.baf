@@ -1,0 +1,42 @@
+
+IF 
+    True() 
+THEN 
+    RESPONSE #100    
+        CutSceneId("C0KVEL")
+        SetName(~K'Vel~)
+        SetPlayerSound(Myself,~Hmm?~ [C0KV000],INITIAL_MEETING) 
+        SetPlayerSound(Myself,~Not worth it!~ [C0KV001],MORALE) 
+        SetPlayerSound(Myself,~Follow me.~ [C0KV002],LEADER)
+        SetPlayerSound(Myself,~Could use some rest.~ [C0KV003],TIRED)
+        SetPlayerSound(Myself,~*sigh*~ [C0KV004],BORED)
+        SetPlayerSound(Myself,~Take 'em down!~ [C0KV005],BATTLE_CRY1) 
+        SetPlayerSound(Myself,~Let's go!~ [C0KV006],BATTLE_CRY2) 
+        SetPlayerSound(Myself,~~ [C0KV007],BATTLE_CRY3)      
+        SetPlayerSound(Myself,~~ [C0KV008],DAMAGE)
+        SetPlayerSound(Myself,~~ [C0KV009],DYING)
+        SetPlayerSound(Myself,~I'm bleeding.~ [C0KV010],HURT)
+        SetPlayerSound(Myself,~Hmm?~ [C0KV000],SELECT_COMMON1)
+        SetPlayerSound(Myself,~Yeah?~ [C0KV011],SELECT_COMMON2)
+        SetPlayerSound(Myself,~Huh?~ [C0KV012],SELECT_COMMON3)
+        SetPlayerSound(Myself,~Sure.~ [C0KV013],SELECT_ACTION1)
+        SetPlayerSound(Myself,~Right.~ [C0KV014],SELECT_ACTION2)
+        SetPlayerSound(Myself,~Mm-hmm.~ [C0KV015],SELECT_ACTION3)
+        SetPlayerSound(Myself,~Stop that.~ [C0KV016],SELECT_ACTION4)
+        SetPlayerSound(Myself,~Got 'em!~ [C0KV017],CRITICAL_HIT)
+        SetPlayerSound(Myself,~~ [C0KV018],CRITICAL_MISS)
+        SetPlayerSound(Myself,~No good.~ [C0KV019],TARGET_IMMUNE)
+        SetPlayerSound(Myself,~Can't move now.~ [C0KV020],INVENTORY_FULL)
+        SetPlayerSound(Myself,~That's not supposed to happen.~ [C0KV021],SPELL_DISRUPTED)
+        SetPlayerSound(Myself,~Keeping quiet.~ [C0KV022],HIDDEN_IN_SHADOWS)
+        SetPlayerSound(Myself,~Found something.~ [C0KV024],PICKED_POCKET)
+        SetPlayerSound(Myself,~Down by one!~ [C0KV023],REACT_TO_DIE_GENERAL)
+        SetPlayerSound(Myself,~When asked about his past, K'VEL tells you there are only three things that you need to know about him - first, that he was born in the drow city of Eryndlyn, second, that he no longer belongs there, and third, that he is now a sellsword making his living on the surface through any means necessary. What more you can tell of him is merely through observation.
+  
+Though primarily a swordsman by trade, K'Vel has nonetheless a passing knowledge of arcane magic and thievery that seems more learned by experience rather than study. You have read about the drow in your childhood, and though the drow mercenary is distant and self-reliant, he seems to lack most of the cruelty and arrogance expected of his kin, and approaches every situation with a calm, calculated awareness, as though nothing is ever completely beyond his expectations.~,EXISTANCE5)
+        Wait(1)
+        DisplayStringHead(Myself,~*gulp*~ [GAM_07])
+        Wait(2)
+        EndCutSceneMode()
+        StartDialogNoSet(Player1)
+END 

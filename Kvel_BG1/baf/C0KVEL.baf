@@ -1,0 +1,164 @@
+IF
+	InParty(Myself)
+	Global("C0KvelName","LOCALS",0)
+THEN
+RESPONSE #100	
+	SetGlobal("C0KvelName","LOCALS",1)
+	SetName(~K'Vel~)
+	Continue()
+END
+
+IF
+    HasItemEquipedReal("IMOENHP1",Myself) 
+	OR(2)
+    InParty(Myself)
+	Allegiance(Myself,ENEMY)
+THEN
+    RESPONSE #100
+        DestroyItem("IMOENHP1") 
+        Continue()
+END
+
+IF
+    Allegiance("C0KVNP01",ENEMY)
+	InParty(Myself)
+THEN
+    RESPONSE #100
+		ChangeAIScript("BDMAGE01",DEFAULT)
+        LeaveParty()
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+    Allegiance("C0KVNP01",ENEMY)
+	!InParty(Myself)
+THEN
+    RESPONSE #100
+		ChangeAIScript("BDMAGE01",DEFAULT)
+		Enemy()
+END
+
+// OUTDOORS
+
+IF
+	InParty(Myself)
+	AreaType(OUTDOOR)
+	OR(2)
+	TimeOfDay(DAY)
+	TimeOfDay(MORNING)
+	Global("C0KvelOutsideFirstTime","GLOBAL",0)
+THEN
+RESPONSE #100
+	Wait(1)
+	SetGlobal("C0KvelOutsideFirstTime","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+END
+
+// ANGELO TORTURE
+
+IF
+	See([PC])
+	Global("C0KvelAngeloTorture","GLOBAL",3)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Dialogue(Player1)
+	SetInterrupt(TRUE)
+END
+
+// FLAMING FIST
+
+IF
+	InParty(Myself)
+	Global("C0KvelFlamingFistC7Kill","GLOBAL",1)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelFlamingFistC7Kill","GLOBAL",2)
+	SetInterrupt(TRUE)
+END
+
+// JHAN
+
+IF
+    Global("EnteredElderCity","GLOBAL",0)
+    GlobalGT("Chapter","GLOBAL",6)
+    Global("C0KvelBG1Event","GLOBAL",0)
+    OR(9)
+    AreaCheck("%bg1_eet_symbol%0100")
+    AreaCheck("%bg1_eet_symbol%0200")
+    AreaCheck("%bg1_eet_symbol%0300")
+    AreaCheck("%bg1_eet_symbol%0600")
+    AreaCheck("%bg1_eet_symbol%0700")
+    AreaCheck("%bg1_eet_symbol%0800")
+    AreaCheck("%bg1_eet_symbol%1100")
+    AreaCheck("%bg1_eet_symbol%1200")
+    AreaCheck("%bg1_eet_symbol%1300")
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelBG1Event","GLOBAL",1)
+        SetGlobal("EnteredElderCity","GLOBAL",-1)
+        ClearAllActions()
+        StartCutSceneMode()
+        StartCutScene("C0KVC06")
+END
+
+IF
+	InParty(Myself)
+	AreaCheck("AR0123")
+	Dead("C0KVDR02")
+	Dead("C0KVDR04")
+	Dead("C0KVDR05")
+	Global("C0KvelBG1Event","GLOBAL",7)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelBG1Event","GLOBAL",8)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// MARKETPLACE
+
+IF
+	InParty(Myself)
+	AreaCheck("AR0700")
+	OR(3)
+	See("Door0724")
+	See("Door0725")
+	See("Door0726")
+	OR(2)
+	!Global("Chapter","GLOBAL",7)
+	GlobalGT("DukeThanks","GLOBAL",0)
+	Global("C0KvelBG1MarketplaceTalk","GLOBAL",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelBG1MarketplaceTalk","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// OXLEY DEAD
+
+IF
+	InParty(Myself)
+	AreaCheck("AR0615")
+	Global("C0KvelDeadOxley","GLOBAL",1)
+	See("C0KVNP05")
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelDeadOxley","GLOBAL",2)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END

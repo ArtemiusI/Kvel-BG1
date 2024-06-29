@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(3)
+	FadeToColor([30.0],0)
+	Wait(2)
+	ActionOverride("C0KVDR03",DestroySelf())
+	ActionOverride("CUTSPY",DestroySelf())
+	RestorePartyLocations()
+	Wait(1)
+	FadeFromColor([30.0],0)
+	Wait(4)
+	EndCutSceneMode()
+END

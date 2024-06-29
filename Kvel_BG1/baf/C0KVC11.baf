@@ -1,0 +1,24 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0KVEL")
+	Wait(1)
+	PlaySound("GAM_41A")
+	SmallWait(5)
+	PlaySound("GAM_41A")
+	ActionOverride("C0KVDR03",XEquipItem("C0KVSW01",Myself,SLOT_WEAPON,EQUIP))
+	ActionOverride("C0KVDR03",XEquipItem("C0KVSW02",Myself,SLOT_SHIELD,EQUIP))
+	EquipMostDamagingMelee()
+	Wait(1)
+	ActionOverride("C0KVDR03",MoveToPoint([4437.966]))
+	MoveToPoint([4467.966])
+	FadeToColor([5.0],0)
+	PlaySound("HIT_02D1")
+	SmallWait(2)
+	PlaySound("HIT_02D1")
+	Wait(1)
+	FadeFromColor([10.0],0)
+	Wait(3)
+	ActionOverride("C0KVDR03",StartDialogNoSet("C0KVEL"))
+END

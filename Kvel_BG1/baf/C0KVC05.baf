@@ -1,0 +1,27 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(1)
+	FadeToColor([30.0],0)
+	Wait(3)
+	ActionOverride("C0KVEL",DestroySelf())
+	ActionOverride("C0KVNP01",DestroySelf())
+	LeaveAreaLUA("%bg1_eet_symbol%0706","",[269.369],E)
+	ActionOverride(Player2,LeaveAreaLUA("%bg1_eet_symbol%0706","",[339.508],SE))
+	ActionOverride(Player3,LeaveAreaLUA("%bg1_eet_symbol%0706","",[383.479],SE))
+	ActionOverride(Player4,LeaveAreaLUA("%bg1_eet_symbol%0706","",[429.462],S))
+	ActionOverride(Player5,LeaveAreaLUA("%bg1_eet_symbol%0706","",[377.516],SW))
+	ActionOverride(Player6,LeaveAreaLUA("%bg1_eet_symbol%0706","",[298.517],SW))
+	SmallWait(1)
+	CreateCreature("C0KVEL",[304.337],S)
+	SmallWait(1)
+	ApplySpellRES("C0KVPORT","C0KVEL")
+	ActionOverride("C0KVEL",DestroyItem("C0KVHE01"))
+	ActionOverride("C0KVEL",GiveItemCreate("C0KVMI01",Myself,1,0,0))
+	CreateCreature("C0KVNP01",[358.354],W)
+	FadeFromColor([30.0],0)
+	Wait(4)
+	ActionOverride("C0KVNP01",StartDialogNoSet(Player1))
+END

@@ -1,0 +1,11 @@
+
+IF
+	InParty("C0KVEL")
+    Global("C0KvelDeadOxley","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelDeadOxley","GLOBAL",1)
+	    CreateCreature("C0KVNP05",[600.800],N)
+		SmallWait(1)
+		ApplySpellRES("C0KVSP03","C0KVNP05")
+END

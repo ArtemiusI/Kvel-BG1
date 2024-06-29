@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0KVEL")
+	Wait(1)
+	CreateCreature("C0KVDR03",[4244.870],S)
+	SmallWait(1)
+	FaceObject("C0KVDR03")
+	PlaySound("C0KVSF1")
+	Wait(2)
+	MoveViewPoint([4387.968],BD_SLOW)
+	Wait(2)
+	ActionOverride("C0KVDR03",MoveToPoint([4397.971]))
+	ActionOverride("C0KVDR03",SmallWait(1))
+	ActionOverride("C0KVDR03",Face(E))
+	Wait(1)
+	MoveToPoint([4513.971])
+	SmallWait(1)
+	Face(W)
+	Wait(3)
+	ActionOverride("C0KVDR03",StartDialogNoSet("C0KVEL"))
+END

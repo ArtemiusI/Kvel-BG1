@@ -1,0 +1,32 @@
+BACKUP ~Kvel_BG1/backup~
+AUTHOR ~The Artisan~
+AUTO_TRA ~%MOD_FOLDER%/translations/%s~
+
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/replace_multiline.tpa~
+
+ACTION_IF GAME_IS ~BGEE~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" AR
+END
+
+ACTION_IF GAME_IS ~EET~ THEN BEGIN
+OUTER_SPRINT "bg1_eet_symbol" BG
+END
+
+END
+
+LANGUAGE ~English~
+         ~english~
+         ~%MOD_FOLDER%/tra/english/setup.tra~
+
+BEGIN ~Kvel NPC for Baldur's Gate: Enhanced Edition~
+
+INCLUDE ~%MOD_FOLDER%/lib/kvel_bg1.tpa~
+ACTION_IF GAME_INCLUDES ~sod~
+THEN BEGIN
+  PRINT ~Installing content for Siege of Dragonspear...~
+INCLUDE ~%MOD_FOLDER%/lib/kvel_sod.tpa~
+END

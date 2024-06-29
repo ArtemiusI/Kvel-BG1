@@ -1,0 +1,27 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	FadeToColor([30.0],0)
+	Wait(3)
+	JumpToPoint([847.597])
+	Face(SW)
+	ActionOverride("C0KVNP01",JumpToPoint([686.625]))
+	ActionOverride("C0KVNP01",Face(NE))
+	ActionOverride("C0KVEL",JumpToPoint([728.662]))
+	ActionOverride("C0KVEL",Face(NE))
+	ActionOverride(Player2,JumpToPoint([957.587]))
+	ActionOverride(Player2,Face(SE))
+	ActionOverride(Player3,JumpToPoint([949.658]))
+	ActionOverride(Player3,Face(SE))
+	ActionOverride(Player4,JumpToPoint([887.705]))
+	ActionOverride(Player4,Face(S))
+	ActionOverride(Player5,JumpToPoint([802.709]))
+	ActionOverride(Player5,Face(SW))
+	ActionOverride(Player6,JumpToPoint([727.671]))
+	ActionOverride(Player6,Face(SW))
+	FadeFromColor([30.0],0)
+	Wait(4)
+	ActionOverride("C0KVNP01",StartDialogNoSet(Player1))
+END

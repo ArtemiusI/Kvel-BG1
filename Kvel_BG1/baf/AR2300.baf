@@ -1,0 +1,28 @@
+IF
+	Global("C0KvelSpawn","%bg1_eet_symbol%2300",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelSpawn","%bg1_eet_symbol%2300",1)
+	CreateCreature("C0KVEL",[4219.1894],SE)
+	SmallWait(1)
+	ActionOverride("C0KVEL",MakeGlobalOverride())
+	CreateCreature("C0KVNP01",[4387.2071],NW)
+	CreateCreature("C0KVNP02",[4335.1982],W)
+	CreateCreature("C0KVNP03",[4402.1997],E)
+	CreateCreature("C0KVNP04",[4564.2156],NE)
+	Continue()
+END
+
+IF
+	GlobalGT("Chapter","GLOBAL",1)
+	Global("C0KvelSpawn","%bg1_eet_symbol%2300",1)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelSpawn","%bg1_eet_symbol%2300",2)
+	ActionOverride("C0KVEL",DestroySelf())
+	ActionOverride("C0KVNP01",DestroySelf())
+	ActionOverride("C0KVNP02",DestroySelf())
+	ActionOverride("C0KVNP03",DestroySelf())
+	ActionOverride("C0KVNP04",DestroySelf())
+	Continue()
+END

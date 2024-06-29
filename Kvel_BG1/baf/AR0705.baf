@@ -1,0 +1,24 @@
+
+IF
+    Global("C0KvelBegin","GLOBAL",17)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelBegin","GLOBAL",18)
+	    CreateCreature("C0KVEL",[596.440],SE)
+	    CreateCreature("C0KVNP01",[597.500],SW)
+		SmallWait(1)
+		ActionOverride("C0KVEL",DestroyItem("DAGG05"))
+END
+
+IF
+	InMyArea(Player1)
+    Global("C0KvelBegin","GLOBAL",20)
+	NumDeadGT("C0KVNP08",1)
+THEN
+    RESPONSE #100
+		Wait(1)
+		SetGlobal("C0KvelBegin","GLOBAL",21)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("C0KVC03")
+END

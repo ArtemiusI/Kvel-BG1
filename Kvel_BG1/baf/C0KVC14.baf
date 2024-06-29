@@ -1,0 +1,11 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(1)
+	ActionOverride("C0KVNP01",EscapeArea())
+	ActionOverride("C0KVEL",SetName(~K'Vel~))
+	Wait(6)
+	ActionOverride("C0KVEL",StartDialogNoSet(Player1))
+END
