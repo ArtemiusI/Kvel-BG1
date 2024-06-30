@@ -1,0 +1,15 @@
+// ANDROSZ
+
+IF
+	InParty(Myself)
+	See("C02KVD01")
+	Global("C0KvelSoDAndroszEvent","GLOBAL",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelSoDAndroszEvent","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END

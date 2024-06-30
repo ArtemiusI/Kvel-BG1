@@ -1,0 +1,24 @@
+IF
+  Global("C0KvelSoDSpawn","GLOBAL",1)
+  Global("C0Kvel_MoveCamp","MYAREA",0)
+  !Dead("C0Kvel")
+  !InPartyAllowDead("C0Kvel")
+THEN
+  RESPONSE #100
+    SetGlobal("C0Kvel_MoveCamp","MYAREA",1)
+    MoveGlobal("bd1000","C0Kvel",[621.3176]) 
+    ActionOverride("C0Kvel",Face(S))
+    ReallyForceSpellDeadRES("bdrejuve","C0Kvel")
+    ChangeEnemyAlly("C0Kvel",NEUTRAL)
+    ChangeSpecifics("C0Kvel",ALLIES)
+    ActionOverride("C0Kvel",SetGlobal("bd_joined","locals",0))
+    ActionOverride("C0Kvel",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("C0Kvel",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("C0Kvel",ChangeAIScript("C02KVEL",OVERRIDE))
+    ActionOverride("C0Kvel",ChangeAIScript("bdasc3",CLASS))
+    ActionOverride("C0Kvel",ChangeAIScript("BDSHOUT",RACE))
+    ActionOverride("C0Kvel",ChangeAIScript("BDMAGE01",GENERAL))
+    ActionOverride("C0Kvel",ChangeAIScript("",DEFAULT))
+    ActionOverride("C0Kvel",SetDialogue("C02KVEL"))
+    Continue()
+END

@@ -1,0 +1,15 @@
+IF
+	InParty(Myself)
+	InParty("YESLICK")
+	AreaType(OUTDOOR)
+	OR(2)
+	TimeOfDay(DUSK)
+	TimeOfDay(NIGHT)
+	RealGlobalTimerExpired("C0KvelYeslickRestTalkRealTimer","GLOBAL")
+	GlobalTimerExpired("C0KvelYeslickRestTalkTimer","GLOBAL")
+	Global("C0KvelYeslickRestTalk1","GLOBAL",0)
+THEN
+RESPONSE #100	
+	SetGlobal("C0KvelYeslickRestTalk1","GLOBAL",1)
+	ActionOverride("YESLICK",Interact("C0KVEL"))
+END

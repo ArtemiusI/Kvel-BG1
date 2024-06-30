@@ -66,7 +66,7 @@ I_C_T DRIZZT 10 C0KvelDrizzt2
 == DRIZZT ~I see your skill and accent with the Common tongue is well-practiced. Had I not a clear look at your face, I could not recognize you for one of my kin. I presume that means you have spent your share of years here?~
 == C0KVELJ ~True.~
 == DRIZZT ~That is a relief to know. Precious few drow are able to survive on the surface, and fewer still that can seek the life they desire. I hope you are successful so far.~
-== C0KVELJ ~As long as I have my blade, survival is no impossible task.~
+== C0KVELJ ~I have had to make many sacrifices. But the surface is not bad. Humans are comprehensible, and with experience, comes the understanding for how a drow must deal with them. As long as I have my blade, survival is no impossible task.~
 == DRIZZT ~Indeed, your skill is masterful. No, I can tell you were once even greater. What has happened to you, friend?~
 == C0KVELJ ~It does not matter.~
 == DRIZZT ~Certainly, it is not my business, but I doubt that such a change would not matter. Would that I had the luxury, I would not be opposed to test my blades against yours in a friendly battle.~
@@ -354,5 +354,5 @@ CHAIN C0KVELJ KVEL-OXLEY-10
 EXTERN C0KVELJ KVEL-OXLEY-11
 
 CHAIN C0KVELJ KVEL-OXLEY-11
-~If there are truly drow that serve as threats, whether it be to you or I, then you had best be wary. ~
+~If there are truly drow that serve as threats, whether it be to you or I, then you had best be wary.~
 EXIT

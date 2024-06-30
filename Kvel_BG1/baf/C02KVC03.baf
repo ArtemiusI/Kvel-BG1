@@ -1,0 +1,11 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+    CreateCreature("CUTSPY",[1212.2354],S)
+	Wait(2)
+	MoveViewPoint([1212.2354],BD_SLOW)
+	Wait(4)
+	ActionOverride("C02KVC04",StartDialogNoSet(Myself))
+END

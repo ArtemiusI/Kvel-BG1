@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(2)
+	FadeToColor([30.0],0)
+	Wait(2)
+	JumpToPoint([706.698])
+	Face(E)
+	ApplySpellRES("C02KVSP3",Myself)
+	ActionOverride("C02ANDRO",JumpToPoint([857.698]))
+	ActionOverride("C02ANDRO",Face(W))
+	FadeFromColor([30.0],0)
+	Wait(2)
+	ActionOverride("C02ANDRO",ChangeEnemyAlly(Myself,NEUTRAL))
+	ActionOverride("C02ANDRO",StartDialogNoSet(Player1))
+END

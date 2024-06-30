@@ -1,0 +1,16 @@
+IF
+  OR(2)
+  InMyArea("C0KVEL")
+  InPartyAllowDead("C0KVEL")
+  GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+  RESPONSE #100
+    ApplySpellRES("bdresurr","C0KVEL")
+    SmallWait(1)
+    ActionOverride("PlayerChest00",TakeCreatureItems("C0KVEL",BACKPACK))
+    SmallWait(1)
+    ActionOverride("C0KVEL",LeaveParty())
+    SmallWait(1)
+    ActionOverride("C0KVEL",DestroySelf())
+    Continue()
+END

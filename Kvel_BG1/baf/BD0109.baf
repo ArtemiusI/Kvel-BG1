@@ -1,0 +1,50 @@
+IF
+	Global("C0KvelSoDSpawn","GLOBAL",0)
+    BeenInParty("C0KVEL")
+	!Dead("C0KVEL")
+THEN
+	RESPONSE #100
+    MoveGlobal("BD0109","C0KVEL",[405.405])
+    ChangeEnemyAlly("C0KVEL",NEUTRAL)
+	ChangeSpecifics("C0KVEL",ALLIES)
+    ActionOverride("C0KVEL",SetGlobal("bd_joined","locals",0))
+    ActionOverride("C0KVEL",SetGlobal("bd_retreat","locals",0))
+    ActionOverride("C0KVEL",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+    ActionOverride("C0KVEL",ChangeAIScript("C02KVEL",OVERRIDE))
+    ActionOverride("C0KVEL",ChangeAIScript("DEFAULT",CLASS))
+    ActionOverride("C0KVEL",ChangeAIScript("",RACE))
+    ActionOverride("C0KVEL",ChangeAIScript("",GENERAL))
+    ActionOverride("C0KVEL",ChangeAIScript("",DEFAULT))
+    ActionOverride("C0KVEL",ChangeStat(Myself,CON,-1,ADD))
+    ActionOverride("C0KVEL",Face(NW))
+    ActionOverride("C0KVEL",SetDialog("C02KVEL"))
+    CreateCreature("C0KVNOB1",[608.594],NW)
+	SetGlobal("C0KvelSoDSpawn","GLOBAL",1)
+	Continue()
+END
+
+IF
+	Global("C0KvelSoDSpawn","MYAREA",0)
+    !BeenInParty("C0KVEL")
+	!Dead("C0KVEL")
+THEN
+    RESPONSE #100
+        CreateCreature("C02KVEL",[405.405],NW)
+    	CreateCreature("C0KVNOB1",[608.594],NW)
+        ActionOverride("C0KVEL",MakeGlobalOverride())
+        ApplySpellRES("bdbump1","C0KVEL")
+        SetGlobal("C0KvelSoDSpawn","GLOBAL",1) 
+        Continue()
+END
+
+IF
+	Global("C0KvelSoDSpawn","GLOBAL",1)
+    Global("C0KvelSoDSpawnCutscene","GLOBAL",0)
+THEN
+    RESPONSE #100
+		Wait(1)
+		StartCutSceneMode()
+		StartCutScene("C02KVC00")
+        SetGlobal("C0KvelSoDSpawnCutscene","GLOBAL",1) 
+        Continue()
+END

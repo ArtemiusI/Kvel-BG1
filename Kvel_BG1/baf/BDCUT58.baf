@@ -1,0 +1,10 @@
+IF
+  Global("C0Kvel_kicked_bd4700","global",1)
+  !Dead("C0Kvel")
+  !InParty("C0Kvel")
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("bd4400","C0Kvel",[1375.1040])
+    ActionOverride("C0Kvel",Face(S))
+END

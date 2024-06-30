@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(2)
+	FadeToColor([30.0],0)
+	Wait(4)
+	LeaveAreaLUA("BD3000","",[1409.256],S)
+	ActionOverride(Player2,LeaveAreaLUA("BD3000","",[1470.128],S))
+	ActionOverride(Player3,LeaveAreaLUA("BD3000","",[1535.145],S))
+	ActionOverride(Player4,LeaveAreaLUA("BD3000","",[1464.166],S))
+	ActionOverride(Player5,LeaveAreaLUA("BD3000","",[1536.193],S))
+	ActionOverride(Player6,LeaveAreaLUA("BD3000","",[1472.242],S))
+	FadeFromColor([30.0],0)
+	Wait(4)
+	EndCutSceneMode()
+END

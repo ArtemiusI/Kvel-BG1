@@ -1,0 +1,21 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	Wait(2)
+	FadeToColor([30.0],0)
+	Wait(4)
+	LeaveAreaLUA("C0KV02","",[706.698],E)
+	ActionOverride(Player2,LeaveAreaLUA("C0KV02","",[636.582],S))
+	ActionOverride(Player3,LeaveAreaLUA("C0KV02","",[705.578],S))
+	ActionOverride(Player4,LeaveAreaLUA("C0KV02","",[776.576],S))
+	ActionOverride(Player5,LeaveAreaLUA("C0KV02","",[873.579],S))
+	ActionOverride(Player6,LeaveAreaLUA("C0KV02","",[946.577],S))
+	CreateCreature("C02ANDR2",[857.698],W)
+	ActionOverride("C02ANDRO",XEquipItem("C0KVSW01",Myself,SLOT_WEAPON,EQUIP))
+	ActionOverride("C02ANDRO",XEquipItem("C0KVSW02",Myself,SLOT_SHIELD,EQUIP))
+	FadeFromColor([30.0],0)
+	Wait(4)
+	ActionOverride("C02ANDRO",StartDialogNoSet(Player1))
+END

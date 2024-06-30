@@ -1,0 +1,10 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	MoveViewPoint([606.611],BD_WALK)
+	CreateCreature("CUTSPY",[606.611],S)
+	Wait(3)
+	ActionOverride("Sitting Man 4",StartDialogNoSet(Myself))
+END

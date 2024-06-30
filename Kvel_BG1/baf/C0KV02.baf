@@ -1,0 +1,31 @@
+// ANDROSZ
+
+IF
+	HPLT("C02ANDRO",2)
+	Global("C0KvelSoDAndroszSpar","GLOBAL",2)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelSoDAndroszPCWon","GLOBAL",1)
+	SetGlobal("C0KvelSoDAndroszSpar","GLOBAL",3)
+	ClearAllActions()
+	StartCutSceneMode()
+	StartCutScene("C02KVC05")
+	SetInterrupt(TRUE)
+END
+
+IF
+	HPLT(Player1,2)
+	Global("C0KvelSoDAndroszSpar","GLOBAL",2)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelSoDAndroszPCLost","GLOBAL",1)
+	SetGlobal("C0KvelSoDAndroszSpar","GLOBAL",3)
+	ClearAllActions()
+	StartCutSceneMode()
+	StartCutScene("C02KVC05")
+	SetInterrupt(TRUE)
+END

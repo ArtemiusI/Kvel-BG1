@@ -978,7 +978,7 @@ DO ~SetGlobal("C0KvelSkie1","GLOBAL",2)~
 == BC0KVEL ~Hmm.~
 == BSKIE ~What? No praise? I figured out what you were trying to tell me!~
 == BC0KVEL ~If I had made it any clearer, I would need to examine you for stunted growth to your mind.~
-== BSKIE ~Oh, don't me rude. I'm very grateful, you know. I know I need to figure out what I'm doing out here. Because I want to be here. I just haven't put words to why yet.~
+== BSKIE ~Oh, don't be rude. I'm very grateful, you know. I know I need to figure out what I'm doing out here. Because I want to be here. I just haven't put words to why yet.~
 == BC0KVEL ~You will have to learn that for yourself.~
 == BSKIE ~Don't worry. I'm a quick learner.~
 == BSKIE ~I still want to hire you as my cook though. You've spoiled me!~
@@ -1153,7 +1153,9 @@ CombatCounter(0)
 !See([ENEMY])
 Global("C0KvelYeslick1","GLOBAL",0)~ THEN BYESLI C0KvelYeslick1
 ~I don't suppose ye fought the the War of the Black River, drow? As I recall, ye claimed yer home city be Eryndlyn.~
-DO ~SetGlobal("C0KvelYeslick1","GLOBAL",1)~
+DO ~SetGlobal("C0KvelYeslick1","GLOBAL",1)
+RealSetGlobalTimer("C0KvelYeslickRestTalkRealTimer","GLOBAL",3600)
+SetGlobalTimer("C0KvelYeslickRestTalkTimer","GLOBAL",ONE_WEEK)~
 == BC0KVEL ~The battle against the shield dwarves of the Halls of the Hammer and House Xzarthel? No. That was none of my affair.~
 == BYESLI ~Ye're certain? I've only some estimate o' the age of elves by face, but ye seem to be the right age. And from yer response, ye seem to have some recollection o' the whole thing.~
 == BC0KVEL ~I recall the countless bodies that littered the passage between the High Moor and the Upperdark. I was only relieved that I did not join them by some terrible accident. Both the dwarves and the drow were possessed by madness on that black day.~
@@ -1175,9 +1177,9 @@ See("C0Kvel")
 !StateCheck("C0Kvel",CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("C0KvelYeslickRestTalk1","GLOBAL",0)~ THEN BYESLI C0KvelYeslick1
+Global("C0KvelYeslickRestTalk1","GLOBAL",1)~ THEN BYESLI C0KvelYeslick1
 ~*sniff* What's that, now? I may be old, but me nose be keen enough to follow the scent o' grilled whitefish. Where's that comin' from...?~
-DO ~SetGlobal("C0KvelYeslickRestTalk1","GLOBAL",1)~
+DO ~SetGlobal("C0KvelYeslickRestTalk1","GLOBAL",2)~
 == BC0KVEL ~Here, dwarf.~
 == BYESLI ~Oh, it be ye. I was wonderin' who be at work at the fire, cookin' a culinary delight. Mind if I take a seat?~
 == BC0KVEL ~Do as you wish. The food will be ready to serve before long.~

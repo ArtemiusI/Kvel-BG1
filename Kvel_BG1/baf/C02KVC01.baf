@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0KVNOB1")
+	MoveToPoint([573.470])
+	SmallWait(1)
+	Face(NW)
+	SmallWait(1)
+	DisplayStringHead(Myself,~Excuse me, might I have a moment to—GOOD LORD!~)
+	Wait(1)
+	DisplayStringHead(Myself,~Aiiieee!!!~)
+	ApplySpellRES("BDRUNRUN",Myself)
+	StartCutScene("C02KVC02")
+	EscapeAreaObject("TranBD0020")
+END
