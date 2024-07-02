@@ -1,0 +1,15 @@
+IF
+    AreaCheck("BD3000")
+    OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+    InParty("C0KVEL")
+    !Dead("BDHELVDA")
+    Global("C0KvelSoDDrinkTalk","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("C0KvelSoDDrinkTalk","GLOBAL",1)
+        ClearAllActions()
+        StartCutSceneMode()
+        StartCutScene("C02KVC07")
+END

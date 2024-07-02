@@ -201,7 +201,7 @@ DO ~SetGlobal("C0KvelCoran1","GLOBAL",2)~
 == BCORAN ~How is that any different?~
 == BC0KVEL ~I can at least appreciate that you appear to be 'attempting' to make peace, clumsy and imbecilic as your attempts are. That is more than I expect from most elves.~
 == BCORAN ~You are quite astute. Indeed, I find myself much more apt when it comes to charming the fairer sex, but I also believe in... what is it the humans say, those sedate types, "making love, not war"?~
-== BC0KVEL ~Yet you only seem to have mastered that term in the most literal sense. Even considering it 'mastery' is generous, if what I have seen is any indication.~
+== BC0KVEL ~Yet you only seem to have mastered that term in the most literal sense. Even considering it 'mastery' is generous, if what I have heard is any indication.~
 == BCORAN ~Ah, a strike right where it hurts! I have never said this before, K'Vel, but out of all the enemies I have ever met, you are without a doubt my very favorite.~
 EXIT
 
@@ -302,7 +302,7 @@ Global("C0KvelEdwin1","GLOBAL",0)~ THEN BC0KVEL C0KvelEdwin1
 DO ~SetGlobal("C0KvelEdwin1","GLOBAL",1)~
 == BEDWIN ~What! What do you want, drow? I was thinking! (Thinking of how best to deal with you if... yes, maybe... no, wait.)~
 == BC0KVEL ~You would do best to keep such thoughts in your head, where they belong. If you continue to assess threats from the wrong direction, you will certainly die from a cause you do not expect.~
-== BEDWIN ~So you say, so you say. But I cannot trust a man of unknown origin, especially one whose natural ability is so impervious to magic. You may consider it paranoia, but for me, it is practical.~
+== BEDWIN ~So you say, so you say. But I cannot trust a man of unknown origin, especially one whose natural ability is being so impervious to magic. You may consider it paranoia, but for me, it is practical.~
 == BC0KVEL ~Think what you will. You should consider it fortunate that my responsibility includes ensuring your survival. Otherwise...~
 == BEDWIN ~"Otherwise"? (I knew it! The drow plots against me, most certainly! I must think of a strategy, quickly!)~
 == BC0KVEL ~...Forget it. By my observation, there is no more dangerous enemy to you than yourself.~
@@ -502,7 +502,7 @@ Global("C0KvelJaheira1","GLOBAL",0)~ THEN BJAHEI C0KvelJaheira1
 DO ~SetGlobal("C0KvelJaheira1","GLOBAL",1)~
 == BC0KVEL ~What business is that of yours?~
 == BJAHEI ~It is important.~
-== BC0KVEL ~...Six years, if you must know.~
+== BC0KVEL ~...Seven years, if you must know.~
 == BJAHEI ~Though a short amount of time for an elf, it is enough to leave some history.~
 == BC0KVEL ~You intend to investigate my background?~
 == BJAHEI ~One can never be too careful.~
@@ -781,7 +781,7 @@ See("C0Kvel")
 CombatCounter(0)
 !See([ENEMY])
 Global("C0KvelMontaron2","GLOBAL",0)~ THEN BMONTA C0KvelMontaron2
-~Ye almost broke me wrist, drow. Still achin' since this mornin'.~
+~Ye almost broke me hand, drow. Still achin' since this mornin'.~
 DO ~SetGlobal("C0KvelMontaron2","GLOBAL",1)~
 == BC0KVEL ~If you attempt to tamper with food mid-preparation again, I will sever it and add it to the pot next time.~
 == BMONTA ~All I'm sayin' is that it'd have been juicier with a nice big dollop of lard.~
@@ -874,7 +874,7 @@ DO ~SetGlobal("C0KvelRasaad1","GLOBAL",1)~
 == BC0KVEL ~Impressive.~
 == BRASAAD ~Are you intending to take my life? Had I not raised my arm in time, that would not have been a light injury.~
 == BC0KVEL ~Were that truly the case, I would have used my proper weapon.~
-== BRASAAD ~If—gah... if you merely wished to exchange blows, you need only have asked. I would have been more than happy to oblige. The surprise attack was unnecessary~
+== BRASAAD ~If—gah... if you merely wished to exchange blows, you need only have asked. I would have been more than happy to oblige. The surprise attack was unnecessary.~
 == BC0KVEL ~Testing one's instinctive response to an unexpected strike tells its own stories, as well.~
 == BRASAAD ~Fair enough. I hope I did not disappoint.~
 == BC0KVEL ~Your strength is commendable, if not exceptional. Nor your speed, though it is well above what I expect from humans. What sets you apart is something else, though I cannot put my finger on it...~
@@ -1024,7 +1024,7 @@ DO ~SetGlobal("C0KvelViconia1","GLOBAL",1)~
 == BC0KVEL ~...~
 == BVICON ~Waela jaluk?~
 == BC0KVEL ~...~
-== BVICON ~Must we communicate in this lesser tongue? It is a rare thing that I may use my original speech, and my partner in conversation is content to play deaf and mute.~
+== BVICON ~Must we communicate in this tongue? It is a rare thing that I may use my original speech, and my partner in conversation is content to play deaf and mute.~
 == BC0KVEL ~If you are seeking to indulge in the nostagia of Menzoberranzan's natural hierarchies, I cannot indulge you.~
 == BVICON ~I am no priestess of Lolth, nor do I seek comfort in acting my former station. Do you see garments and a snake whip, male? I merely seek to assure an natural alliance between two outcasts of mutual origin.~
 == BC0KVEL ~'Natural alliance'? You have truly forgotten what being drow is truly like, Viconia, if you believe what you are saying, and I do not consider you such a fool. You seek an asset to use for your convenience, and are now using a honeyed tongue to do so.~
@@ -1103,7 +1103,7 @@ TimeOfDay(NIGHT)
 CombatCounter(0)
 !See([ENEMY])
 Global("C0KvelXan2","GLOBAL",0)~ THEN BXANNN C0KvelXan2
-~When I look upon under the cover of darkness, and squint very hard, I almost see a kinsman, albeit several heads taller and brawnier. How did our kind becomes so different, I wonder?~
+~When I look under the cover of darkness, and squint very hard, I almost see a kinsman, albeit several heads taller and brawnier. How did our kind becomes so different, I wonder?~
 DO ~SetGlobal("C0KvelXan2","GLOBAL",1)~
 == BC0KVEL ~I'm certain we've both heard all the myths many times. Believe whichever one you prefer.~
 == BXANNN ~Yes, yes, the tales of how Araushnee became Lolth, how she enslaved the dark elves who were once her children, or the ones where they followed her willingly. I've heard them all a million times. Whichever one the teller thinks makes their side of the conflict sound more righteous.~

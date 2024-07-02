@@ -192,6 +192,16 @@ CHAIN C0KVNP01 KVEL-START-5-3
 ~Just to be formal, please allow me to introduce myself properly. I am Ecthel Darcourt, heir of the Darcourt Enterprises merchant family of Waterdeep. Though there's no small chance I'll be disowned after a disaster like this.~
 == C0KVNP01 ~Still, my life is more precious than anything, so I'm not ungrateful, far from it. Might I know my savior's name?~
 END
+  + ~PartyHasItem("C0KVBK01")~ + ~Hang on, you're Ecthel Darcourt? I just realized, I have your ledger.~ DO ~SetGlobal("C0KvelMetEcthel","GLOBAL",1) TakePartyItem("C0KVBK01") DestroyItem("C0KVBK01")~ EXTERN C0KVNP01 KVEL-START-5-BOOK
+  ++ ~<CHARNAME>.~ EXTERN C0KVNP01 KVEL-START-5-4
+  ++ ~My name's not important. I'm happy to have helped.~ EXTERN C0KVNP01 KVEL-START-5-4
+  ++ ~So I assume you have absolutely nothing to repay me with for saving you?~ EXTERN C0KVNP01 KVEL-START-5-6
+
+CHAIN C0KVNP01 KVEL-START-5-BOOK
+~YOU have my ledger? By Tymora's smile, let me take a look immediately! Yes, this is mine.~
+= ~I've been wondering where this damn thing was ever since I left the Friendly Arm. Bentley told me he handed it off to someone to deliver to me. I assume that was you? In any other circumstance, I'd be cursing your name for all the trouble I've been through without my ledger, but in this case it may be inadvertently fortunate.~
+= ~Still, now with no caravan or goods, a damn lot of good this thing will be at this point, eh? Well, at least I might still be able to recoup some of my losses. In any case, I would still like to know your name. I hold no grudges against you, I promise!~
+END
   ++ ~<CHARNAME>.~ EXTERN C0KVNP01 KVEL-START-5-4
   ++ ~My name's not important. I'm happy to have helped.~ EXTERN C0KVNP01 KVEL-START-5-4
   ++ ~So I assume you have absolutely nothing to repay me with for saving you?~ EXTERN C0KVNP01 KVEL-START-5-6
@@ -983,8 +993,8 @@ END
   ++ ~I still need your help, but wait for me here first.~ DO ~SetGlobal("KickedOut","LOCALS",1)~ EXIT
 
 CHAIN C0KVELP KVEL-KICKED-1
-~So be it. I will wait for you in the Undercellars of Baldur's Gate. Such a place is where I can most easily hide my presence.~
-DO ~EscapeAreaMove("AR0112",1500,970,W) SetGlobal("KickedOut","LOCALS",1)~ EXIT
+~So be it. I will return to the Elfsong Tavern and wait for you there, as the proprietor has offered to help to hide my presence from other humans.~
+DO ~EscapeAreaMove("AR0112",548,239,NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",1)~ THEN C0KVELP KVEL-REJOIN
 ~You are back. I am prepared to honor my contract and rejoin you should you require my service.~

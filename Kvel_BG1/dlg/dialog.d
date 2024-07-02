@@ -105,7 +105,7 @@ END
 
 CHAIN C0KVELJ KVEL-EVENT-6-1
 ~Which one? I do hope you mean the loudmouth before us.~
-== C0KVDR02 ~Ah, your former wit. I had missed it, briefly. And immediately killed the feeling.~
+== C0KVDR02 ~Ah, your former wit. I had missed it, briefly. And immediately remembered how much I loathed it.~
 EXTERN C0KVDR02 KVEL-EVENT-6-5
 
 CHAIN C0KVDR02 KVEL-EVENT-6-2

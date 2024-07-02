@@ -23,10 +23,7 @@ LANGUAGE ~English~
          ~%MOD_FOLDER%/tra/english/setup.tra~
 
 BEGIN ~Kvel NPC for Baldur's Gate: Enhanced Edition~
+REQUIRE_PREDICATE GAME_IS ~BGEE EET~ AND GAME_INCLUDES ~SOD~ ~This mod requires Siege of Dragonspear!~
 
 INCLUDE ~%MOD_FOLDER%/lib/kvel_bg1.tpa~
-ACTION_IF GAME_INCLUDES ~sod~
-THEN BEGIN
-  PRINT ~Installing content for Siege of Dragonspear...~
 INCLUDE ~%MOD_FOLDER%/lib/kvel_sod.tpa~
-END

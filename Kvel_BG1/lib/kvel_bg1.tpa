@@ -80,13 +80,14 @@ APPEND item_use.2da ~C0KVAM01 K'Vel %strref% 3~
 
 COPY_EXISTING ~C0KVCH01.ITM~ ~OVERRIDE~
 SAY NAME1 ~Elven Chain Mail~
-SAY NAME2 ~Dark Elven Chain of Celerity +2~
+SAY NAME2 ~Dark Elven Chain of Agility +2~
 SAY DESC ~This appears to be a suit of drow armor, somehow immune to the usual effects of adamantite under the sun, yet closer examination shows that it is in fact of wood elven design and merely refitted with drow aesthetics and lacquered over with a dark coloring. Whether this is merely to substitute for actual drow craft or a spit in the face of their hated cousins, it is still an elegant piece of work, with enchantments to enhance the wearer's mobility.
 
 STATISTICS:
 
 Equipped abilities:
 – Dexterity: +1
+– Movement Rate: +50%
 – Spellcasting is not disabled
 
 Armor Class: 3 (1 vs. slashing, 5 vs. crushing)

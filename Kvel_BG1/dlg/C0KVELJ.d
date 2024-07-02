@@ -1,5 +1,47 @@
 BEGIN C0KVELJ
 
+// ALYTH
+
+CHAIN IF WEIGHT #-1 ~InParty("C0Kvel")
+Global("C0KvelBG1Alyth","GLOBAL",0)~ THEN ALYTH KvelAlyth
+~I see the sellsword is now your responsibility. Ecthel has always been too emotionally tied to his investments, but I can at least commend him for avoiding a complete loss.~
+DO ~SetGlobal("C0KvelBG1Alyth","GLOBAL",1)~
+== ALYTH ~If you find the drow's presence inconvenient for any tasks you have in the future, send him back here. I can at least keep him sheltered and kept from the public eye as a favor to the Darcourt family.~
+== C0KVELJ ~Your hospitality is appreciated.~
+== ALYTH ~Don't think that I approve of your treatment of the lad, however, K'Velarin. I hope things will be different with your new employer.~
+EXIT
+
+// ANGEL
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelPetrinesCat","GLOBAL",1)~ THEN C0KVELJ KvelAngel
+~That must be the girl's cat.~
+DO ~SetGlobal("C0KvelPetrinesCat","GLOBAL",2)~
+= ~...~
+= ~Pst. Psst...~
+END
+  ++ ~What are you doing?~ + KvelAngel.1
+  ++ ~I didn't think you would be fond of cats.~ + KvelAngel.2
+  ++ ~Stop that. You look ridiculous.~ + KvelAngel.1
+
+CHAIN C0KVELJ KvelAngel.1
+~The creature is frightened and confused. The disappearance of its owner together with its abuse has made it distrusting of others.~
+EXTERN C0KVELJ KvelAngel.3
+
+CHAIN C0KVELJ KvelAngel.2
+~Cats are clever beings that remember images and sensations well. Slow to trust, but accurate when placing it.~
+EXTERN C0KVELJ KvelAngel.3
+
+CHAIN C0KVELJ KvelAngel.3
+~Come, this small cut of meat should sate your hunger. No one is here to harm you...~
+= ~Find its comfort object, <CHARNAME>. It likely carries the girl's scent, which will calm it.~
+END
+  ++ ~Shouldn't we bring the cat with us?~ EXTERN C0KVELJ KvelAngel.4
+  ++ ~Alright.~ EXIT
+
+CHAIN C0KVELJ KvelAngel.4
+~No. Let it act freely. Once we bring the girl's ring to her, it will find her on its own.~
+EXIT
+
 // ANGELO
 
 EXTEND_TOP ANGELO 1
@@ -37,6 +79,36 @@ END
 CHAIN C0KVELJ C0KvelAngeloC7.1
 ~*whisper* Do not say anything, do not interfere. Find a means of escape for yourselves. I will find you once you have.~
 EXTERN ANGELO 4
+
+// BENTLEY
+
+CHAIN IF WEIGHT #-1 ~InParty("C0Kvel")
+Global("C0KvelBG1Bentley","GLOBAL",0)~ THEN BENTLY KvelBentley
+~What th—a drow? Keep your hands where I can see 'em, I don't want to see you causing any trouble if you're going to just walk in here like you own the place!~
+DO ~SetGlobal("C0KvelBG1Bentley","GLOBAL",1)~
+== C0KVELJ ~...Perhaps the helmet performed its role better than intended.~
+== BENTLY ~Hang on, I think I recognize your shape. You're Ecthel's bodyguard, aren't you? Bah, I always thought you looked shifty, and now I know why. Ecthel says he trusts you with his life, so you're allowed here as long as you've got someone responsible for you.~
+COPY_TRANS BENTLY 0
+
+// BHEREN
+
+EXTEND_TOP BHEREN 0
+ IF ~InParty("C0KVEL")~ THEN EXTERN C0KVELJ C0KvelBheren
+END
+
+EXTEND_TOP BHEREN 1
+ IF ~InParty("C0KVEL")~ THEN EXTERN C0KVELJ C0KvelBheren
+END
+
+CHAIN C0KvelJ C0KvelBheren
+~...~
+END
+  ++ ~I saw your hand moving for your weapon.~ EXTERN C0KVELJ C0KvelBheren.1
+  ++ ~Calm down. We can't just kill him.~ EXTERN C0KVELJ C0KvelBheren.1
+
+CHAIN C0KvelJ C0KvelBheren.1
+~I... forgot myself. I merely find needless cruelty to children and creatures that cannot defend themselves contemptible.~
+EXIT
 
 // DRIZZT
 
@@ -355,4 +427,106 @@ EXTERN C0KVELJ KVEL-OXLEY-11
 
 CHAIN C0KVELJ KVEL-OXLEY-11
 ~If there are truly drow that serve as threats, whether it be to you or I, then you had best be wary.~
+EXIT
+
+// SPIDER'S BANE
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelBG1SpidersBane","GLOBAL",1)~ THEN C0KVELJ KVEL-SPIDERBANE
+~"Spider's Bane"?~
+DO ~SetGlobal("C0KvelBG1SpidersBane","GLOBAL",2)~
+= ~...Hah.~
+END
+  ++ ~What's so funny?~ EXTERN C0KVELJ KVEL-SPIDERBANE-1
+  ++ ~I guess it must be strange for a drow to wield it.~ EXTERN C0KVELJ KVEL-SPIDERBANE-2
+  ++ ~I'm glad you like the sword. You'll have no trouble using it then.~ EXIT
+
+CHAIN C0KVELJ KVEL-SPIDERBANE-1
+~I was just thinking that, were this in any drow city, one would lose their hand for even touching such a sacrilegious item, if not turned into a drider instead.~
+EXTERN C0KVELJ KVEL-SPIDERBANE-3
+
+CHAIN C0KVELJ KVEL-SPIDERBANE-2
+~The irony is certainly not lost on me. Did you have that in mind when you handed me this blade?~
+EXTERN C0KVELJ KVEL-SPIDERBANE-3
+
+CHAIN C0KVELJ KVEL-SPIDERBANE-3
+~No matter. It is a serviceable weapon, and I have no complaints.~
+EXIT
+
+// INTERJECTIONS
+
+I_C_T ALATOS 0 C0KvelAlatos
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~I, too, would prefer to avoid hostility, but I have found keeping my weapon close to be the preferable deterrent against this one's ilk.~
+END
+
+I_C_T2 DELTAN2 0 C0KvelDukeEltan
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~It is fortunate that this Duke has enough influence to ensure a sudden death would provoke chaos. The poison is slow acting. He can survive with proper treatment.~
+END
+
+I_C_T2 DESRET 3 C0KvelDesreta
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~What an absurd philosophy. If one will seek no meaning in life and so easily discard it as worthless, then let us grant these fools what they desire.~
+END
+
+I_C_T SLYTHE 2 C0KvelSlythe
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~Ridiculous prattlers. Let us dispose of these two to make up for the time wasted listening to this drivel.~
+END
+
+// TALK 1
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelBG1Talk1","GLOBAL",2)~ THEN C0KVELJ KVEL-TALK1
+~So, my first day under my newest employer. Another change. After a long five years, perhaps this is for the best.~
+= ~I hope you do not expect an overly warm reception. I am currently sworn to your service, but nothing else.~
+DO ~SetGlobal("C0KvelBG1Talk1","GLOBAL",3)~
+END
+  ++ ~Do you treat all your employers like this?~ + KVEL-TALK1-1
+  ++ ~You seemed pretty friendly with Ecthel, all things considered.~ + KVEL-TALK1-2
+  ++ ~I don't keep servants and mercenaries. If we are to work together, I'd prefer to trust you as a person.~ + KVEL-TALK1-3
+  ++ ~Fine. I prefer allies who don't waste my time with pointless talk.~ + KVEL-TALK1-4
+
+CHAIN C0KVELJ KVEL-TALK1-1
+~Yes.~
+EXTERN C0KVELJ KVEL-TALK1-5
+
+CHAIN C0KVELJ KVEL-TALK1-2
+~What you see is the sentimentality of a man with too few years in his future. It is better for him as well that our contract ended.~
+EXTERN C0KVELJ KVEL-TALK1-5
+
+CHAIN C0KVELJ KVEL-TALK1-3
+~I can assure you of my sincerity, but how much worth do words alone hold? We have fought together, and now work together by chance. Had things been slightly different, we would not even have known each other.~
+EXTERN C0KVELJ KVEL-TALK1-5
+
+CHAIN C0KVELJ KVEL-TALK1-4
+~Then we understand each other.~
+EXIT
+
+CHAIN C0KVELJ KVEL-TALK1-5
+~You have placed your trust in a drow, and a stranger. Do you understand the connotations of such, <CHARNAME>?~
+END
+  ++ ~No. And that's why I need to know more about you, so that I can find some reason to trust you.~ + KVEL-TALK1-6
+  ++ ~I know you are a drow, but that doesn't mean I distrust you... not unless you give me a reason to.~ + KVEL-TALK1-7
+  ++ ~Sounds like you aren't so set on this new job after all.~ + KVEL-TALK1-8
+  ++ ~The only thing I know is that you're a good fighter, and I can use someone like you.~ + KVEL-TALK1-9
+
+CHAIN C0KVELJ KVEL-TALK1-6
+~A reasonable starting point. Very well. I will tell you as much of me as you need to know.~
+EXTERN C0KVELJ KVEL-TALK1-10
+
+CHAIN C0KVELJ KVEL-TALK1-7
+~Trust should never be given unconditionally. But you seem to at least recognize one must know things of whom they wish to place trust towards. In which case, I will introduce myself properly, so that you are under no illusions of what I am.~
+DO ~SetGlobal("C0KvelBG1Background","GLOBAL",1)~ EXTERN C0KVELJ KVEL-TALK1-10
+
+CHAIN C0KVELJ KVEL-TALK1-8
+~What I feel does not matter now. All I desire to know is whether you are prepared for the possibility of placing your life in my hands.~
+END
+  ++ ~As you said, we barely know each other. But that is why I wish to know more about you.~ + KVEL-TALK1-6
+  ++ ~I can't trust you fully yet. But I also don't have a reason to distrust you yet.~ + KVEL-TALK1-7
+  ++ ~So long as you can fight, I don't really care about all the details.~ + KVEL-TALK1-9
+
+CHAIN C0KVELJ KVEL-TALK1-9
+~So simple... if that is the case, then I shall be a weapon at your command. But there will be things from which even I cannot protect you.~
+EXIT
+
+CHAIN C0KVELJ KVEL-TALK1-10
+~I am K'Velarin. I was born in the city of Eryndlyn, within the Underdark. My house was once Au'dayrr, a minor power. I raised my first sword the day I grew to match its height and killed my first sapient opponent when I was eight, long before my Blooding. I have been trained to fight since as long as I can remember.~
+= ~I fled to the surface under pain of death seven years ago, and sold my sword to whoever might offer. Ecthel found and hired me after my second year, and I had served him until the end of our contract. Now, I serve you by the strength of my word.~
+= ~And with that, I have told you as much as I have any other surfacer who has sought my services. What you make of it, and of my worth, is up to you.~
 EXIT

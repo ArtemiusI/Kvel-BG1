@@ -1,0 +1,107 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId("C0Kvel")
+	StorePartyLocations()
+	Wait(1)
+	FadeToColor([30.0],0)
+	Wait(3)
+    ApplySpellRES("bdhide",Player1)  // No such index
+    ApplySpellRES("bdhide",Player2)  // No such index
+    ApplySpellRES("bdhide",Player3)  // No such index
+	ApplySpellRES("bdhide",Player4)  // No such index
+	ApplySpellRES("bdhide",Player5)  // No such index
+	ApplySpellRES("bdhide",Player6)  // No such index
+    ApplySpellRES("bdunhide",Myself)  // No such index
+    CreateCreature("CUTSPY",[1219.1562],SW)  // No such index
+	MoveViewPoint([1219.1562],INSTANT)
+    CreateCreature("C02KVS01",[1275.1467],SEE)  // No such index
+    CreateCreature("C02KVS02",[1338.1446],SSW)  // No such index
+    CreateCreature("C02KVS03",[1349.1496],NWW)  // No such index
+    CreateCreature("C02KVS04",[1316.1533],N)  // No such index
+	JumpToPoint([1125.907])
+	FadeFromColor([30.0],0)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~Ah, now that hits the spot! Another!~)
+	Wait(3)
+	DisplayStringHead("C02KVS01",~N—no more, Helv... can't take anoth'r... ugh...~)
+	SmallWait(5)
+	ActionOverride("C02KVS01",SetSequence(SEQ_SLEEP))
+	Wait(3)
+	DisplayStringHead("C02KVS02",~Ar, an' there he goes. Weak bellies, all of you.~)
+	Wait(3)
+	MoveToPoint([1176.1356])
+	SmallWait(1)
+	FaceObject("C02KVS02")
+	ActionOverride("C02KVS02",FaceObject("C0KVEL"))
+	ActionOverride("C02KVS03",FaceObject("C0KVEL"))
+	ActionOverride("C02KVS04",FaceObject("C0KVEL"))
+	Wait(3)
+	DisplayStringHead("C02KVS04",~It's the drow.~)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~I can see that better than you mate. What're you lookin' at, drow?~)
+	Wait(3)
+	DisplayStringHead(Myself,~A drinking competition.~)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~Aye, an' what's wrong with it, then?~)
+	Wait(3)
+	DisplayStringHead(Myself,~Hardly an efficient way to spend time.~)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~We're off duty. I'm sure you dark elves think differently, but we like enjoyin' our lives.~)
+	Wait(5)
+	DisplayStringHead("C02KVS02",~Besides, as big as you are, I bet you still can't hold your drink like a dwarf.~)
+	Wait(3)
+	DisplayStringHead(Myself,~You are challenging me?~)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~You're free not to take it an' go back to your hidin' hole.~)
+	Wait(3)
+	DisplayStringHead(Myself,~...~)
+	Wait(1)
+	MoveToPoint([1270.1408])
+	SmallWait(1)
+	Face(SE)
+	ActionOverride("C02KVS02",FaceObject("C0KVEL"))
+	ActionOverride("C02KVS03",FaceObject("C0KVEL"))
+	ActionOverride("C02KVS04",FaceObject("C0KVEL"))
+	Wait(2)
+	DisplayStringHead(Myself,~*gulp*~ [GAM_07])
+	Wait(3)
+	DisplayStringHead("C02KVS02",~Hoh, guess you've not so dainty after all.~)
+	Wait(3)
+	DisplayStringHead("C02KVS02",~Well, what're you both just starin' for, drink!~)
+	Wait(1)
+	ActionOverride("C02KVS02",Face(SSW))
+	ActionOverride("C02KVS03",Face(NWW))
+	ActionOverride("C02KVS04",Face(N))
+	Wait(2)
+	DisplayStringHead("C02KVS03",~*gulp*~)
+	Wait(3)
+	DisplayStringHead("C02KVS03",~No... no more... urg...~ [GAM_7])
+	SmallWait(5)
+	ActionOverride("C02KVS03",SetSequence(SEQ_SLEEP))
+	Wait(3)
+	DisplayStringHead("C02KVS02",~You lot are makin' me look like a right fool here. Well? Go on, go get the other lads, we'll make this a proper contest tonight!~)
+	Wait(3)
+	ActionOverride("C02KVS04",EscapeArea())
+	Wait(3)
+	DisplayStringHead("C02KVS02",~I hope you're not plannin' on walkin' out before we're done here, drow. Let's have a proper party 'ere, soldier to soldier, eh?~)
+	Wait(3)
+	DisplayStringHead(Myself,~...Very well.~)
+	Wait(4)
+	FadeToColor([30.0],0)
+	Wait(4)
+	ActionOverride("CUTSPY",DestroySelf())
+	ActionOverride("C02KVS01",DestroySelf())
+	ActionOverride("C02KVS02",DestroySelf())
+	ActionOverride("C02KVS03",DestroySelf())
+	ActionOverride("C02KVS04",DestroySelf())
+    ApplySpellRES("bdunhide",Player1)  // No such index
+    ApplySpellRES("bdunhide",Player2)  // No such index
+    ApplySpellRES("bdunhide",Player3)  // No such index
+    ApplySpellRES("bdunhide",Player4)  // No such index
+    ApplySpellRES("bdunhide",Player5)  // No such index
+    ApplySpellRES("bdunhide",Player6)  // No such index
+	RestorePartyLocations()
+	RestParty()
+END

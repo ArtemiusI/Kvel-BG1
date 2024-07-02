@@ -1,9 +1,9 @@
 
 IF
     GlobalLT("Chapter","GLOBAL",4)
-    GlobalLT("C0KvelStart","GLOBAL",3)
+    GlobalLT("C0KvelBegin","GLOBAL",3)
 THEN
     RESPONSE #100
-        SetGlobal("C0KvelStart","GLOBAL",3)
+        SetGlobal("C0KvelBegin","GLOBAL",3)
         ForceRandomEncounterEntry("C0KV01","En")
 END

@@ -1,0 +1,1422 @@
+// BAELOTH
+
+IF
+	Global("C02KvelBaeloth1","MYAREA",50)
+	Global("C02KvelBaeloth1_50","MYAREA",0)
+	CheckStatGT(Player1,40,LORE)
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelBaeloth1","MYAREA",51)
+		SetGlobal("C02KvelBaeloth1_50","MYAREA",1)
+END
+
+IF
+	Global("C02KvelBaeloth1","MYAREA",50)
+	Global("C02KvelBaeloth1_50","MYAREA",0)
+	!CheckStatGT(Player1,40,LORE)
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelBaeloth1","MYAREA",52)
+		SetGlobal("C02KvelBaeloth1_50","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelBaeloth1","MYAREA",0)
+	Switch("C02KvelBaeloth1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Baeloth",~This 'sun' thing is truly unbearable. You stand in front of me and block it with your barbaric build.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~Do you believe I enjoy facing its light any more than you do, sorcerer?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Baeloth",~Well, you have spent longer in this dreadful domain above the dirt, deductively I would assume, absolutely.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Regardless, you can face it head on. Perhaps you'll get more used to it, as I have.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Baeloth",~No, no, no! I have no intention of making my residence in this realm a prolonged phenomenon. Be my walking sun shield, I insist!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",50)
+RESPONSE #51
+	DisplayStringHead("C0Kvel",~...'Z'hind lueth elghr'. ("Drop dead.")~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",60)
+RESPONSE #52
+	DisplayStringHead("C0Kvel",~...'Z'hind lueth elghr'.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Baeloth",~Fine, I will cower behind your corse myself, if that is what it takes to spare me the agony. ...Stop moving, damn you!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelBaeloth1","MYAREA",-1)
+END
+
+// CORWIN
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelCorwin1","MYAREA",0)
+	Switch("C02KvelCorwin1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Corwin",~What do you stand to gain, drow, by signing a contract with the Grand Dukes?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~It was a prudent move to nurture some goodwill among human authority figures. Do you suspect otherwise?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Corwin",~I can't easily trust drow. I especially can't trust mercenaries. What am I supposed to think towards a drow mercenary?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~What you think does not matter. My blade is here fighting at your side. If you cannot accept it, that is your burden to bear.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Corwin",~Fine. I can't complain about any strong hands that'll help us in this fight, regardless of their color.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin1","MYAREA",-1)
+END
+
+IF
+	Global("C02KvelCorwin2","MYAREA",80)
+	Global("C02KvelCorwin2_80","MYAREA",0)
+	InParty("VICONIA")
+	!InParty("BAELOTH")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelCorwin2","MYAREA",81)
+		SetGlobal("C02KvelCorwin2_80","MYAREA",1)
+END
+
+IF
+	Global("C02KvelCorwin2","MYAREA",80)
+	Global("C02KvelCorwin2_80","MYAREA",0)
+	InParty("VICONIA")
+	InParty("BAELOTH")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelCorwin2","MYAREA",83)
+		SetGlobal("C02KvelCorwin2_80","MYAREA",1)
+END
+
+IF
+	Global("C02KvelCorwin2","MYAREA",80)
+	Global("C02KvelCorwin2_80","MYAREA",0)
+	!InParty("VICONIA")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelCorwin2","MYAREA",-1)
+		SetGlobal("C02KvelCorwin2_80","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelCorwin2","MYAREA",0)
+	Switch("C02KvelCorwin2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~You are not eating much, captain.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Corwin",~That sounds like an accusation. Believe me or not, it's got nothing to do with your food. It's just a habit from my training.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~The other soldiers seem to have undergone less severe discipline.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Corwin",~Yes, they do seem to quite enjoy your meals. Enough so that they might even be sorry when you leave.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~Good.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Corwin",~Wait. Is that what your intention is? To gain the trust of the soldiers?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~Is there wrong in that?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("Corwin",~No. It's very good, on the contrary... assuming that's all it is.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",80)
+RESPONSE #81
+	DisplayStringHead("Corwin",~You're very different from the Sharran.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",87)
+RESPONSE #83
+	DisplayStringHead("Corwin",~You're very different from the Sharran. The... loudmouthed spellcaster goes without saying.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",85)
+RESPONSE #85
+	DisplayStringHead("Baeloth",~Hmph!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",87)
+RESPONSE #87
+	DisplayStringHead("C0Kvel",~She takes much and gives little.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",89)
+RESPONSE #89
+	DisplayStringHead("Viconia",~Insult me to my face, jaluk, if you must. This backhanded gossiping is pathetic.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelCorwin2","MYAREA",-1)
+END
+
+// DORN
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelDorn1","MYAREA",0)
+	Switch("C02KvelDorn1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Dorn",~You fight well, drow. But where is the ferocity? The lust for carnage? You cannot possibly enjoy the slaughter with your tepid techniques.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~What use have I for enjoying slaughter?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Dorn",~Why, the thrill of knowing you are stronger than those you crush, of course. The euphoria of knowing that after each kill, one less person threatens your life.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~I have no use for such ephemeral feelings.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Dorn",~Ephemeral? You underestimate the lasting power that comes from the act of killing.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~Dead is dead. I am not so deluded as to believe enough killing will make me invincible. I will die. You will also die.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Dorn",~I do not fear death.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Kvel",~What meaning in the short time we have is something you are an imbecile to disregard. You may end many lives, but yours is already hollow and worthless.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelDorn2","MYAREA",0)
+	Switch("C02KvelDorn2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~It is an absurdity to consider yourself a free man while you are so tightly chained to a dark purpose.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Dorn",~My patron offers me his gifts to kill and conquer as I demand.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~He will tighten his leash soon enough.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Dorn",~Then I will cleave it apart when the time comes.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~That is almost ridiculous enough to make me laugh.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDorn2","MYAREA",-1)
+END
+
+// DYNAHEIR
+
+IF
+	Global("C02KvelDynaheir1","MYAREA",2)
+	Global("C02KvelDynaheir1_2","MYAREA",0)
+	InParty("VICONIA")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelDynaheir1","MYAREA",3)
+		SetGlobal("C02KvelDynaheir1_2","MYAREA",1)
+END
+
+IF
+	Global("C02KvelDynaheir1","MYAREA",2)
+	Global("C02KvelDynaheir1_2","MYAREA",0)
+	!InParty("VICONIA")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelDynaheir1","MYAREA",10)
+		SetGlobal("C02KvelDynaheir1_2","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelDynaheir1","MYAREA",0)
+	Switch("C02KvelDynaheir1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Dynaheir",~Dost thou believe that one day the drow might come to shake off Lolth's manacle, and embrace the light as they once did?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",2)
+RESPONSE #3
+	DisplayStringHead("Viconia",~The witch speaks insanity. Do not tell me you will entertain her fantasies, jaluk.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",5)
+RESPONSE #5
+	DisplayStringHead("Dynaheir",~I didst not ask thee, Viconia.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~To hope and to believe are two very different concepts, witch.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Dynaheir",~Then thou dost desire it?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~That is an absurd question. Would I prefer to be allowed to live as any other surface race could, without the need to face persecution and fear?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~I hardly even need to answer.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Dynaheir",~'Twould be extremely difficult, but not impossible. Even thou, alone, can still make a change.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~That... would be far, far beyond my time.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("Dynaheir",~Thou possesseth a long life. A small difference is still better than none.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Kvel",~You would be better served telling that to my underground kin who are still killing each other, if they would not kill thee first.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelDynaheir2","MYAREA",0)
+	Switch("C02KvelDynaheir2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~Your bodyguard, the berserker...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Dynaheir",~I hope thou dost not intend to ridicule him. Minsc receives too much of that as it is.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~No. Simple and infallible loyalty is a rare trait. You have a valuable gift.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Dynaheir",~That is... complimentary. Though I hope that thou might see him as more than that, given time.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDynaheir2","MYAREA",-1)
+END
+
+// EDWIN
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelEdwin1","MYAREA",0)
+	Switch("C02KvelEdwin1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Edwin",~Your skills in the arcane are like a child playing with an instrument as though it were a toy, drow.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~Magic is a tool. I need only as much of it as it is convenient.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Edwin",~Such an ignorant approach to the arcane arts will surely result in your death from misuse one day, if your arrogance did not kill you first.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Strange. I would have said the same thing for you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Edwin",~And this is the reason I so despite speaking with my lessers.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelEdwin2","MYAREA",0)
+	Switch("C02KvelEdwin2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Edwin",~What future do you see in store once our tedious monkey-work is complete, drow?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~Who knows.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Edwin",~Thay would welcome you. We do not judge by simpleminded notions such as heritage, only merit.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Yet they saw fit to dress you in red robes, only to eventually send you here where they cannot see you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Edwin",~I take back my generous advice. You would not last a day there.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",-1)
+END
+
+// GLINT
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelGlint1","MYAREA",0)
+	Switch("C02KvelGlint1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Glint",~K'Vel! Look up there at that cloud. Doesn't it look a little like a deepbat? And there, look! Watch out, it's a hook horror! No, wait, that's just a gnarled tree.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Glint",~Oh, come on. You can't spend all day and all night staring at the ground. It's not good for you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~I can hear threats from the sides and above. The dangers in the ground can only be seen.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Glint",~No, no, that's my job. I'm shorter and better at this sort of thing than you are.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~You seem more keen to make use of your tongue than your eyes.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Glint",~Not true! I'm looking. Right now. Carefully. With both eyes. Scanning for danger. Waaatchiiing...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint1","MYAREA",61)
+END
+
+IF
+	Global("C02KvelGlint1","MYAREA",61)
+	Global("C02KvelGlint1_61","MYAREA",0)
+	!ModalStateObject("Glint",DETECTTRAPS)
+THEN
+	RESPONSE #100
+		ActionOverride("Glint",FindTraps())
+		PlaySound("ACT_09")
+		SetGlobal("C02KvelGlint1","MYAREA",-1)
+		SetGlobal("C02KvelGlint1_61","MYAREA",1)
+END
+
+IF
+	Global("C02KvelGlint1","MYAREA",61)
+	Global("C02KvelGlint1_61","MYAREA",0)
+	ModalStateObject("Glint",DETECTTRAPS)
+THEN
+	RESPONSE #100
+		PlaySound("ACT_09")
+		SetGlobal("C02KvelGlint1","MYAREA",-1)
+		SetGlobal("C02KvelGlint1_61","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelGlint2","MYAREA",0)
+	Switch("C02KvelGlint2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Glint",~Hey, K'Vel! Hey, hey! What do you call a drow standing watch but struggling to keep his eyelids open?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Glint",~"Drowsy". Get it? It's a double pun because, uh, "drow-see"! I know you really have to stretch the pronunciation to make it work, but, uh...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",8)
+	SetGlobal("C02KvelGlint2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Your jokes are even worse than Ecthel's.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelGlint2","MYAREA",-1)
+END
+
+// JAHEIRA
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelJaheira1","MYAREA",0)
+	Switch("C02KvelJaheira1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Jaheira",~I hope we do not find cause to become enemies one day.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~That would prove highly unfortunate for you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Jaheira",~Not what I had in mind. I believe the natural order requires more drow like you, to bring your kind back to what they once were.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~I am no savior of drowkin. They would sooner kill me, and torture you to death for daring to pity them.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Jaheira",~I hold more discretion for drow than pity. But I cannot deny that what has become of them since their fall is an affront to the cycle.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",60)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~They seem content to continue their own cycle of self-ruination. On my part, I an content to leave them to it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelJaheira2","MYAREA",0)
+	Switch("C02KvelJaheira2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~Why do you continue to look at me that way, druidess?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Jaheira",~I have been thinking that you may have some affinity with the druid's path. Or perhaps a ranger's, with your skills.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~That seems unlikely. I am not Drizzt Do'Urden.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Jaheira",~You were unusually interested and methodical in those wild mushrooms you had gathered.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~I was gathering food material. Most of them were poisonous, and I disposed of them without a care.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelJaheira2","MYAREA",-1)
+END
+
+// KHALID
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelKhalid1","MYAREA",0)
+	Switch("C02KvelKhalid1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Khalid",~I sh–should feel at ease that a skilled f–f–fighter like you have my back. B–but I cannot help but fear you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~What do you not fear?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Khalid",~M–m–more than I would like to. P–perhaps less than I sh... should.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Fear is useful. It keeps you alert. Just do not let it control you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Khalid",~I understand the i–idea. I just... do not feel you d–deserve to be feared.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelKhalid2","MYAREA",0)
+	Switch("C02KvelKhalid2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~You fight holding your shield too far from your body. Bear it closer if you value your life.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Khalid",~I appreciate the advice, b–but you do not fight with a shield. I think I know what I'm d–doing.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~The concept is a basic one. I do not believe you would not know it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Khalid",~Y–yes, but I pr... protect more than my b–body. I m–must be ready to direct it to d–defend a farther t–target. You may not understand.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Khalid",~This shield is not meant for only my... myself.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelKhalid2","MYAREA",-1)
+END
+
+// M'KHIIN
+
+IF
+	Global("C02KvelMkhiin1","MYAREA",2)
+	Global("C02KvelMkhiin1_2","MYAREA",0)
+	InParty("BAELOTH")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelMkhiin1","MYAREA",3)
+		SetGlobal("C02KvelMkhiin1_2","MYAREA",1)
+END
+
+IF
+	Global("C02KvelMkhiin1","MYAREA",2)
+	Global("C02KvelMkhiin1_2","MYAREA",0)
+	!InParty("BAELOTH")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelMkhiin1","MYAREA",10)
+		SetGlobal("C02KvelMkhiin1_2","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelMkhiin1","MYAREA",0)
+	Switch("C02KvelMkhiin1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Mkhiin",~I like you more than the other drow. You talk less.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",2)
+RESPONSE #3
+	DisplayStringHead("Baeloth",~Verily, it is vain to expect a vacuous vermin to properly value a voluminous vocabulary.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",5)
+RESPONSE #5
+	DisplayStringHead("Mkhiin",~Shut up.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~You would be safer not being careless enough to truly 'like' a drow, regardless of your preferences.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Mkhiin",~Fine. I hate you less. Happy?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~I doubt either of us overly care much either way.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Mkhiin",~True.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelMkhiin2","MYAREA",0)
+	Switch("C02KvelMkhiin2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Mkhiin",~You're big.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~I am aware.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Mkhiin",~Bigger goblins are always stupider. Not you. I learned something.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~And what value does that knowledge have for you?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Mkhiin",~It makes you more dangerous.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~You are correct.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Mkhiin",~I'm not scared. You're dangerous to the right people.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMkhiin2","MYAREA",-1)
+END
+
+// MINSC
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelMinsc1","MYAREA",0)
+	Switch("C02KvelMinsc1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~You have a strong arm, ranger.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Minsc",~Of course! Minsc has always been big and strong. Eat, sleep and exercise, and Minsc only ever grows bigger!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~Your strength would be better served with proper technique.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Minsc",~Technique? Boo tells Minsc that all he needs to do is swing hard, and evil will beg for mercy! It has never failed.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~Perhaps I am only wasting my time.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc1","MYAREA",-1)
+END
+
+IF
+	Global("C02KvelMinsc2","MYAREA",11)
+	Global("C02KvelMinsc2_11","MYAREA",0)
+	InParty("DYNAHEIR")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelMinsc2","MYAREA",12)
+		SetGlobal("C02KvelMinsc2_11","MYAREA",1)
+END
+
+IF
+	Global("C02KvelMinsc2","MYAREA",11)
+	Global("C02KvelMinsc2_11","MYAREA",0)
+	!InParty("DYNAHEIR")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelMinsc2","MYAREA",20)
+		SetGlobal("C02KvelMinsc2_11","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelMinsc2","MYAREA",0)
+	Switch("C02KvelMinsc2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~Perhaps I have not given you the respect you deserve, ranger.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~You have technique. It is unrefined and instinctive rather than practiced, but it is there, and not to be underestimated. It is rare for any training partner to knock me into the ground.~) 
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",11)
+RESPONSE #12
+	DisplayStringHead("Dynaheir",~Indeed. Even I was most surprised at Minsc, and I know his ability well.~) 
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Minsc",~Haha! And a mighty blow it was! Though the credit cannot be given entirely to Minsc. It was Boo whom whispered the knowledge of a weakness in K'Vel's stance that allowed me to strike!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",20)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Truly?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",30)
+RESPONSE #40
+	DisplayStringHead("Minsc",~Minsc would never speak a lie! Dynaheir has always called me too simple to make it convincing.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",40)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~Perhaps there is more merit to this madman's words than at first glance...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelMinsc2","MYAREA",-1)
+END
+
+// NEERA
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("bd_neera_plot","GLOBAL",13)
+	GlobalGT("C02KvelNeera1","MYAREA",0)
+THEN
+	RESPONSE #100
+	SetGlobal("C02KvelNeera1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!GlobalGT("bd_neera_plot","GLOBAL",13)
+	GlobalGT("C02KvelNeera1","MYAREA",0)
+	Switch("C02KvelNeera1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Neera",~Hey, K'Vel. Can you explain to me how to be quiet?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Neera",~What? Why aren't you saying any—oh, I get it. Hardy har har—NO, ADOY, I DON'T NEED YOU EXPLAINING IT TO ME, I SAID I GOT IT!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Understanding is simple. Following simple instruction often is not.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Neera",~Pfft, yeah. Don't I know it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelNeera2","MYAREA",0)
+	Switch("C02KvelNeera2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Neera",~K'Vel, you still have a dash of grease on your left cheek.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~Hmm.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Neera",~That's it? You just wipe it off on your sleeve? Not even a thank you?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~As I recall, you insisted on lighting our fire with magic, which was what caused the pot to explode.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Neera",~Oh. Right. I guess I don't deserve one then. I should be relieved you didn't just kill me when it happened.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~The only reason I did not is because I consider the fault my own for agreeing.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelNeera2","MYAREA",-1)
+END
+
+// RASAAD
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelRasaad1","MYAREA",0)
+	Switch("C02KvelRasaad1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~You are exceptional for a human. Had you a longer life to live, you could truly become frightening.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Rasaad",~I do not need to reach such levels of prowess for the sake of it. The strength to live a meaningful life is enough.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~That is respectable.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Rasaad",~What of you? I am certain you have much greater plans in store, given your lifespan.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~I have no such grand plans. In truth, we are the same in spirit, if not pragmatism.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelRasaad2","MYAREA",0)
+	Switch("C02KvelRasaad2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Rasaad",~You are quiet, and often solitary, my friend. Have you considered meditation?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~I meditate, in a sense. Since I lost my ability to reverie, it provides me a measure of peace.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Rasaad",~Yet your mind and spirit appear to be in constant turmoil. Painful memories, I presume?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~You can sense that, I see.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Rasaad",~My training is not merely the perfecting of the body. If you clear away the fog, some comfort may be found from it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~I do not doubt that. But it is not my way.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelRasaad2","MYAREA",-1)
+END
+
+// SAFANA
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelSafana1","MYAREA",0)
+	Switch("C02KvelSafana1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Safana",~Ah, my shoulders ache so. K'Vel, be a darling and massage them. I'm sure those strong hands are good for it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~No.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Safana",~Not even a little bit? I won't even ask you to do it for free. I'll happily take over cooking duty tonight if it pleases you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~That is supposed to be incentive?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Safana",~My cooking skills are not *that* bad...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~They are.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Safana",~I've changed my mind.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelSafana2","MYAREA",0)
+	Switch("C02KvelSafana2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Safana",~I suppose I can't completely blame you for your utter denseness, K'Vel. I can't imagine your mother would have raised you right.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~In that you are correct.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Safana",~You must have a lot of buried resentment. Go on, dear, lay it on me. I'll be your sympathetic ear.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~So that you might threaten to spread my unpleasant secrets for all to know.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Safana",~Not at all! Well... that's not a bad idea, now that I think of it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~Hmph.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Safana",~*sigh* Is a simple, polite "No" too much to ask for?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSafana2","MYAREA",-1)
+END
+
+// VICONIA
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelViconia1","MYAREA",0)
+	Switch("C02KvelViconia1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Viconia",~I strangely pity the matron who spawned you, K'Vel. The process of birthing such a brutish and unsightly drow must have been painful.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~Perhaps I would have been sacrificed, had my house been stronger to afford the loss of an extra soldier.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Viconia",~A thug that substitutes suliss for z'ress. Yes, I can see the circumstances. Your house must have held a rather low position indeed.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~It does not matter. Be our former statuses high or low, we are both here now, at an equal level.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Viconia",~You think yourself equal to me? I have the favor of Shar at by back. What do you have? Nothing, save for an oversized chunk of steel and a half competent mind.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelViconia2","MYAREA",0)
+	Switch("C02KvelViconia2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Viconia",~I hear you had quite the powerful rival, during your life in Eryndlyn.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~True enough.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Viconia",~And you suffered him to live? Not a thought of what threat he posed?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~That which may threaten you might also protect you.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Viconia",~A most un-drowlike belief indeed. Am I to presume you placed... trust in another drow? We cannot even trust our own blood-kin.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",50)
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~You understand precious little of males in our former society. Unlike you, we do not have the luxury of seeking a higher station.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",60)
+RESPONSE #70
+	DisplayStringHead("C0Kvel",~For most, survival is the only ambition, and few can survive alone. With the right incentive, even a drow can wish to the depth of their soul for you to live.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",-1)
+END
+
+IF
+	Global("C02KvelViconia3","MYAREA",21)
+	Global("C02KvelViconia3_21","MYAREA",0)
+	InParty("MKHIIN")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelViconia3","MYAREA",22)
+		SetGlobal("C02KvelViconia3_21","MYAREA",1)
+END
+
+IF
+	Global("C02KvelViconia3","MYAREA",21)
+	Global("C02KvelViconia3_21","MYAREA",0)
+	!InParty("MKHIIN")
+THEN
+	RESPONSE #100
+		SetGlobal("C02KvelViconia3","MYAREA",30)
+		SetGlobal("C02KvelViconia3_21","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelViconia3","MYAREA",0)
+	Switch("C02KvelViconia3","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Viconia",~The abundance of drow within this group is imprudent. Two together is already dangerous. Three is simply absurd. We will be lynched before we know it.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("Baeloth",~Hear, hear. How am I to explicitize my extraordinary existence when I am encompassed by my equivalents?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Baeloth",~This will not do at all. Someone must go.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",21)
+RESPONSE #22
+	DisplayStringHead("Mkhiin",~Can't believe I agree with the drow.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",24)
+RESPONSE #24
+	DisplayStringHead("Baeloth",~No one sought your standpoint, you contemptible creature. I don't even know which of us you're talking about.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",26)
+RESPONSE #26
+	DisplayStringHead("Mkhiin",~I say we give this one the boot.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("Viconia",~You have been quiet all this time, K'Velarin. What are your thoughts? Or does your silence imply you volunteer to part ways?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~I intend to go nowhere, unless I am commanded.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("Viconia",~It is a difficult decision on which is more tolerable, your dull wit or the other one's... too many things to count.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~When you have made up your mind, don't bother to tell me.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia2","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("Viconia",~Charming.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelViconia3","MYAREA",-1)
+END
+
+// VOGHILN
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelVoghiln1","MYAREA",0)
+	Switch("C02KvelVoghiln1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Voghiln",~K'Velarin, my battle-scarred comrade! Do not think all surfacers immediately look upon you with hate.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~And from what did you get the impression I believed so?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Voghiln",~Well, it is natural for drow to distrust our kind, is it not?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~Perhaps you are the one whose mind is clouded with misconceptions.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelVoghiln2","MYAREA",0)
+	Switch("C02KvelVoghiln2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("Voghiln",~A drink, mighty K'Vel?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~That would depend on the drink in question.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("Voghiln",~Only the finest mead, exported from the North, of course!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelVoghiln2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~A nauseatingly-sweet brew. Bah, so be it. Pass the flagon.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("Voghiln",~Good man! Do not be a stranger. Drink as much as you wish.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~*pfft* This is no northern brew. It is a weak replica from a meadery in Luskan.~ [C0KVSF8])
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("Voghiln",~Aye! Er, aye? It is?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Kvel",~I will show you proper mead when we return to camp. Settling for this pathetic imitation is an insult.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Kvel",~It will taste even better with when paired with salted olives and ham.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",90)
+RESPONSE #90
+	DisplayStringHead("Voghiln",~Very well! I did not expect you to have such knowledge of food and drink.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",100)
+RESPONSE #100
+	DisplayStringHead("C0Kvel",~A... former employer was deeply fond of his drink. I learned a few things fortuitously.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",110)
+RESPONSE #110
+	DisplayStringHead("Voghiln",~A–a–aaah, do not spill it! Ach, some of us do not share your exquisite palate...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelVoghiln2","MYAREA",-1)
+END
+
+// SIRENE
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelSirene1","MYAREA",0)
+	Switch("C02KvelSirene1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Kvel",~The greatsword is not a weapon meant for defense.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",3)
+	SetGlobal("C02KvelSirene1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Sirene",~I understand that.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSirene1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Kvel",~Perhaps you have made the wrong choice in arms. Using your body as the shield is no substitute.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSirene1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Sirene",~Nay. But this body lives and breathes, and so when I experience pain as I defer it from others, I know the extent of the suffering I have prevented.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSirene1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~And your life is not worth as much as those you protect?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6) 
+	SetGlobal("C02KvelSirene1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Sirene",~I do not believe any life is inherently worth more or less than another. But I have power, and so I will use it to protect.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",6)
+	SetGlobal("C02KvelSirene1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~Foolish. But still admirable.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelSirene1","MYAREA",-1)
+END
+
+// DRAKE
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelDrake1","MYAREA",0)
+	Switch("C02KvelDrake1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Drake",~Dark one, you are a man of many battles. How many do you remember?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~All of them.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Drake",~I thought as much. I saw it in you, something tempered more firmly than the oldest veterans I have known.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Drake",~When faced with that much death, whether it be others or your own close brushes, nobody can continue without a means to cope.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Kvel",~I, too, have seen as much.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Drake",~Some embrace the killing, and accept the monsters within. Others lose themselves to despair, with even love and life no longer bringing comfort.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",60)	
+RESPONSE #60
+	DisplayStringHead("C0Kvel",~And which do you believe I am, priest?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Drake",~That, I have yet to figure out. I thought I had seen every kind of soldier, yet you continue to elude me.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Drake",~I believe you understand life's worth, yet are willing to let your own go whenever death may come. Why?~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",90)
+RESPONSE #90
+	DisplayStringHead("C0Kvel",~There is no sense in fighting the inevitable.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",100)
+RESPONSE #100
+	DisplayStringHead("C0Drake",~Ah.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelDrake1","MYAREA",-1)
+END
+
+// AURA
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelAura1","MYAREA",0)
+	Switch("C02KvelAura1","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Aura",~K'Vel, we need to talk. It's important.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~I do not believe I have done anything to offend you or your ethics.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Aura",~No, I'm not planning to chide you. I just... woke up hearing you last night.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Aura",~Being quiet won't cut it. I know you were coughing up blood!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~A minor complication. I have my health carefully tended to.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Aura",~"Minor complications" don't result in your blood coming out a sickly purple!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",70)
+RESPONSE #70
+	DisplayStringHead("C0Kvel",~Get to the point.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",80)
+RESPONSE #80
+	DisplayStringHead("C0Aura",~I want to help you. I can only do that if I know what's wrong.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",90)
+RESPONSE #90
+	DisplayStringHead("C0Kvel",~That is impossible.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",100)
+RESPONSE #100
+	DisplayStringHead("C0Aura",~It doesn't matter if it's impossible! I... I know what it's like to have people close to me grow sick and die. I don't ever want to see that again.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",110)
+RESPONSE #110
+	DisplayStringHead("C0Kvel",~You need not be concerned about that. When I die, it will be alone, as it is meant to be.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",120)
+RESPONSE #120
+	DisplayStringHead("C0Aura",~K'Vel!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",120)
+RESPONSE #130
+	DisplayStringHead("C0Kvel",~Enough. I will hear no more of this. Use your talents on someone who still has hope.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",-1)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+  RESPONSE #100
+    SetAreaScript("",GENERAL)
+END

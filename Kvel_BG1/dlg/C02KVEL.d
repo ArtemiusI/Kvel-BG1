@@ -142,18 +142,23 @@ CHAIN C02KVEL KVEL-SOD-START-NEW-8
 ~Then we have little to talk about. Leave.~
 EXIT
 
+CHAIN C02KVEL KVEL-SOD-START-NEW-9
+~Very well. The conditions for my presence here includes assisting you in whatever purpose is necessary. Lead on.~
+EXIT
+
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDStart","GLOBAL",1) Global("C0KvelSoDJoined","GLOBAL",0)~ THEN C02KVEL KVEL-SOD-START
 ~What do you want?~
 END
-  ++ ~I was hoping you'd join me. I need allies at my side when I march against the crusade.~ + KVEL-SOD-START-NEW-7
+  + ~AreaCheck("BD0109")~ + ~I was hoping you'd join me. I need allies at my side when I march against the crusade.~ + KVEL-SOD-START-NEW-7
+  + ~!AreaCheck("BD0109")~ + ~I was hoping you'd join me. I need allies at my side when I march against the crusade.~ + KVEL-SOD-START-NEW-9
   ++ ~Nothing. I'll leave you alone.~ EXIT
 
 CHAIN IF WEIGHT #-1 ~GlobalGT("bd_joined","locals",0)~ THEN C02KVEL KVEL-SOD-PROLOGUE
 ~If you believe it more efficient to split up, I will do so, even if I do not approve of it.~
 END
   ++ ~I know what I'm doing. Just wait here.~ + KVEL-SOD-PROLOGUE-1
-  + ~!AreaCheck("BD0120")
-!AreaCheck("BD0130")
+  + ~GlobalGT("bd_npc_camp_chapter","global",1)
+GlobalLT("bd_npc_camp_chapter","global",5)
 OR(2)
 !Range("ff_camp",999)
 NextTriggerObject("ff_camp")
@@ -168,7 +173,7 @@ CHAIN C02KVEL KVEL-SOD-PROLOGUE-2
 ~As you wish.~
 DO ~JoinParty()~ EXIT
 
-CHAIN IF WEIGHT #-1 ~Global("bd_joined","locals",0)~ THEN C02KVEL KVEL-SOD-PROLOGUE2
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDJoined","GLOBAL",1) Global("bd_joined","locals",0)~ THEN C02KVEL KVEL-SOD-PROLOGUE2
 ~Do you need my service again?~
 END
   ++ ~Yes.~ + KVEL-SOD-PROLOGUE-2

@@ -24,7 +24,7 @@ THEN
 END
 
 IF
-	Global("C0KvelSoDSpawn","MYAREA",0)
+	Global("C0KvelSoDSpawn","GLOBAL",0)
     !BeenInParty("C0KVEL")
 	!Dead("C0KVEL")
 THEN
