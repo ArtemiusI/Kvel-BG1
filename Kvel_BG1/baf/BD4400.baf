@@ -1,0 +1,15 @@
+  
+/* bd4400_commenting.baf */
+/* Comment upon entering Avernus */
+IF
+	GlobalLT("bd_plot","global",505)
+	IfValidForPartyDialog("C0Kvel")  
+	Global("C0Kvel_bd_avernus_bark","bd4400",0) 
+THEN
+	RESPONSE #50  //Remove this if your NPC should say their line always
+		Continue() //Remove this if your NPC should say their line always
+	RESPONSE #50 //change this to #100 if your NPC should say their line always
+		DisplayStringWait("C0Kvel",~...I did not anticipate this when I signed my contract.~) 
+	    SetGlobal("C0Kvel_bd_avernus_bark","bd4400",1)  
+		SmallWait(8)
+END

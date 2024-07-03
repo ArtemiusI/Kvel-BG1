@@ -181,7 +181,8 @@ DO ~SetGlobal("C0KvelCoran1","GLOBAL",1)~
 == BCORAN ~All I want to suggest is, why not embrace what you were blessed with? You already have broken the perception many hold towards the drow... do you realize how much farther you could take it, were you to use your rare charms to the potential that they have?~
 == BC0KVEL ~And become a promiscuous, hedonistic layabout utterly barren of self-respect, such as yourself?~
 == BCORAN ~There's the insults again! Little wonder it is that my kin and all else have so little fondness for the drow, when you yourself are so fond of responding to even a helping hand with an ungrateful slap.~
-== BC0KVEL ~I know not what life you must have lived, but I have no doubt it is either one of either extreme of gratification of emptiness.~
+== BC0KVEL ~I know not what life you must have lived, but I have no doubt it has been an extreme of either gratification of emptiness.~
+== BCORAN ~My life certainly has been blessed with plenty of luck and beauty.~
 == BC0KVEL ~For the bare minimum of respect I have for your inept efforts at a peace offering, I will simply tell you that my own experience is that laying beside one whose intentions are unknown is a sure path to certain death.~
 == BC0KVEL ~Consider that my indifferent advice that may keep you from death one day.~
 EXIT

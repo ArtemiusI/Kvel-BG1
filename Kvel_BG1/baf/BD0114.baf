@@ -1,0 +1,12 @@
+/* bd0114_commenting.baf */
+IF
+	Global("BD_POINT6","BD0114",4)  // Spider Cave: Rhinoceros Beetle appeared
+	StateCheck("BDBEETRH",STATE_REALLY_DEAD)  // Rhinoceros Beetle
+	Global("C0Kvel_BD_BEETLE","BD0114",0)  
+	!GlobalTimerNotExpired("BD_TIMER_RHINOTALK","BD0114")  
+	IfValidForPartyDialog("C0Kvel")  
+THEN
+	RESPONSE #100
+		DisplayStringHead("C0Kvel",~I am no stranger to pest extermination.~)
+		SetGlobal("C0Kvel_BD_BEETLE","BD0114",1)  
+END

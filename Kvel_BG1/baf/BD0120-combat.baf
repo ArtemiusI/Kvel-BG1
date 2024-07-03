@@ -1,0 +1,19 @@
+/* bd0120_commenting_et.baf
+This is a comment in bd0120.are (Korlasz' Crypt) after defeating the first enemies.
+Some NPCs commment on the fight, some on the dungeon.  
+This will be patched to bd0120.bcs via EXTEND_TOP. Originally, only three NPCs will comment. Biff will comment in addition. */
+IF
+	Global("bd_plot","global",10)
+	GlobalGT("bd_mdd000te_ot","bd0120",0)
+	Global("C0Kvel_bd_mdd000te_ot","bd0120",0) //this variable is similar to the ones used in SoD. I don't know what it means! :-)
+	IsValidForPartyDialogue("C0Kvel")  
+THEN
+	RESPONSE #200
+		Continue()
+	RESPONSE #100
+		SetGlobal("C0Kvel_bd_mdd000te_ot","bd0120",1)
+		DisplayStringHead("C0Kvel",~Hmph. Is that all?~)
+		Wait(5)
+		Continue()
+END
+	

@@ -1,0 +1,28 @@
+
+IF
+    Global("C0KvelSoDAndroszAlly","GLOBAL",1)
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+        CreateCreature("C02ANDRO",[615.3394],N)
+        GiveItemCreate("C0KVHE01","C02ANDRO",1,0,0)
+	    ActionOverride("C02ANDRO",XEquipItem("C0KVHE01",Myself,SLOT_HELMET,EQUIP))
+	    ActionOverride("C02ANDRO",XEquipItem("C0KVSW01",Myself,SLOT_WEAPON,EQUIP))
+	    ActionOverride("C02ANDRO",XEquipItem("C0KVSW02",Myself,SLOT_SHIELD,EQUIP))
+        ActionOverride("C02ANDRO",ChangeAIScript("BDADS1",OVERRIDE))
+        ActionOverride("C02ANDRO",ChangeAIScript("BDASC",CLASS))
+        ActionOverride("C02ANDRO",ChangeAIScript("BDSHOUT",RACE))
+        ActionOverride("C02ANDRO",ChangeAIScript("BDFIGH01",GENERAL))
+END
+/* C0Kvel08_patch.baf
+march out of BG city: make Biff move when the coalition start marching out of BG city */
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("xxBiff")  
+		ApplySpellRES("BDSLOW",Myself)  // sets the movement rate to "6" for 15 realtime seconds
+		Wait(2)
+		SmallWait(109)
+		MoveToPoint([1090.1100]) //leave these in or chose a point in direction of the southeast area exit of bd0010.are, depending on where your NPC is waiting.
+END

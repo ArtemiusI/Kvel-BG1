@@ -1353,65 +1353,118 @@ IF
 	InMyArea(Player1)
 	!ActuallyInCombat()
 	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!PartyHasItem("C0AKOKO")
+	GlobalGT("C02KvelAura1","MYAREA",0)
+THEN
+	RESPONSE #100
+	SetGlobal("C02KvelAura1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	PartyHasItem("C0AKOKO")
 	GlobalGT("C02KvelAura1","MYAREA",0)
 	Switch("C02KvelAura1","MYAREA")
 THEN
 RESPONSE #1
-	DisplayStringHead("C0Aura",~K'Vel, we need to talk. It's important.~)
+	DisplayStringHead("C0Aura",~*meow* [CAT01]~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",10)
 RESPONSE #10
-	DisplayStringHead("C0Kvel",~I do not believe I have done anything to offend you or your ethics.~)
+	DisplayStringHead("C0Aura",~Koko-chan? You don't want this? It's your favorite... well, it was last night!~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",20)
 RESPONSE #20
-	DisplayStringHead("C0Aura",~No, I'm not planning to chide you. I just... woke up hearing you last night.~)
+	DisplayStringHead("C0Kvel",~Here. This minnow should substitute will for your dry snacks.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",30)
 RESPONSE #30
-	DisplayStringHead("C0Kvel",~...~)
+	DisplayStringHead("C0Aura",~Careful, K'Vel, he hisses as strangers who—~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",40)
 RESPONSE #40
-	DisplayStringHead("C0Aura",~Being quiet won't cut it. I know you were coughing up blood!~)
+	DisplayStringHead("C0Aura",~*purr* [CAT02]~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",50)
 RESPONSE #50
-	DisplayStringHead("C0Kvel",~A minor complication. I have my health carefully tended to.~)
+	DisplayStringHead("C0Aura",~Whoa! I've never seen him get along with someone so quickly!~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",60)
 RESPONSE #60
-	DisplayStringHead("C0Aura",~"Minor complications" don't result in your blood coming out a sickly purple!~)
+	DisplayStringHead("C0Kvel",~I have... practice.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelAura1","MYAREA",70)
 RESPONSE #70
+	DisplayStringHead("C0Aura",~You're not as scary as you look, K'Vel.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura1","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	GlobalGT("C02KvelAura2","MYAREA",0)
+	Switch("C02KvelAura2","MYAREA")
+THEN
+RESPONSE #1
+	DisplayStringHead("C0Aura",~K'Vel, we need to talk. It's important.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",10)
+RESPONSE #10
+	DisplayStringHead("C0Kvel",~I do not believe I have done anything to offend you or your ethics.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",20)
+RESPONSE #20
+	DisplayStringHead("C0Aura",~No, I'm not planning to chide you. I just... woke up hearing you last night.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",30)
+RESPONSE #30
+	DisplayStringHead("C0Kvel",~...~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",40)
+RESPONSE #40
+	DisplayStringHead("C0Aura",~Being quiet won't cut it. I know you were coughing up blood!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~A minor complication. I have my health carefully tended to.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",60)
+RESPONSE #60
+	DisplayStringHead("C0Aura",~"Minor complications" don't result in your blood coming out a sickly purple!~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelAura2","MYAREA",70)
+RESPONSE #70
 	DisplayStringHead("C0Kvel",~Get to the point.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",80)
+	SetGlobal("C02KvelAura2","MYAREA",80)
 RESPONSE #80
 	DisplayStringHead("C0Aura",~I want to help you. I can only do that if I know what's wrong.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",90)
+	SetGlobal("C02KvelAura2","MYAREA",90)
 RESPONSE #90
 	DisplayStringHead("C0Kvel",~That is impossible.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",100)
+	SetGlobal("C02KvelAura2","MYAREA",100)
 RESPONSE #100
 	DisplayStringHead("C0Aura",~It doesn't matter if it's impossible! I... I know what it's like to have people close to me grow sick and die. I don't ever want to see that again.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",110)
+	SetGlobal("C02KvelAura2","MYAREA",110)
 RESPONSE #110
 	DisplayStringHead("C0Kvel",~You need not be concerned about that. When I die, it will be alone, as it is meant to be.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",120)
+	SetGlobal("C02KvelAura2","MYAREA",120)
 RESPONSE #120
 	DisplayStringHead("C0Aura",~K'Vel!~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",120)
+	SetGlobal("C02KvelAura2","MYAREA",120)
 RESPONSE #130
 	DisplayStringHead("C0Kvel",~Enough. I will hear no more of this. Use your talents on someone who still has hope.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
-	SetGlobal("C02KvelAura1","MYAREA",-1)
+	SetGlobal("C02KvelAura2","MYAREA",-1)
 END
 
 IF

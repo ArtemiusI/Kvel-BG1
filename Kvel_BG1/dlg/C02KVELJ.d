@@ -65,6 +65,7 @@ EXTERN C02KVELJ KVEL-ANDROSZ-4
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDAndroszEvent","GLOBAL",3)~ THEN C02KVC04 KVEL-ANDROSZ2
 ~He's the one! This drow killed our brethren!~
 DO ~SetGlobal("C0KvelSoDAndroszEvent","GLOBAL",4)~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~There he is.~
 == C02ANDRO ~Well... that may be true, but I assure you, I was left with no choice. I truly have no quarrel with you surfacers. Might we talk this over?~
 == C02KVC01 ~You think we're easy to fool, do you? Bring him to Hephernaan, alive or dead. Make sure those loyal to the Shining Lady never hear of this.~
 == C02ANDRO ~*sigh* Surfacers can be so difficult.~
@@ -96,11 +97,92 @@ StartDialogNoSet(Player1)~ EXIT
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDAndroszEvent","GLOBAL",4)~ THEN C02ANDRO KVEL-ANDROSZ3
 ~Ah, if it isn't <CHARNAME>. I greet you, abbil, and I do apologize that you had to witness this regrettable bit of business.~
 DO ~SetGlobal("C0KvelSoDAndroszEvent","GLOBAL",5)~
-== C02ANDRO ~Please, take this. I believe it is a symbol of identification for these crusaders. I have no use for it, but if you wish to infiltrate their ranks, it will no doubt prove useful.~
-DO ~GiveItemCreate("BDMISC04",Player1,1,0,0)~ 
-== C02ANDRO ~Now then, I must be gone. Best of luck to you in this war that is to come.~
+END
+IF ~Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02ANDRO KVEL-ANDROSZ3-1
+IF ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02ANDRO KVEL-ANDROSZ3-2
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-0
+~As you wish, abbil. I will not intrude upon which I am not welcomed. Farewell.~
+EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-1
+~It would seem that our encounters are oft preceded by unfortunate battle. First, your slaying of my brother Jhan, and now this.~
+EXTERN C02ANDRO KVEL-ANDROSZ3-3
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-2
+~Is that surprise at my knowledge of you I see? Well, regardless, I hope you will not treat me with too much suspicion. My house, the noble Zaer'iyon of Eryndlyn, had dealings with the Iron Throne. I even met your brother, Sarevok, though I ultimately declined his offer to take part in the battle he had sought.~
+EXTERN C02ANDRO KVEL-ANDROSZ3-3
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-3
+~But, though you may not believe it, I truly had only intended to observe yours, and my rival K'Velarin's, progress from the shadows. Being discovered by these... crusaders, though they may be more than such, and having to silence them was not my intent.~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~In that, <CHARNAME>, you may believe at least half of what he has said. Observation has always been Androsz's strong point, but being inconspicuous is not.~
+== C02ANDRO IF ~InParty("C0Kvel")~ THEN ~K'Vel, you wound me. With truth, but the cut is no more shallow. I have always left such matters to you, even with your larger appearance.~
+END
+  + ~Global("C0KvelSoDFromBG1","GLOBAL",1)~ + ~You're only here to see the show? Not even going to try and trade a few blows this time?~ EXTERN C02ANDRO KVEL-ANDROSZ3-4
+  + ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ + ~You're acquainted with K'Vel? His rival, I assume?~ EXTERN C02ANDRO KVEL-ANDROSZ3-5
+  ++ ~I already have enough people following me in the shadows. I don't appreciate another one.~ EXTERN C02ANDRO KVEL-ANDROSZ3-0
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-4
+~I have seen K'Velarin's ability for myself already, and it has told me such. There will be a time for me to draw blades against him again, but this moment is still too early.~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~That assumes I will be ready to oblige you when at the 'correct' time.~
+== C02ANDRO IF ~InParty("C0Kvel")~ THEN ~I'll deal with that argument when the time comes, my friend.~
+END
+  IF ~!PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-8
+  IF ~PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-9
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-5
+~Indeed, Androsz Zaer'iyon, weapons master of our noble house of Eryndlyn, and only surviving son of Matron Siv'thra Zaer'iyon. I would have liked to make your acquaintance sooner, had I the opportunity to come in peace.~
+== C02ANDRO IF ~InParty("C0Kvel")~ THEN ~As for my history with K'Velarin, your loyal drow, well... let's just say we are the oldest of friends.~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~'Friends' who never ignored a chance to try to kill each other openly.~
+== C02ANDRO IF ~InParty("C0Kvel")~ THEN ~Is that not the nature of drow? To challenge you with a blade instead of resorting to a knife in the back is already the highest form or respect.~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~...I cannot argue with that.~
+END
+  + ~InParty("C0Kvel")~ + ~Well, I'm glad you two had a chance to meet here, but we're not here for sightseeing.~ EXTERN C02ANDRO KVEL-ANDROSZ3-6
+  ++ ~I would say it's a pleasure to meet you, if you were not admitting to be affiliated with my old enemies.~ EXTERN C02ANDRO KVEL-ANDROSZ3-7
+  ++ ~There's enough strange people watching my progress as it is. Get out before I kill you.~ EXTERN C02ANDRO KVEL-ANDROSZ3-0
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-6
+~Of course, of course. You, the child of a god, have many more important affairs than myself to deal with, I am certain. We have no prior acquaintance, but as you are the friend of my friend, I hope you do well in your endeavor.~
+END
+  IF ~!PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-8
+  IF ~PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-9
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-7
+~I assure you, <CHARNAME>, I have never held any personal misgivings against you in the short time I have known your name. Eryndlyn is a merchant city, and we make dealings with surfacers from time to time. It was mere coincidence that your path and mine crossed. And as you are K'Velarin's commander, my best wishes are with you for the current crisis.~
+END
+  IF ~!PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-8
+  IF ~PartyHasItem("BDMISC04")~ EXTERN C02ANDRO KVEL-ANDROSZ3-9
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-8
+~Please, take this as a show of good faith. I believe it is a symbol of identification for these crusaders. I have no use for it, but if you wish to infiltrate their ranks, it will no doubt prove useful.~
+DO ~GiveItemCreate("BDMISC04",Player1,1,0,0)~
+EXTERN C02ANDRO KVEL-ANDROSZ3-9
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-9
+~Now then, I will waste no more of your precious time. That said, I had a rather enlightening conversation with a certain... transparent friend nearby, which may be of interest to you should she deem you worthy of her presence. A word of advice—sometimes defiance is the right path forward. Best of luck to you in this war that is to come.~
 END
   + ~InParty("C0Kvel")~ + ~Wait, Androsz. Would you be interested in helping us?~ EXTERN C02KVELJ KVEL-ANDROSZ3-JOIN
+  ++ ~What exactly does that mean?~ EXTERN C02ANDRO KVEL-ANDROSZ3-10
+  ++ ~Well, goodbye then, I suppose.~  EXTERN C02ANDRO KVEL-ANDROSZ3-11
+  + ~InParty("C0Kvel")~ + ~Don't think you're going anywhere, drow. Stay and fight!~ EXTERN C02KVELJ KVEL-ANDROSZ3-12
+  + ~!InParty("C0Kvel")~ + ~Don't think you're going anywhere, drow. Stay and fight!~ EXTERN C02ANDRO KVEL-ANDROSZ3-13
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-10
+~I believe it should be clearer given context. I have no doubt you will know what to do. Aluve.~
+DO ~EscapeArea()~ EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-11
+~Aluve, <CHARNAME>. Should you and K'Velarin continue to walk the same path, I have no doubt we will meet again.~
+DO ~EscapeArea()~ EXIT
+
+CHAIN C02KVELJ KVEL-ANDROSZ3-12
+~Don't, <CHARNAME>. It will be the last thing you regret.~
+== C02ANDRO ~K'Velarin has always been the wiser in action between us. I do not hope to stain my blades with the blood of a potential ally. Now then, farewell.~
+DO ~EscapeArea()~ EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ3-13
+~Please calm yourself, <CHARNAME>. I do not hope to stain my blades with the blood of a potential ally. Now then, farewell.~
+DO ~EscapeArea()~ EXIT
 
 CHAIN C02KVELJ KVEL-ANDROSZ3-JOIN
 ~Oh...?~
@@ -179,6 +261,7 @@ CHAIN C02ANDRO KVEL-ANDROSZ3-SPAR-1
 END
   ++ ~Let's spar, then.~ EXTERN C02ANDRO KVEL-ANDROSZ3-SPAR-2
   ++ ~I'm not interested.~ EXTERN C02ANDRO KVEL-ANDROSZ3-SPAR-3
+  ++ ~Maybe later. I'm not ready yet.~ EXTERN C02ANDRO KVEL-ANDROSZ3-SPAR-3
 
 CHAIN C02ANDRO KVEL-ANDROSZ3-SPAR-2
 ~Excellent, abbil. But we must find the appropriate arena, and this place will not do with all the others here. I would prefer to be able to fight without this helmet, as well. Let us find somewhere that we will surely not suffer interruptions. I know just the place.~
@@ -282,8 +365,55 @@ Global("C0KvelSoDAndroszMeet","GLOBAL",1)
 OR(2)
 GlobalLT("C0KvelSoDAndroszSpar","GLOBAL",1)
 GlobalGT("C0KvelSoDAndroszSpar","GLOBAL",3)~ THEN C02ANDRO KVEL-ANDROSZ5
-~I look forward to our opportunity to fight together, abbil.~
+~Is there something you wish, abbil?~
+END
+  ++ ~Can I ask you a few questions?~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q
+  + ~Class(Player1,FIGHTER_ALL)~ + ~Are you still up for sparring? I'm ready now.~ EXTERN C02ANDRO KVEL-ANDROSZ3-SPAR-2
+  ++ ~Not at the moment.~ EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ5-Q
+~Of course. I can make for a better conversation partner than K'Velarin, I'm certain.~
+END
+  + ~Global("C0KvelSoDAndroszQuestion1","GLOBAL",0)~ + ~How did you and K'Velarin come to know each other?~ DO ~SetGlobal("C0KvelSoDAndroszQuestion1","GLOBAL",1)~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q-1
+  + ~Global("C0KvelSoDAndroszQuestion2","GLOBAL",0)~ + ~Tell me about your city, Eryndlyn.~ DO ~SetGlobal("C0KvelSoDAndroszQuestion2","GLOBAL",1)~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q-2
+  + ~Global("C0KvelSoDAndroszQuestion3","GLOBAL",0)~ + ~As a dedicated drow swordsman, what do you know of Drizzt Do'Urden?~ DO ~SetGlobal("C0KvelSoDAndroszQuestion3","GLOBAL",1)~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q-3
+
+CHAIN C02ANDRO KVEL-ANDROSZ5-Q-1
+~I assume he has only told you the bare minimum. Fortunately, I am not he, and I am happy to be more forthcoming.~
+= ~To begin with some context... did you know that Eryndlyn has no true institution for martial training? Menzoberranzan has Melee-Magthere, Ust Natha has its Fighters' Societies... but the various powers within our own city lack the unity to allow for a place where aspiring warriors might come together and hone their skills.~
+= ~By that result, truly skilled drow warriors are few and far between, and though unspoken, are given more value than even female priestesses by the more pragmatic matrons. I recognized my skill with weapons at a young age, and quickly became my mother's favored over my brothers. I was even given the privilege of being exempted from my Blooding, something granted exceptionally rarely.~
+= ~But of course, even a prodigy will lose his edge despite sufficient challenge, and a proper opponent. My early years as my house's warrior were spent slaying inexperienced drow and mindless beasts. It was tedious, and I felt no progress in my ability. Until I met K'Velarin.~
+= ~It was when my mother entrusted me with the task of eliminating a minor house named Au'dayrr, which had seemingly gained some noteworthy influence and could become a potential threat. I did not expect much from my opponents, and for the most part, my expectations were matched... until I encountered an opponent who did not fall within my second or third strike.~
+= ~A warrior, perhaps two heads taller than myself, so heavyset I doubted I was fighting a drow. I had the edge in experience and training, but his sheer size and the reach of his greatsword were an obstacle I had never been challenged with. Neither of us could get the edge over each other as we matched each other blow for blow.~
+= ~In the end, the enemy house managed to repel our forces. I had been too confident in our victory, and brought too few soldiers to the battle. For the first time I could recall, the matron was furious with me. I only managed to quell her anger by proposing an alliance with the house we had just invaded. And to prove it, I brought my worthy opponent, K'Velarin, to the great hall of House Zaer'iyon to duel him upon a stage, in front of my entire house and his.~
+= ~The battle was magnificent. Like a dance, I struck with my dual blades, and he matched with his greatsword. From one round to two, to five, then ten, twenty... eventually, I lost count. There was no doubt I was the superior warrior at the time, though only slightly. Yet no matter how many cuts I made over him, he simply would not fall.~
+= ~And so, in the end, when neither of us could raise our weapons any longer, we called the match a draw. But I believe we both won that day. For we had found something invaluable, an equal to whom we could use to improve our skills to the zenith, and with whom an unspoken bond of trust had been forged in our merciless, yet fundamentally honest battle.~
+= ~Perhaps it was eventually too much. I have always wondered if my mother feared our alliance, and if my younger brother's act of poisoning K'Velarin was at her order... but it does not matter now. I was glad to see K'Velarin still alive and well. One day, we will have our proper, and final, test of skill.~
 EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ5-Q-2
+~Well... that will be quite the wordy tale. I will give you the short version, with only the parts that are relevant.~
+= ~Our origins are not the same as of other drow cities. Eryndlyn was founded by drow whom sought to reclaim their lost lands when Lolth was originally banished from the Seldarine, starting from Miyeritar, an ancient land once inhabited by the dark elves.~
+= ~Since those who built our great city never fully subscribed to the Spider Queen's doctrines, other powers managed to grab a foothold and shape the place as it is today. The spawns of Ghaunadaur, masked servants of Vhaeraun, and, most of all, the merchant lords whom controlled trade... as well as the Jaezred Chaulssin, the assassins' guild, founded by males who seek to eradicate Lolth's influence over we drow.~
+= ~Our city suffers more greatly from infighting than any other, and drow houses are dissolved as quickly as they are built. It is quite the chaotic place to live, you can be certain of that. In truth, I respect much of the stability of surface life, for all the passivity of humans that I see.~
+= ~But, it is for those same reasons that even males can become greatly valued, should they provide exceptional skills of worth to their matrons. I have been able to afford more liberties by my station as Eryndlyn's top swordsman, something male drow of any society would envy.~
+EXIT
+
+CHAIN C02ANDRO KVEL-ANDROSZ5-Q-3
+~The drow renegade of Menzoberranzan. Indeed, I do know his reputation, as well as some of his history.~
+= ~We have never met, but I have always idolized his father, the legendary weapons master Zaknafein. 'Tis a shame that few drow will speak of his name, and his legacy is unknown by surfacers at all. Though the fact that his offspring carries on his lessons and style is... close to enough.~
+= ~Drow have always believed that to achieve supremacy means to discard weak emotions and embrace the inherent cruelty of our kind. Zaknafein Do'Urden did not, and neither did his son, yet they became some of the most legendary swordsmen ever to come of drow society.~
+= ~Perhaps that is why I, also, have a foolish belief in a similar path. But whether I have a chance to follow it... well, that is yet to be known.~
+EXIT
+
+CHAIN IF ~GlobalLT("bd_plot","global",450)
+Dead("bdashati")
+Global("C0KvelSoDAndroszPostBattle","GLOBAL",0)~ THEN C02ANDRO ANDROSZ-POSTBATTLE
+~Well, a most thrilling battle that was, and a satisfying victory it will be once it is truly over.~
+DO ~SetGlobal("C0KvelSoDAndroszPostBattle","GLOBAL",1)~
+== C02ANDRO ~I have played my part, abbil, and I believe the rest is up to you. Though I would like to see it to the end, I think it would be better for all involved if I make my exit now.~
+== C02ANDRO ~Ensure K'Velarin's safety if you can. I'm sure we will meet again some day.~
+DO ~EscapeArea()~ EXIT
 
 // ALYTH
 
@@ -296,6 +426,19 @@ DO ~SetGlobal("C0KvelSoDAlythTalk","GLOBAL",1)~
 == C02KVELJ ~Of that I am painfully aware. In any case... your generosity is appreciated. I will be sure to repay you appropriately.~
 == BDALYTH ~Outside of all the patrons that have come in for the new menu, you can repay me by bringing down that crusade so everything goes back to normal. Safe travels.~
 EXIT
+
+// ASHATIEL
+
+I_C_T BDASHATI 5 C0KvelAshatiel
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~A duel to decide the lives of those who serve you? There truly is a fine line between confidence and arrogance. If that is all it takes, then I can simply take this challenge instead.~
+== BDASHATI ~Begone from my sight, dark elf. I will not accept any substitutions for the godchild. Your presence alone speaks ill of <PRO_HISHER> character.~
+END
+
+// BRIDGEFORT
+
+I_C_T BDKHALIJ 33 C0KvelBridgeFortBetrayal
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~You and the drow are not so different, sacrificing so much for a temporary convenience.~
+END
 
 // CLOVISTA
 
@@ -318,6 +461,12 @@ END
 CHAIN C02KVELJ KVEL-DANINE
 ~Too many wasted movements. This one has the reflexes to fight well. She merely needs to learn how to force an opportunity and then strike efficiently.~
 EXTERN BDDANINE 6
+
+// DARNAS
+
+I_C_T BDDARNAS 5 C0KvelDarnas
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~Wholly unprepared for the very cause they signed their life for. How inane this all was.~
+END
 
 // GARROLD
 
@@ -354,13 +503,31 @@ INTERJECT BDHELVDA 26 C0KvelHelvdarPersuade
 == BDHELVDA ~Argh, don't go besmirchin' my good name like that, elf! Fine, fine...~
 EXTERN BDHELVDA 27
 
+// HALASAN
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDTrainingQuest","GLOBAL",1)~ THEN C02KVELJ KVEL-TRAINING
+~This instructor's training methods are inefficient.~
+DO ~SetGlobal("C0KvelSoDTrainingQuest","GLOBAL",2)~
+== C02KVELJ ~She only expects of them a standard soldier, and cannot identify their individual shortcomings. At this rate, they will only be a liability on the battlefield.~
+END
+  ++ ~Do you have experience training soldiers, K'Vel?~ EXTERN C02KVELJ KVEL-TRAINING-1
+  ++ ~You're a veteran soldier, as I recall. Can you give these trainees some tips?~ EXTERN C02KVELJ KVEL-TRAINING-2
+  ++ ~Watch me. I'll whip this lot into shape in no time.~ EXIT
+
+CHAIN C02KVELJ KVEL-TRAINING-1
+~The standards for typical drow soldiers in Eryndlyn are... poor, at best. An experienced warrior, especially one whom can impart knowledge in an effective manner, is greatly valued by any house.~
+= ~I certainly was not allowed to live all my years in the Underdark though appearance or status.~
+END
+  ++ ~Then could you give these people the sort of guidance they need?~ EXTERN C02KVELJ KVEL-TRAINING-2
+  ++ ~You just stand back and watch. I'll turn these rookies into experts myself.~ EXIT
+
+CHAIN C02KVELJ KVEL-TRAINING-2
+~If you cannot see the necessary way of instructing any of these short-lived warriors-to-be, I will give advice as needed. It will not win us the war on its own, but they may survive.~
+EXIT
+
 // HESTER
 
-EXTEND_TOP BDHESTER 6 #3
-+ ~InParty("C0Kvel")~ + ~K'Vel, it seems like you have a thought on this.~ EXTERN C02KVELJ KVEL-HESTER
-END
-
-EXTEND_TOP BDHESTER 7 #3
+EXTEND_TOP BDHESTER 6 7 #3
 + ~InParty("C0Kvel")~ + ~K'Vel, it seems like you have a thought on this.~ EXTERN C02KVELJ KVEL-HESTER
 END
 
@@ -396,6 +563,52 @@ SetGlobal("BD_TRAINED_HESTER","BD3000",1)
 IncrementGlobal("BD_TROOPS_TRAINED","BD3000",1)
 MoveToPointNoInterrupt([198.882])
 Face(W)~ EXIT
+
+// KAELET
+
+EXTEND_BOTTOM BDKAELET 3
++ ~InParty("C0Kvel")~ + ~K'Vel, do you have any advice, having spent some years on the surface?~ EXTERN C02KVELJ KVEL-KAELET
+END
+
+CHAIN C02KVELJ KVEL-KAELET
+~Surely you jest. What was successful for me is hardly a justification alone, and I had the advantage of more years of experience.~
+EXTERN BDKAELET KVEL-KAELET-1
+
+CHAIN BDKAELET KVEL-KAELET-1
+~You're an *ugly* drow, aren't you? Did your matron sire you with an orc?~
+== C02KVELJ ~...~
+== BDUMAR ~Kaelet? Maybe you shouldn't have said that... if looks could kill...~
+== BDKAELET ~...S–sorry.~
+== C02KVELJ ~That attitude will not get you far on the surface. Others may not respond with something as merciful as a simple look. How far will your bond carry you in a dangerous world in which you know nothing?~
+== BDKAELET ~Well...~
+== C02KVELJ ~That said, this will not change even if you wait another year, or a hundred. You may as well judge whether this elopement is worth it now, before it is too late.~
+== BDUMAR ~Perhaps he has a point... Kaelet, I can't promise you nothing will happen to me if we go back. If we're really thinking of escaping and live on the surface, we have to decide now.~
+== BDKAELET ~Ugh. I've always hated decisions and responsibilities. That's why I never cared about being a priestess either. I decided we wanted to run, so that's what we're going to do.~
+== C02KVELJ ~Fine.~
+== C02KVELJ ~They may survive. The chances are not entirely favorable. But it is possible.~
+== BDKAELET ~Yes! We're going right now, Umar!~
+END
+  + ~Global("bd_sdd318_drows_hostile","bd5100",1)~ + ~Be on your way, then. I slew the war band that was seeking you.~ EXTERN BDKAELET 13
+  ++ ~We still need to figure out what to say to Shapur.~ EXTERN BDKAELET 11
+  + ~CheckStatGT(Player1,13,CHR)~ + ~I can't let you wander off to die in the darkness. You must return to your families—it's the right thing to do.~ EXTERN BDUMAR 8
+  + ~!CheckStatGT(Player1,13,CHR)~ + ~I can't let you wander off to die in the darkness. You must return to your families—it's the right thing to do.~ EXTERN BDUMAR 10
+  + ~Global("bd_sdd318_plot","bd5100",3)
+Global("bd_sdd318_drows_hostile","bd5100",0)
+CheckStatGT(Player1,13,STR)~ + ~No, you won't, because you're going back to Shapur right now. Cease your whining and go to the northern cavern where she waits.~ EXTERN BDUMAR 8
+  + ~Global("bd_sdd318_plot","bd5100",3)
+Global("bd_sdd318_drows_hostile","bd5100",0)
+!CheckStatGT(Player1,13,STR)~ + ~No, you won't, because you're going back to Shapur right now. Cease your whining and go to the northern cavern where she waits.~ EXTERN BDUMAR 10
+  ++ ~I was hoping you'd talk them down, not encourage them.~ EXTERN C02KVELJ KVEL-KAELET-2
+
+CHAIN C02KVELJ KVEL-KAELET-2
+~You asked me for advice, and I have given it. I left the Underdark with no attachments. Whether they have any is on them.~
+EXTERN BDUMAR 10
+
+// KORLASZ
+
+I_C_T2 BDKORLAS 5 C0KvelKorlasz
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~Enough talk. Let us end this.~
+END
 
 // LLUIS
 
@@ -477,6 +690,105 @@ CHAIN C02KVELJ KVEL-TAIELD
 == C02KVELJ ~Then you know what to do.~
 EXTERN BDTAIELD 6
 
+// Thrix the Profane
+
+EXTEND_BOTTOM BDTHRIX 21 26 30 34 38 42 46 50 54 58 62 66 70 74 78 82 86 90
+IF ~Global("C02_Saved_Kvel","bd4500",0)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager1
+END
+
+EXTEND_BOTTOM BDTHRIX 22 27 31 35 39 43 47 51 55 59 63 67 71 75 79 83 87 91 #1
+IF ~Global("C02_Saved_Kvel","bd4500",0)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager1
+END
+
+EXTEND_BOTTOM BDTHRIX 23 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 #10
+IF ~Global("C02_Saved_Kvel","bd4500",0)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager1
+END
+
+EXTEND_BOTTOM BDTHRIX 24 29 33 37 41 45 49 53 57 61 65 69 73 77 81 85 89 93 #5
+IF ~Global("C02_Saved_Kvel","bd4500",0)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager1
+END
+
+
+
+CHAIN BDTHRIX ThrixWager1
+~The drow is a most fascinating mortal indeed. Few others of his like in both strength and philosophy. He would make an excellent enforcer, if not more.~
+END
+++ ~Fine. If I lose, I'll surrender K'Vel's contract over to you.~ DO ~SetGlobal("C02KvelSacrifice","bd4500",1) SetGlobal("bd_thrix_sacrifice_companion","global",1)~ EXTERN BDTHRIX 116
+++ ~Absolutely not. The drow is still of great use to me. If we are to play this game, choose another.~ DO ~SetGlobal("C02_Saved_Kvel","bd4500",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ EXTERN C02KvelJ ThrixWager2
+++ ~K'Vel is my responsibility, and he has loyally served me thus far. In return, I would prefer to be an honest employer. We can gamble, but we will wager my soul.~ EXTERN BDTHRIX 113
+++ ~I'll not play your twisted game, devil. Stand aside, or pay the price.~ EXTERN BDTHRIX 12
+
+CHAIN C02KvelJ ThrixWager2
+~Do not place my life of greater value than any other in this place. This is a foolish gamble to wager on, and pointless.~
+== BDTHRIX ~Hmm. I always believed drow had more interesting characters, willing to grasp for power at any cost. Very well, onto the next...~
+END
+IF ~RandomNum(4,1)~ EXTERN BDTHRIX 78
+IF ~RandomNum(4,2)~ EXTERN BDTHRIX 79
+IF ~RandomNum(4,3)~ EXTERN BDTHRIX 80
+IF ~RandomNum(4,4)~ EXTERN BDTHRIX 81
+
+EXTEND_BOTTOM BDTHRIX 118
+IF ~Global("C02KvelSacrifice","bd4500",1)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager4
+END
+
+EXTEND_BOTTOM BDTHRIX 119
+IF ~Global("C02KvelSacrifice","bd4500",1)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager4
+END
+
+EXTEND_BOTTOM BDTHRIX 120
+IF ~Global("C02KvelSacrifice","bd4500",1)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager4
+END
+
+EXTEND_BOTTOM BDTHRIX 121
+IF ~Global("C02KvelSacrifice","bd4500",1)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager4
+END
+
+EXTEND_BOTTOM BDTHRIX 122
+IF ~Global("C02KvelSacrifice","bd4500",1)
+IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager4
+END
+
+CHAIN BDTHRIX ThrixWager4
+~Yes, with a few decades of tempering, this drow would be a more fearsome menace still. I can already see the rivers of blood spilling...~
+= ~And, for extra incentive, that nasty plague running through your blood will be no trouble once the transfiguration into devilhood begins. I am a generous master, no?~
+END
+++ ~Well, K'Vel, I suppose you have a new master now..~ DO ~SetGlobal("C02_thrix_mark_kvel","global",1)~ EXTERN C02KvelJ ThrixWager5
+++ ~I'll make a river of blood out of your entrails first, fiend!~ EXTERN BDTHRIX 10
+
+CHAIN C02KvelJ ThrixWager5
+~Begone, fiend. Extend a hand to claim me, and you will withdraw a bloody stump.~
+DO ~SetGlobal("bd_thrix_plot","global",11)~ EXTERN BDTHRIX 140
+
+CHAIN IF WEIGHT #-1 ~Global("C02KvelSacrifice","bd4500",1)~ THEN C02KVELJ ThrixTalk0
+~...tch.~
+END
+++ ~Sorry about that. I didn't think he was serious.~ DO ~SetGlobal("C02KvelSacrifice","bd4500",2)~ + ThrixTalk1
+++ ~Well, let's get going. Unless you have some thoughts.~ DO ~SetGlobal("C02KvelSacrifice","bd4500",2)~ + ThrixTalk1
+++ ~I couldn't exactly give up my soul if I had an alternative. I hope you understand.~ DO ~SetGlobal("C02KvelSacrifice","bd4500",2)~ + ThrixTalk2
+
+CHAIN C02KvelJ ThrixTalk1
+~I have nothing more to say.~
+= ~The only reason I will not kill you is because you are still needed. After then, there are no guarantees.~
+DO ~SetGlobal("C0KvelSoDAngry","GLOBAL",1)~ EXIT
+
+CHAIN C02KvelJ ThrixTalk2
+~Better than you hope.~
+EXTERN C02KvelJ ThrixTalk1
+
+// TIAX
+
+I_C_T BDTIAX 38 C0KvelTiax
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~It is for the better of all that this reprobate never leaves.~
+END
+
 // TRISTIAN
 
 EXTEND_BOTTOM BDTRISTI 14
@@ -486,6 +798,12 @@ END
 CHAIN C02KVELJ KVEL-TRISTIAN
 ~So be it. I will treat this as a typical game of sava.~
 EXTERN BDTRISTI 15
+
+// TSOLAK
+
+I_C_T BDTSOLAK 2 C0KvelTsolak
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~By simply assessment of risk, the fanatics may still be worthy of more trust than this creature.~
+END
 
 // WILHELMINA
 
@@ -498,12 +816,65 @@ I_C_T BDWILHEL 11 C0KvelWilhemina
 == BDWILHEL ~I heard that!~
 END
 
+// WYNAN
+
+EXTEND_BOTTOM BDWYNAN 14
++ ~InParty("C0Kvel")~ + ~Yes. K'Vel, would you know how to perform the spell?~ EXTERN C02KVELJ KVEL-WYNAN
+END
+
+CHAIN C02KVELJ KVEL-WYNAN
+~I have enough arcane knowledge for this, at least.~
+DO ~SetGlobal("BD_SDD200","GLOBAL",3)
+SetGlobal("BD2100GL","GLOBAL",3)
+SetGlobal("C0_sdd200_kvel","bd2100",1)
+StartCutSceneMode()
+ClearAllActions()
+StartCutSceneEx("C02KVCV1",FALSE)~ EXIT
+
+EXTEND_BOTTOM BDWYNAN 21
+IF ~Global("C0_sdd200_kvel","bd2100",1)~ EXTERN C02KVELJ KVEL-WYNAN2
+END
+
+CHAIN C02KVELJ KVEL-WYNAN2
+~Not yet.~
+EXTERN BDWYNAN 22
+
+EXTEND_BOTTOM BDWYNAN 23
+IF ~Global("C0_sdd200_kvel","bd2100",1)~ DO ~SetGlobal("C0KvelSoDKillWraith","GLOBAL",1)
+AddXPObject(Player1,3000)
+AddXPObject(Player2,3000)
+AddXPObject(Player3,3000)
+AddXPObject(Player4,3000)
+AddXPObject(Player5,3000)
+AddXPObject(Player6,3000)
+AddJournalEntry(61739,QUEST_DONE)
+ClearAllActions()
+StartCutSceneMode()
+ActionOverride("C0Kvel",MoveToObject("BDWRAITH"))
+ActionOverride("C0Kvel",SetSequence(SEQ_ATTACK_SLASH))
+ActionOverride("C0Kvel",PlaySound("HIT_02A"))
+ActionOverride("C0Kvel",Kill("BDWRAITH"))
+ActionOverride("C0Kvel",Wait(1))
+ActionOverride("C0Kvel",FaceObject("BDWYNAN"))
+ActionOverride("C0Kvel",Wait(2))
+AddExperienceParty(2000)
+Wait(4)
+StartDialogNoSet(Player1)~ EXIT
+END
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDKillWraith","GLOBAL",1)~ THEN BDWYNAN KVEL-WYNAN3
+~...eh?~
+DO ~SetGlobal("C0KvelSoDKillWraith","GLOBAL",2)~
+== C02KVELJ ~A mage's instinct alone only takes one so far.~
+== BDWYNAN ~Ah. Yes, well... I am no warrior, so—*ahem* In any case...~
+EXTERN BDWYNAN 25
+
 // TALK ABOUT LOVE - AFTER SEEING CROMMUS AND CARLINE
 
-CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDLOVE-TALK","GLOBAL",1)~ THEN C02KVELJ KVEL-LOVE-TALK
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDLoveTalk","GLOBAL",1)~ THEN C02KVELJ KVEL-LOVE-TALK
 ~They do seem to idealize eternal love on the surface. I often wonder if it is a good thing.~
 = ~Perhaps one might find comfort in it, wherever they find themselves after death. Still, it seems to cause as much suffering as joy.~
-DO ~SetGlobal("C0KvelSoDLOVE-TALK","GLOBAL",2)~
+DO ~SetGlobal("C0KvelSoDLoveTalk","GLOBAL",2)~
 END
   + ~Global("BD_SDD124_DONE","GLOBAL",1)~ + ~Enough to drive a soul mad, it seems.~ + KVEL-LOVE-TALK-1
   + ~Global("BD_SDD124_DONE","GLOBAL",2)~ + ~It was still worth it in the end, no?~ + KVEL-LOVE-TALK-1
@@ -730,7 +1101,7 @@ END
   ++ ~Fine. Whether you live or die is your choice. Just don't make it my problem if your affliction slows you down.~ + KVEL-POISON-TALK-20
 
 CHAIN C02KVELJ KVEL-POISON-TALK-17
-~You have more than enough problems without adding mine to your plate. And why should your concern over this be greater than mine?~
+~You have more than enough problems without adding mine to your plate. And why should your concern over this be greater than my own?~
 EXTERN C02KVELJ KVEL-POISON-TALK-20
 
 CHAIN C02KVELJ KVEL-POISON-TALK-18
@@ -776,7 +1147,7 @@ EXTERN C02KVELJ KVEL-DRINK-TALK-4
 
 CHAIN C02KVELJ KVEL-DRINK-TALK-4
 ~In truth, I assumed my presence there would only be brief, yet they were uncharacteristically insistent that I say. Perhaps the fact many of them were already drunk had something to do with it.~
-= ~Perhaps I had put myself in unnecessary danger, but I wished to see what kind of welcome I would receive outside the battlefield. A foolish decision, it seems.~
+= ~Thinking back, I had put myself in unnecessary danger, but I wished to see what kind of welcome I would receive outside the battlefield. A foolish decision, it seems.~
 END
   ++ ~I don't think so. It seems you found some common ground with them.~ + KVEL-DRINK-TALK-5
   ++ ~You weren't afraid they'd take advantage of you dropping your guard?~ + KVEL-DRINK-TALK-6
@@ -805,9 +1176,21 @@ CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDFinalTalk","GLOBAL",1)~ THEN C02KVELJ KVEL
 ~The war is over. I presume the celebration is to follow.~
 DO ~SetGlobal("C0KvelSoDFinalTalk","GLOBAL",2)~
 END
+IF ~Global("C0KvelSoDAngry","GLOBAL",1)~ EXTERN C02KVELJ KVEL-FINAL-TALK-ANGRY
+IF ~!Global("C0KvelSoDAngry","GLOBAL",1)~ EXTERN C02KVELJ KVEL-FINAL-TALK-HAPPY
+
+CHAIN C02KVELJ KVEL-FINAL-TALK-ANGRY
+~Do not think I have forgotten your deeds within there, however. You are fortunate we are here, where there is no way for me to kill you without reprisal.~
+= ~I will take my leave of you now. If we meet again, I may sever your head from your shoulders... but I doubt I will care enough to seek you. May we never meet again.~
+DO ~LeaveParty()
+EscapeArea()~ EXIT
+
+CHAIN C02KVELJ KVEL-FINAL-TALK-HAPPY
+~I am a person of war and conflict. I have little interaction with peace, yet... perhaps it is not intolerable.~
+END
   ++ ~Feel like getting drunk with the other soldiers again?~ + KVEL-FINAL-TALK-1
   ++ ~You're right. Time to savor the victory.~ + KVEL-FINAL-TALK-2
-  ++ ~I'm not into these kinds of events.~ + KVEL-FINAL-TALK-3
+  ++ ~I'm not into these kinds of events either.~ + KVEL-FINAL-TALK-3
   ++ ~What will do you do now?~ + KVEL-FINAL-TALK-4
 
 CHAIN C02KVELJ KVEL-FINAL-TALK-1
@@ -827,7 +1210,7 @@ CHAIN C02KVELJ KVEL-FINAL-TALK-4
 END
   ++ ~What?~ + KVEL-FINAL-TALK-5
   ++ ~But you're part of the victory too.~ + KVEL-FINAL-TALK-6
-  ++ ~I see. I hope you'll stay for the feast, at least~ + KVEL-FINAL-TALK-7
+  ++ ~I see. I hope you'll stay for the feast, at least.~ + KVEL-FINAL-TALK-7
 
 CHAIN C02KVELJ KVEL-FINAL-TALK-5
 ~I have little interest in basking in the glory of human victories. It has never been my preference.~
@@ -851,6 +1234,7 @@ EXTERN C02KVELJ KVEL-FINAL-TALK-9
 
 CHAIN C02KVELJ KVEL-FINAL-TALK-9
 ~This has been the first time I have served under a capacity more than a simple contract. It has... not been a poor experience, all things considered. I would not be opposed to working together with you once more, should the need arise.~
+DO ~GiveItemCreate("C02KVM01",Player1,1,0,0)~
 = ~When that time comes, deliver this coin to any tavern proprietor within the Sword Coast, or even as far as Amn. Its origins are elaborate, and I will spare you the boredom of its story at this moment.~
 = ~Should I be within its borders, as I most likely will be, it will reach me in time. And I will know to find you.~
 = ~And so, our association reaches its end for now, <CHARNAME>. But I expect we will see each other again sooner than we expect. May you live well, and... aluve.~

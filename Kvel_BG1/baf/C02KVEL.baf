@@ -1,3 +1,18 @@
+// DUCAL PALACE
+
+IF
+	Global("bd_plot","global",55)
+	Global("C0Kvel_bd_55","bd0103",0)
+	InParty("C0Kvel") 
+	AreaCheck("bd0103")
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("C0Kvel",JumpToPoint([660.220])) //Somewhere near the small table by the stairs. For example Minsc: [568.270]
+		ActionOverride("C0Kvel",Face(NE))
+		SetGlobal("C0Kvel_bd_55","bd0103",1)
+END	
+
 // ANDROSZ
 
 IF
@@ -10,6 +25,30 @@ RESPONSE #100
 	SetInterrupt(FALSE)
 	Wait(1)
 	SetGlobal("C0KvelSoDAndroszEvent","GLOBAL",1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// TRAINING
+
+IF
+	InParty(Myself)
+	Global("BD_TROOP_TRAIN","BD3000",1)
+	GlobalLT("BD_TROOPS_TRAINED","BD3000",6)
+	OR(6)
+	See("BDCLOVIS")
+	See("BDDANINE")
+	See("BDHESTER")
+	See("BDGARROL")
+	See("BDMORLIS")
+	See("BDTAIELD")
+	Global("C0KvelSoDTrainingQuest","GLOBAL",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelSoDTrainingQuest","GLOBAL",1)
 	StartDialogueNoSet(Player1)
 	SetInterrupt(TRUE)
 END
@@ -30,11 +69,47 @@ RESPONSE #100
 	SetInterrupt(TRUE)
 END
 
-// DRINKTALK
+// DRINK TALK
 
 IF
 	InParty(Myself)
 	Global("C0KvelSoDDrinkTalk","GLOBAL",1)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+// POISON TALK
+
+IF
+	InParty(Myself)
+	!AreaCheck("BD3000")
+	GlobalGT("chapter","GLOBAL",9)
+	AreaType(OUTDOOR)
+	PartyRested()
+	Global("C0KvelSoDPoisonTalk","GLOBAL",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	SetGlobal("C0KvelSoDPoisonTalk","GLOBAL",1)
+	ClearAllActions()
+	StartCutSceneMode()
+	StartCutScene("C02KVC08")
+	SetInterrupt(TRUE)
+END
+
+// THRIX
+
+IF
+	InParty(Myself)
+	AreaCheck("BD4300")
+	Global("C02KvelSacrifice","bd4500",1)
 	CombatCounter(0)
 THEN
 RESPONSE #100
@@ -60,7 +135,6 @@ RESPONSE #100
 	StartDialogueNoSet(Player1)
 	SetInterrupt(TRUE)
 END
-
 
 // BANTERS
 
@@ -1309,6 +1383,32 @@ THEN
 		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
 		SetGlobal("C02KvelAura","LOCALS",2)
 	    SetGlobal("C02KvelAura1","MYAREA",1)
+		SetAreaScript("C02KVELB",GENERAL)
+		SetInterrupt(TRUE)
+		SetSequence(SEQ_HEAD_TURN)
+END
+
+IF
+	OR(2)
+		Global("C02KvelAura_DEBUG","GLOBAL",1)
+		GlobalTimerExpired("C02KvelAuraTalk","LOCALS")
+	OR(2)
+		Global("C02KvelAura_DEBUG","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	GlobalGT("C0KvelSoDPoisonTalk","GLOBAL",0)
+	Global("C02KvelAura","LOCALS",2)
+	IsValidForPartyDialog(Myself)
+	IsValidForPartyDialog("C0Aura")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		BanterBlockTime(450)
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("C02KvelAura","LOCALS",3)
+	    SetGlobal("C02KvelAura2","MYAREA",1)
 		SetAreaScript("C02KVELB",GENERAL)
 		SetInterrupt(TRUE)
 		SetSequence(SEQ_HEAD_TURN)

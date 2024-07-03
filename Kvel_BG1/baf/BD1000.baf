@@ -22,3 +22,20 @@ THEN
     ActionOverride("C0Kvel",SetDialogue("C02KVEL"))
     Continue()
 END
+
+/* bd1000_commenting.baf: 
+Reaction to Caelar */
+
+IF
+	Global("bd_plot","global",170) //after talking to Bence, this will be at Global("bd_plot","global",175) 
+	Global("C0Kvel_bd_mdd016b","bd1000",0)
+	!GlobalTimerNotExpired("bd_mdd016b_timer","bd1000") //timer to space the NPC comments
+	IsValidForPartyDialog("C0Kvel")  
+	TriggerOverride("C0Kvel",Detect(Player1))
+THEN
+	RESPONSE #100
+		SetGlobal("C0Kvel_bd_mdd016b","bd1000",1)
+		SetGlobalTimer("bd_mdd016b_timer","bd1000",ONE_ROUND)
+		DisplayStringHead("C0Kvel",~Hmph. Who is she truly trying to fool?~)  
+    Continue()
+END

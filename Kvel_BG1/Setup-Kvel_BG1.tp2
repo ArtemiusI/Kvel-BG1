@@ -27,3 +27,38 @@ REQUIRE_PREDICATE GAME_IS ~BGEE EET~ AND GAME_INCLUDES ~SOD~ ~This mod requires 
 
 INCLUDE ~%MOD_FOLDER%/lib/kvel_bg1.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/kvel_sod.tpa~
+
+/* EET compatibility: Biff is an BG1 (SoD) NPC only. His name will be mentioned on EET's fate spirit in ToB, but he will not be summonable (like all NPCs that didn't join the group in BGII). */
+
+ACTION_IF FILE_EXISTS_IN_GAME ~C0AS#P01.SPL~ THEN BEGIN
+COPY ~%MOD_FOLDER%/cre/C0Kvel.cre~ ~override~
+REMOVE_MEMORIZED_SPELL ~SPCL423~
+ADD_KNOWN_SPELL ~C0AS#P01~ #1 ~INNATE~
+ADD_MEMORIZED_SPELL ~C0AS#P01~ #1 ~INNATE~ (1)
+COPY ~%MOD_FOLDER%/cre/C02Kvel.cre~ ~override~
+REMOVE_MEMORIZED_SPELL ~SPCL423~
+ADD_KNOWN_SPELL ~C0AS#P01~ #1 ~INNATE~
+ADD_MEMORIZED_SPELL ~C0AS#P01~ #1 ~INNATE~ (1)
+END
+
+ACTION_IF GAME_IS ~eet~ BEGIN
+  INCLUDE ~EET/other/EET_functions.tph~ //this function will be in the player's own EET folder
+  LAF ~EET_NPC_TRANSITION~ 
+    INT_VAR
+      type = 1 //Biff is only available in BG:EE/SoD. Adapt this if needed; including the additional STR_VARs
+    STR_VAR
+      dv = "C0Kvel" //Biff's scriptname (death variable)
+      override_BG1 = "C0Kvel" /* OVERRIDE script in BG:EE. Put your NPC's BG:EE script here UNLESS you use the same script for BG:EE and SoD 
+(adds a "destruct in Chapter greater than 7" scriptblock, for example if your NPC was spawned in BG:EE but was never in party (although "BeenInParty" is not being checked by this scriptblock)). 
+If your NPC is SoD only like Biff, leave this open. */
+      override_SoD = "C02Kvel" //OVERRIDE script in SoD. This will add a "DestroySelf()" in Chapter greater than 13 to the SoD script.
+      traFile = "%MOD_FOLDER%/tra/%LANGUAGE%/GAME-C0KVEL.tra" //path to the text line for the ToB Fate Spirit summoning
+      string = "@0" /* ~Bring me Biff the Understudy.~ */ //from the above specified tra file
+      stringPosDV = "Korgan" //Name after which Biff's should be put into the order of reply options at the fate spirit summoning dialogue. 
+/* From the "Modder's Notes for Baldur's Gate: Enhanced Edition Trilogy (EET)":
+      //Aerie, Ajantis, Alora, Anomen, Baeloth, Branwen, Cernd, Coran, Corwin, Dorn, Dynaheir, Edwin, Eldoth, Faldorn, Garrick,
+      //Glint, HaerDalis, Hexxat, Imoen2, Jaheira, Jan, Kagain, Keldorn, Khalid, Kivan, Korgan, MKhiin, Mazzy, Minsc, Montaron,
+      //Nalia, Neera, Quayle, Rasaad, Safana, SharTeel, Skie, Tiax, Valygar, Viconia, Voghiln, Wilson, Xan, Xzar, Yeslick, Yoshimo
+      //variable not set (default) = NPC name appended at the end of summoning list */
+  END
+END	
