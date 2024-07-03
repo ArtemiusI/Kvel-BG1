@@ -367,7 +367,10 @@ GlobalLT("C0KvelSoDAndroszSpar","GLOBAL",1)
 GlobalGT("C0KvelSoDAndroszSpar","GLOBAL",3)~ THEN C02ANDRO KVEL-ANDROSZ5
 ~Is there something you wish, abbil?~
 END
-  ++ ~Can I ask you a few questions?~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q
+  + ~OR(3)
+  Global("C0KvelSoDAndroszQuestion1","GLOBAL",0)
+  Global("C0KvelSoDAndroszQuestion2","GLOBAL",0)
+  Global("C0KvelSoDAndroszQuestion3","GLOBAL",0)~ + ~Can I ask you a few questions?~ EXTERN C02ANDRO KVEL-ANDROSZ5-Q
   + ~Class(Player1,FIGHTER_ALL)~ + ~Are you still up for sparring? I'm ready now.~ EXTERN C02ANDRO KVEL-ANDROSZ3-SPAR-2
   ++ ~Not at the moment.~ EXIT
 
