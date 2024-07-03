@@ -512,7 +512,7 @@ EXTERN C0KVELJ KVEL-TALK1-10
 
 CHAIN C0KVELJ KVEL-TALK1-7
 ~Trust should never be given unconditionally. But you seem to at least recognize one must know things of whom they wish to place trust towards. In which case, I will introduce myself properly, so that you are under no illusions of what I am.~
-DO ~SetGlobal("C0KvelBG1Background","GLOBAL",1)~ EXTERN C0KVELJ KVEL-TALK1-10
+EXTERN C0KVELJ KVEL-TALK1-10
 
 CHAIN C0KVELJ KVEL-TALK1-8
 ~What I feel does not matter now. All I desire to know is whether you are prepared for the possibility of placing your life in my hands.~
@@ -527,6 +527,7 @@ EXIT
 
 CHAIN C0KVELJ KVEL-TALK1-10
 ~I am K'Velarin. I was born in the city of Eryndlyn, within the Underdark. My house was once Au'dayrr, a minor power. I raised my first sword the day I grew to match its height and killed my first sapient opponent when I was eight, long before my Blooding. I have been trained to fight since as long as I can remember.~
+DO ~SetGlobal("C0KvelBG1Background","GLOBAL",1)~ 
 = ~I fled to the surface under pain of death seven years ago, and sold my sword to whoever might offer. Ecthel found and hired me after my second year, and I had served him until the end of our contract. Now, I serve you by the strength of my word.~
 = ~And with that, I have told you as much as I have any other surfacer who has sought my services. What you make of it, and of my worth, is up to you.~
 EXIT
