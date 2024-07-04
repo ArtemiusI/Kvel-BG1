@@ -13,6 +13,20 @@ THEN
 		SetGlobal("C0Kvel_bd_55","bd0103",1)
 END	
 
+/* This goes into Biff's SoD OVERRIDE script */
+/* bd1000: Biff comments on the explosion on the bridge  */
+IF
+	GlobalTimerNotExpired("bd_caelar_timer","bd1000")
+	AreaCheck("bd1000")
+	IsValidForPartyDialog(Myself)
+	Detect(Player1)	
+	Global("C0Kvel_SoDbridge","bd1000",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C0Kvel_SoDbridge","bd1000",1)
+		DisplayStringHead(Myself,~The bridge is beyond repair.~)
+END
+
 // ANDROSZ
 
 IF
@@ -74,7 +88,6 @@ END
 IF
 	InParty(Myself)
 	Global("C0KvelSoDDrinkTalk","GLOBAL",1)
-	CombatCounter(0)
 THEN
 RESPONSE #100
 	SetInterrupt(FALSE)
@@ -88,6 +101,7 @@ END
 IF
 	InParty(Myself)
 	!AreaCheck("BD3000")
+	RandomNum(3,1)
 	GlobalGT("chapter","GLOBAL",9)
 	AreaType(OUTDOOR)
 	PartyRested()
@@ -101,6 +115,34 @@ RESPONSE #100
 	ClearAllActions()
 	StartCutSceneMode()
 	StartCutScene("C02KVC08")
+	SetInterrupt(TRUE)
+END
+
+// CURE TALK
+
+IF
+	InParty(Myself)
+	!See("C02KVM01")
+	Global("C0KvelSoDKnowsTear","GLOBAL",1)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	StartDialogueNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+IF
+	InParty(Myself)
+	Global("C0KvelSoDKnowsTear","GLOBAL",2)
+	PartyHasItem("C02KVM02")
+	!See([ENEMY])
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	Wait(1)
+	StartDialogueNoSet(Player1)
 	SetInterrupt(TRUE)
 END
 

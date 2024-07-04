@@ -4,7 +4,7 @@ THEN
   RESPONSE #100
 	CutSceneId(Player1)
 	FadeToColor([0.0],0)
-	ActionOverride("C0Kvel",ApplyDamage(Myself,5,STUNNING))
+	ActionOverride("C0Kvel",ApplySpellRES("C0KVSP07",Myself))
 	PlaySound("C0KVSF9")
 	FadeFromColor([30.0],0)
 	Wait(2)

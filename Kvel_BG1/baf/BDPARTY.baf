@@ -11,7 +11,7 @@ THEN
     RESPONSE #3
         EscapeAreaMove("bd7100",300,3190,SE)  // Troll Forest
     RESPONSE #4
-        EscapeAreaMove("bd3000",1121,191,NE)  // Allied Siege Camp
+        EscapeAreaMove("bd3000",2025,1647,NE)  // Allied Siege Camp
 END
 
 IF
@@ -29,6 +29,6 @@ THEN
         SaveLocation("LOCALS","bd_default_loc",[300.3190])
     RESPONSE #4
         SetGlobal("bd_npc_camp","locals",2)
-        SaveLocation("LOCALS","bd_default_loc",[1121.191])
+        SaveLocation("LOCALS","bd_default_loc",[2025.1647])
         ChangeAIScript("bdasc3",CLASS)
 END

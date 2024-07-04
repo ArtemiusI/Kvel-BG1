@@ -1120,6 +1120,102 @@ CHAIN C02KVELJ KVEL-POISON-TALK-20
 = ~Now, enough of this. Though I have nothing to prove it, talking... *cough*... has, in my experience only led to more frequent occurrences of this pain.~
 EXIT
 
+// SoD Quest
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDKnowsTear","GLOBAL",1)~ THEN C02KVELJ KVEL-CURE-TALK
+~...~
+DO ~SetGlobal("C0KvelSoDKnowsTear","GLOBAL",2)~
+== C02KVELJ ~What a bunch of nonsense.~
+END
+  ++ ~You just learned of a potential cure. Don't you have the slightest bit of hope?~ + KVEL-CURE-TALK-1
+  ++ ~It may be nonsense, but there's no reason to discredit it entirely. Let's keep our eyes open.~ + KVEL-CURE-TALK-2
+  ++ ~This is none of my business anyway. If we do find such an item, I may not even be willing to share.~ + KVEL-CURE-TALK-3
+
+CHAIN C02KVELJ KVEL-CURE-TALK-1
+~Hope is dangerous. Especially if rediscovered after given up for lost. I see no reason to let this change my current perspective.~
+EXTERN C02KVELJ KVEL-CURE-TALK-2
+
+CHAIN C02KVELJ KVEL-CURE-TALK-2
+~I will remember what we have learned, but I shall not be overly optimistic. Things will be as they have been.~
+EXIT
+
+CHAIN C02KVELJ KVEL-CURE-TALK-3
+~Do as you please. I have lived my life as I wished, and that will not change regardless of how much of a future I have.~
+EXIT
+
+CHAIN IF WEIGHT #-1 ~PartyHasItem("C02KVM02")
+Global("C0KvelSoDKnowsTear","GLOBAL",2)~ THEN C02KVELJ KVEL-CURE-TALK2
+~So this is the Tear of Elysium.~
+DO ~SetGlobal("C0KvelSoDKnowsTear","GLOBAL",3)~
+== C02KVELJ ~It hardly appears anything special. A pretty trinket, at most.~
+END
+  ++ ~It could really have the healing properties we heard of. Aren't you going to at least try?~ + KVEL-CURE-TALK2-1
+  ++ ~We've found it. Whether you want to use it or not is up to you.~ + KVEL-CURE-TALK2-1
+  ++ ~Since you don't seem to care much about it, hand it over.~ + KVEL-CURE-TALK2-2
+
+CHAIN C02KVELJ KVEL-CURE-TALK2-1
+~I did not hold any expectations, but now that it is in front of me, I may as well.~
+= ~Presumably, I can simply dissolve it in water and then consume the mixture.~
+DO ~ClearAllActions()
+StartCutSceneMode()
+MoveViewObject(Myself,BD_SLOW)
+Wait(2)
+PlaySound("GAM_07")
+Wait(2)
+ApplySpellRES("C0KVSP08",Myself)
+Wait(2)
+FaceObject(Player1)
+Wait(1)
+StartDialogNoSet(Player1)~ EXIT
+
+CHAIN C02KVELJ KVEL-CURE-TALK2-2
+~Hmph. Take it. Your self-serving nature is clear, but it matters little to me.~
+EXIT
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDKnowsTear","GLOBAL",3)~ THEN C02KVELJ KVEL-CURE-TALK3
+~...~
+DO ~SetGlobal("C0KvelSoDKnowsTear","GLOBAL",4)~
+== C02KVELJ ~*breathes* Haah...~
+END
+  ++ ~How do you feel? Any better?~ + KVEL-CURE-TALK3-1
+  ++ ~Well? Did it do anything?~ + KVEL-CURE-TALK3-1
+  ++ ~Don't leave me in suspense. Say something!~ + KVEL-CURE-TALK3-2
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-1
+~You may be met with some disappointment.~
+EXTERN C02KVELJ KVEL-CURE-TALK3-2
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-2
+~I can still feel the familiar ache within my bones. My life remains shortened.~
+END
+  ++ ~So it didn't do anything?~ + KVEL-CURE-TALK3-3
+  ++ ~That priest was a fraud!~ + KVEL-CURE-TALK3-3
+  ++ ~It must have helped you somehow.~ + KVEL-CURE-TALK3-4
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-3
+~No, not quite.~
+EXTERN C02KVELJ KVEL-CURE-TALK3-4
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-4
+~I feel... slightly improved. Better than I was before my last case of heavy internal bleeding. Taken from the Outer Planes? I doubt it, but this was undoubtedly a brilliant remedy. The priest was not so senile after all, it seems.~
+= ~It is simply far too late for me, as I feared and expected all along. This may have been better served to save someone else. But there is no turning back time, sadly.~
+END
+  ++ ~Not necessarily. You may have more time now.~ + KVEL-CURE-TALK3-5
+  ++ ~You're right. What's done is done.~ + KVEL-CURE-TALK3-6
+  ++ ~What a waste. And there's only one left in the world.~ + KVEL-CURE-TALK3-7
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-5
+~And it should make a difference in my perspective, for now I have gone from an unknown amount of years to—what, the same plus ten, perhaps?~
+EXTERN C02KVELJ KVEL-CURE-TALK3-6
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-6
+~I never truly expected to be saved. This was a diversion, nothing more. Do not see what has occurred as some sort of failure.~
+EXIT
+
+CHAIN C02KVELJ KVEL-CURE-TALK3-7
+~The world may perhaps seem kinder if fewer wasted their years seeking twisted miracles.~
+EXTERN C02KVELJ KVEL-CURE-TALK3-6
+
 // DRINK TALK - AFTER RESTING IN COALITION CAMP
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDDrinkTalk","GLOBAL",1)~ THEN C02KVELJ KVEL-DRINK-TALK

@@ -33,14 +33,29 @@ END
 
 IF
     GlobalGT("bd_plot","GLOBAL",393)
-    Global("C0KvelSoDAndroszAllySpawn","MYAREA",1)
+    OR(2)
+    InMyArea("C02ANDRO")
+    InMyArea("C02KVM01")
 THEN
 RESPONSE #100
 	SetInterrupt(FALSE)
-	SetGlobal("C0KvelSoDAndroszAllySpawn","MYAREA",2)
     ActionOverride("C02ANDRO",DestroySelf())
+    ActionOverride("C02KVM01",DestroySelf())
 	SetInterrupt(TRUE)
 END
+
+IF
+    Global("C0KvelSoDPoisonTalk","GLOBAL",2)
+    Global("C0KvelSoDQuest","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0KvelSoDQuest","GLOBAL",1)
+    CreateCreature("C02KVM01",[1885.75],S)
+    ActionOverride("C02KVM01",Dialog(Player1))
+	SetInterrupt(TRUE)
+END
+
 
 IF
   Global("C0KvelSoDSpawn","GLOBAL",1)
@@ -50,7 +65,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("C0Kvel_MoveCamp","MYAREA",1)
-    MoveGlobal("bd3000","C0Kvel",[1121.191]) 
+    MoveGlobal("bd3000","C0Kvel",[2025.1647]) 
     ActionOverride("C0Kvel",Face(NE))
     ReallyForceSpellDeadRES("bdrejuve","C0Kvel")
     ChangeEnemyAlly("C0Kvel",NEUTRAL)
