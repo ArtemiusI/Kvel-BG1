@@ -17,7 +17,7 @@ RESPONSE #100
 END
 
 IF
-	AreaCheck("AR4809")
+	AreaCheck("%bg1_eet_symbol%4809")
 	!BeenInParty("C0KVEL")
 	GlobalGT("Chapter","GLOBAL",3)
 THEN

@@ -994,7 +994,7 @@ END
 
 CHAIN C0KVELP KVEL-KICKED-1
 ~So be it. I will return to the Elfsong Tavern and wait for you there, as the proprietor has offered to help to hide my presence from other humans.~
-DO ~EscapeAreaMove("AR0112",548,239,NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
+DO ~EscapeAreaMove("%bg1_eet_symbol%0112",548,239,NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",1)~ THEN C0KVELP KVEL-REJOIN
 ~You are back. I am prepared to honor my contract and rejoin you should you require my service.~

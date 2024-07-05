@@ -11,7 +11,7 @@ Global("C0KvelSoDQuest","GLOBAL",1)~ THEN C02KVM01 QUEST
 DO ~SetGlobal("C0KvelSoDQuest","GLOBAL",2)~ EXTERN C02KVM01 QUEST-1
 
 CHAIN IF WEIGHT #-1 ~GlobalGT("C0KvelSoDQuest","GLOBAL",1)~ THEN C02KVM01 QUEST
-~Forgive me, but as you can see, the conditions of these soldiers is truly terrible. Unless you are of even worse health, I cannot spare anything for you right now.~
+~Forgive me, but as you can see, the conditions of these soldiers are truly terrible. Unless you are of even worse health, I cannot spare anything for you right now.~
 END
 IF ~InParty("C0Kvel")
 See("C0Kvel")

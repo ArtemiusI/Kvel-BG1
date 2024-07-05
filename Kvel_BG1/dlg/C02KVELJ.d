@@ -1245,7 +1245,7 @@ CHAIN C02KVELJ KVEL-DRINK-TALK-3
 EXTERN C02KVELJ KVEL-DRINK-TALK-4
 
 CHAIN C02KVELJ KVEL-DRINK-TALK-4
-~In truth, I assumed my presence there would only be brief, yet they were uncharacteristically insistent that I say. Perhaps the fact many of them were already drunk had something to do with it.~
+~In truth, I assumed my presence there would only be brief, yet they were uncharacteristically insistent that I stay. Perhaps the fact many of them were already drunk had something to do with it.~
 = ~Thinking back, I had put myself in unnecessary danger, but I wished to see what kind of welcome I would receive outside the battlefield. A foolish decision, it seems.~
 END
   ++ ~I don't think so. It seems you found some common ground with them.~ + KVEL-DRINK-TALK-5
@@ -1257,7 +1257,7 @@ CHAIN C02KVELJ KVEL-DRINK-TALK-5
 EXTERN C02KVELJ KVEL-DRINK-TALK-8
 
 CHAIN C02KVELJ KVEL-DRINK-TALK-6
-~Do you think I would not consider that? Fortunately, those that I considered potentially threatening were down on the ground long before I staggered back to my tent.~
+~Do you think I would not consider that? Fortunately, those that I believed potentially threatening were down on the ground long before I staggered back to my tent.~
 EXTERN C02KVELJ KVEL-DRINK-TALK-8
 
 CHAIN C02KVELJ KVEL-DRINK-TALK-7

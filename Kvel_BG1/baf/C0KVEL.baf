@@ -160,7 +160,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR0123")
+	AreaCheck("%bg1_eet_symbol%0123")
 	Dead("C0KVDR02")
 	Dead("C0KVDR04")
 	Dead("C0KVDR05")
@@ -179,7 +179,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR0700")
+	AreaCheck("%bg1_eet_symbol%0700")
 	OR(3)
 	See("Door0724")
 	See("Door0725")
@@ -202,7 +202,7 @@ END
 
 IF
 	InParty(Myself)
-	AreaCheck("AR0615")
+	AreaCheck("%bg1_eet_symbol%0615")
 	Global("C0KvelDeadOxley","GLOBAL",1)
 	See("C0KVNP05")
 	CombatCounter(0)

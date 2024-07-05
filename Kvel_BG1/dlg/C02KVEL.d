@@ -144,7 +144,7 @@ EXIT
 
 CHAIN C02KVEL KVEL-SOD-START-NEW-9
 ~Very well. The conditions for my presence here includes assisting you in whatever purpose is necessary. Lead on.~
-EXIT
+DO ~SetGlobal("C0KvelSoDJoined","GLOBAL",1) JoinParty()~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDStart","GLOBAL",1) Global("C0KvelSoDJoined","GLOBAL",0)~ THEN C02KVEL KVEL-SOD-START
 ~What do you want?~

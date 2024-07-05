@@ -172,15 +172,15 @@ Weight: 4~
 COPY_EXISTING ~C0KVS201.ITM~ ~OVERRIDE~
 SAY NAME1 ~Two-handed Sword~
 SAY NAME2 ~Galeforce +3~
-SAY DESC ~This two-handed sword is larger and heavier than even other blades of its type, and is based off the drow greatsword Vhanz'ress, or Galeforce in the Common tongue, only forged from dwarven adamantite rather than adamantine. Though massive and practically impossible to wield except for those of exceptional strength and build, the enchantments on the weapon make it far swifter than its appearance suggests, allowing for its wielder to overwhelm their target with a rapid and heavy onslaught of blows as though a manifestation of a violent windstorm.
+SAY DESC ~This two-handed sword is larger and heavier than even other blades of its type, and is based off the drow greatsword Vhanz'ress—or Galeforce in the Common tongue—only forged from dwarven adamantine rather than adamantite. Though massive and practically impossible to wield except for those of exceptional strength and build, the enchantments on the weapon make it far swifter than its appearance suggests, allowing for its wielder to overwhelm their target with a rapid and heavy onslaught of blows as though a manifestation of a violent windstorm.
 
-As a replica of K'Vel's original weapon which was destroyed when he first came to the surface, it is especially comfortable in his hands, and he is practiced enough in its use that he may wield it particularly effectively with exceptional technique and no wasted movements while attacking.
+As a near-perfect replica of K'Vel's original weapon which became dust after he first reached the surface, it is especially comfortable in his hands, and he is practiced enough in its use that he may wield it more effectively, with unmatched technique and no wasted movements while attacking.
 
 STATISTICS:
 
 Equipped abilities:
 – 1 extra attack per round
-– When wielded by K'Vel, he gains 1/2 extra attack per round, +10% Critical Hit Chance, and will never critically miss
+– When wielded by K'Vel, he gains an additional half attack per round, +10% Critical Hit Chance, and will never critically miss
 
 THAC0: +3
 Damage: 1d12+3 (slashing)

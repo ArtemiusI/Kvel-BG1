@@ -4,7 +4,7 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("C0KvelAngeloTorture","GLOBAL",3)
-		MoveGlobal("AR1100","C0KVEL",[2020.866])
+		MoveGlobal("%bg1_eet_symbol%1100","C0KVEL",[2020.866])
         SmallWait(1)
         ApplySpellRES("C0KVSP04","C0KVEL")
 END
