@@ -13,3 +13,17 @@ RESPONSE #100
 	SetGlobal("C0KvelYeslickRestTalk1","GLOBAL",1)
 	ActionOverride("YESLICK",Interact("C0KVEL"))
 END
+
+IF
+	InParty(Myself)
+	RandomNum(3,1)
+	RealGlobalTimerExpired("C0KvelTalk2RealTimer","GLOBAL")
+	GlobalTimerExpired("C0KvelTalk2Timer","GLOBAL")
+	Global("C0KvelBG1Talk2","GLOBAL",0)
+THEN
+RESPONSE #100	
+	SetGlobal("C0KvelBG1Talk2","GLOBAL",1)
+	ClearAllActions()
+	StartCutSceneMode()
+	StartCutScene("C0KVC16")
+END

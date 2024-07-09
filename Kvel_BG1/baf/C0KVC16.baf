@@ -1,0 +1,19 @@
+IF
+	True()
+THEN
+  RESPONSE #100
+	CutSceneId(Player1)
+	FadeToColor([30.0],0)
+	Wait(4)
+	FadeFromColor([30.0],0)
+	Wait(2)
+	MoveViewObject("C0KVEL",BD_SLOW)
+	Wait(2)
+	PlaySound("GAM_05")
+	Wait(2)
+	PlaySound("GAM_05")
+	Wait(2)
+	ActionOverride("C0Kvel",FaceObject(Player1))
+	Wait(2)
+	ActionOverride("C0Kvel",StartDialogNoSet(Player1))
+END

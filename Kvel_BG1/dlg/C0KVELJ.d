@@ -414,8 +414,11 @@ END
 
 CHAIN C0KVELJ KVEL-OXLEY-9
 ~A drow city such as Menzoberranzan or Ust Natha indeed would not. But if it were drow from Eryndlyn, or even Ched Nasad... that is a different story.~
-= ~In places where the watchful eyes of Lolth's followers are fewer, drow seek power from more material sources. Wealth and connections... and for the pragmatic, they see only profit in dealing with similarly unscrupulous groups. Even surfacers.~
-= ~I have mentioned that the drow assassin before was of House Zaer'iyon. That is a house of Eryndlyn, one with powerful merchant associates. It would not be unheard of for association with a group such as the Iron Throne to seem appealing.~
+== VICONJ IF ~InParty("Viconia")~ THEN ~And what am I then, jaluk? Chopped dro'vk?~
+== BAELOTHJ IF ~InParty("Baeloth")~ THEN ~Correctly, my current concordat is but a matter of convenience, in lieu of preferable possibilities.~
+== C0KVELJ IF ~OR(2) InParty("Viconia") InParty("Baeloth")~ THEN ~Present company, with no supporting house to lean upon, does not count.~
+== C0KVELJ ~In places where the watchful eyes of Lolth's followers are fewer, drow seek power from more material sources. Wealth and connections... and for the pragmatic, they see only profit in dealing with similarly unscrupulous groups. Even surfacers.~
+== C0KVELJ ~I have mentioned that the drow assassin before was of House Zaer'iyon. That is a house of Eryndlyn, one with powerful merchant associates. It would not be unheard of for association with a group such as the Iron Throne to seem appealing.~
 END
   ++ ~And this man was their intermediary, or something similar. But why kill him?~ + KVEL-OXLEY-10
   ++ ~We don't have time for speculation. Let's get a move on.~ + KVEL-OXLEY-11
@@ -531,3 +534,88 @@ DO ~SetGlobal("C0KvelBG1Background","GLOBAL",1)~
 = ~I fled to the surface under pain of death seven years ago, and sold my sword to whoever might offer. Ecthel found and hired me after my second year, and I had served him until the end of our contract. Now, I serve you by the strength of my word.~
 = ~And with that, I have told you as much as I have any other surfacer who has sought my services. What you make of it, and of my worth, is up to you.~
 EXIT
+
+// TALK 2
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelBG1Talk2","GLOBAL",1)~ THEN C0KVELJ KVEL-TALK2
+~I see you've yet to sleep, <CHARNAME>.~
+DO ~SetGlobal("C0KvelBG1Talk2","GLOBAL",2)~
+END
+  + ~Race(Player1,ELF)~ + ~We are elves. The reverie is how we recover from the day's toils. Do you not reverie as well?~ + KVEL-TALK2-ELF
+  ++ ~I wasn't tired yet, and wanted to see what you were doing.~ + KVEL-TALK2-1
+  ++ ~You're not sleeping either.~ + KVEL-TALK2-1
+  ++ ~What is it you're reading?~ + KVEL-TALK2-1
+  ++ ~I was just about to.~ + KVEL-TALK2-0
+
+CHAIN C0KVELJ KVEL-TALK2-ELF
+~...~
+= ~I have not experienced reverie since first coming to the surface.~
+END
+  ++ ~That is usually a sign of mental or physical malady. Are you alright?~ + KVEL-TALK2-ELF-1
+  ++ ~I heard many drow have a more difficult time going into reverie. Is that the case for you as well?~ + KVEL-TALK2-ELF-2
+  ++ ~Fair enough. What are you doing right now then?~ + KVEL-TALK2-1
+
+CHAIN C0KVELJ KVEL-TALK2-ELF-1
+~It is of no concern. You can be satisfied in knowing that my condition is more than hale enough to serve as your sellsword for as long as is required.~
+EXTERN C0KVELJ KVEL-TALK2-1
+
+CHAIN C0KVELJ KVEL-TALK2-ELF-2
+~What you have heard is not untrue. But my case is... different. It is nothing for you to concern yourself with.~
+EXTERN C0KVELJ KVEL-TALK2-1
+
+CHAIN C0KVELJ KVEL-TALK2-0
+~Hmm. Then I will return to my reading.~
+EXIT
+
+CHAIN C0KVELJ KVEL-TALK2-1
+~I was familiarizing myself with some of the more common texts in human lands. This has been a common habit for me since coming to the surface, initially to nurture my understanding of Common so that I may survive.~
+= ~In time, I suppose you could consider this becoming a more personal interest. With my history, I fully expect to finish my life here, and so I may as well be more knowledgable of your literatures and customs.~
+END
+  + ~GlobalLT("chapter","GLOBAL",6)~ + ~You like to read? I should introduce you to my old home of Candlekeep.~ + KVEL-TALK2-2
+  ++ ~So what book are you going through now? I may know of it.~ + KVEL-TALK2-3
+  + ~!InParty("Viconia")~ + ~I expected you might look down on surfacers and our ways.~ + KVEL-TALK2-4
+  + ~InParty("Viconia")~ + ~I expected you might look down on surfacers and our ways.~ + KVEL-TALK2-5
+  
+CHAIN C0KVELJ KVEL-TALK2-2
+~The great library. Yes, its reputation is known even to myself. Ecthel often expressed an interest to venture there, though its typical price of admission was always too much even for him. Though whether it is worthy of its name may depend on the value they place on books such as these.~
+EXTERN C0KVELJ KVEL-TALK2-3
+
+CHAIN C0KVELJ KVEL-TALK2-3
+~You may find this one as amusing as I have. It is a 'historical' record of the drow, penned by a surface scribe who has undoubtedly never seen a single drow in their short lifetime. "The Descent"... what an absurd rendition of the past.~
+= ~There is one indisputable truth written in its pages, though it does not give it the emphasis it deserves. The greatest enemy of the drow has never been their cousins, the dwarves, humans... no, their greatest disasters have all been self-inflicted.~
+= ~I suppose even if every word that is penned in ink is drivel, the underlying fear and apprehension towards the drow is genuine.~
+END
+  ++ ~What is the truth of the drow's history, if it's not like this book?~ + KVEL-TALK2-6
+  ++ ~The feared reputation of the drow isn't without merit.~ + KVEL-TALK2-7
+  ++ ~I think most races have the potential to become so, when forced into a corner.~ + KVEL-TALK2-8
+  ++ ~Forget literature. I've been through plenty during my time in Candlekeep. I'm going to bed.~ + KVEL-TALK2-0
+
+CHAIN C0KVELJ KVEL-TALK2-4
+~No doubt that I have seen those on the surface who are utterly below contempt. Then again, I would be foolish to say I could not say the same for drow. We are no more susceptible to the same vices as above, only indundated in more of it... despite what books such as these may claim to be otherwise.~
+EXTERN C0KVELJ KVEL-TALK2-3
+
+CHAIN C0KVELJ KVEL-TALK2-5
+~Like our resident fallen priestess? I have not experienced the various privileges she struggles so greatly to let go of. She suffers more greatly than I do, though it is largely of her own doing.~
+EXTERN C0KVELJ KVEL-TALK2-4
+
+CHAIN C0KVELJ KVEL-TALK2-6
+~Ask a scholar. Not that you will find any of note among the drow, but the elves of the West may be willing to entertain you, should you meet them one day.~
+EXTERN C0KVELJ KVEL-TALK2-9
+
+CHAIN C0KVELJ KVEL-TALK2-7
+~Few are more aware of that than myself.~
+EXTERN C0KVELJ KVEL-TALK2-9
+
+CHAIN C0KVELJ KVEL-TALK2-8
+~You are not wrong. Perhaps I should consider surfacers privileged, but it is not altogether a bad thing. Not if it allows you to avoid following the drow's example.~
+EXTERN C0KVELJ KVEL-TALK2-9
+
+CHAIN C0KVELJ KVEL-TALK2-9
+~I cannot speak for whether the fall of the drow was deserved or not. I am no historian. But I have seen my kind, in their embedded belief that cruelty and self-interest are the only way to survive, become paranoid and self-defeating. It is little wonder that for all their power, the drow have never advanced in all these years that they have dwelled in the darkness.~
+= ~You would think that eventually someone would learn. But the Spider Queen has a lust for chaos, even to the downfall of the very ones who pledge their devotion to her. And so we continue to play on her strings like puppets, destroying each other for amusement without end.~
+= ~At least these records have not transcribed that part of the drow's dark history. A small mercy, perhaps, but one nonetheless.~
+= ~I am done with these books, <CHARNAME>. Read it yourself if it amuses you, but do not take it as the full truth. Next time, I would prefer to read something a bit more practical.~
+= ~Perhaps a cookbook might be compelling. Look out for them should you find one. Consider it a rare favor that I'm asking of you.~
+DO ~GiveItemCreate("BOOK38",Player1,1,0,0)
+GiveItemCreate("BOOK39",Player1,1,0,0)
+RestParty()~ EXIT

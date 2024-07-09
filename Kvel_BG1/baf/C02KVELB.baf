@@ -408,10 +408,18 @@ RESPONSE #20
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelEdwin2","MYAREA",30)
 RESPONSE #30
-	DisplayStringHead("C0Kvel",~Yet they saw fit to dress you in red robes, only to eventually send you here where they cannot see you.~)
+	DisplayStringHead("C0Kvel",~As a slave. I would have the purpose of one, even without shackles.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelEdwin2","MYAREA",40)
 RESPONSE #40
+	DisplayStringHead("Edwin",~'Tis better to be chained with purpose than to drift freely and meaninglessly.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",50)
+RESPONSE #50
+	DisplayStringHead("C0Kvel",~Yet your people saw fit to dress you in red robes, only to eventually send you here where they cannot see you, on a meaningless task.~)
+	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+	SetGlobal("C02KvelEdwin2","MYAREA",60)
+RESPONSE #60
 	DisplayStringHead("Edwin",~I take back my generous advice. You would not last a day there.~)
 	SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
 	SetGlobal("C02KvelEdwin2","MYAREA",-1)

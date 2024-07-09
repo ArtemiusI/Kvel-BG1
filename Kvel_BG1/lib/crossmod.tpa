@@ -1,0 +1,35 @@
+
+// K'Vel-Emily
+ACTION_IF FILE_EXISTS_IN_GAME ~X3milyB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Emily~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/emily.d~
+END
+
+// K'Vel-Helga
+ACTION_IF FILE_EXISTS_IN_GAME ~X3HelgaB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Helga~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/helga.d~
+END
+
+// K'Vel-Kale
+ACTION_IF FILE_EXISTS_IN_GAME ~X3KaleB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Kale~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/kale.d~
+END
+
+// K'Vel-Recorder
+ACTION_IF FILE_EXISTS_IN_GAME ~X3RecB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Recorder~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/recorder.d~
+END
+
+// K'Vel-Vienxay
+ACTION_IF FILE_EXISTS_IN_GAME ~X3VienB.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Vienxay~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/vienxay.d~
+END

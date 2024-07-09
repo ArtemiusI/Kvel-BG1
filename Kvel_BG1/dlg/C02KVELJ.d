@@ -471,6 +471,13 @@ I_C_T BDDARNAS 5 C0KvelDarnas
 == C02KVELJ IF ~InParty("C0Kvel")~ THEN ~Wholly unprepared for the very cause they signed their life for. How inane this all was.~
 END
 
+// DARSKHELIN
+
+I_C_T BDDARSKH 0 C0KvelDarskhelin
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~Illithid... damn it.~
+== C02KVELJ ~I have rarely ever hoped more sorely to be wrong.~
+END
+
 // GARROLD
 
 EXTEND_TOP BDGARROL 1 #3
@@ -674,6 +681,28 @@ ApplySpellRES("BDMORLIS","BDTAIELD")
 Wait(1)
 StartDialogNoSet(LastTalkedToBy)~ EXIT
 
+// NEOTHELID
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDNeothelidDead","GLOBAL",1)~ THEN C02KVELJ KVEL-NEOTHELID
+~Oloth pholor udossa...~
+= ~No, surely it cannot... not here.~
+END
+  ++ ~Are you alright, K'Vel?~ + KVEL-NEOTHELID-1
+  ++ ~You just spoke drow. Now I know things are bad.~ + KVEL-NEOTHELID-1
+  ++ ~Do you know what that was?~ + KVEL-NEOTHELID-2
+
+CHAIN C02KVELJ KVEL-NEOTHELID-1
+~This cannot be... not in a place like this...~
+EXTERN C02KVELJ KVEL-NEOTHELID-3
+
+CHAIN C02KVELJ KVEL-NEOTHELID-2
+~I have never fought its like... but I may have seen one, long ago... I hope I am only mistaken.~
+EXTERN C02KVELJ KVEL-NEOTHELID-3
+
+CHAIN C02KVELJ KVEL-NEOTHELID-3
+~If you are faithful at all, <CHARNAME>, pray. Pray to your god, or any god, that my current fears are wrong.~
+EXIT
+
 // TAIELD
 
 EXTEND_TOP BDTAIELD 1 #3
@@ -714,8 +743,6 @@ EXTEND_BOTTOM BDTHRIX 24 29 33 37 41 45 49 53 57 61 65 69 73 77 81 85 89 93 #5
 IF ~Global("C02_Saved_Kvel","bd4500",0)
 IsValidForPartyDialogue("C0Kvel")~ EXTERN BDTHRIX ThrixWager1
 END
-
-
 
 CHAIN BDTHRIX ThrixWager1
 ~The drow is a most fascinating mortal indeed. Few others of his like in both strength and philosophy. He would make an excellent enforcer, if not more.~

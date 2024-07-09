@@ -522,6 +522,8 @@ END
 
 CHAIN C0KVEL KVEL-START-15-3
 ~Get to the point. I have a job to do.~
+== VICONJ IF ~InParty("VICONIA")~ THEN ~To serve the interests of a simple human drunkard? You have fallen hard, male.~
+== C0KVEL IF ~InParty("VICONIA")~ THEN ~No more than you have, from what I can see.~
 END
   ++ ~You don't deny it?~ + KVEL-START-15-4
   ++ ~What is a drow doing as a bodyguard to a common merchant?~ + KVEL-START-15-5

@@ -156,6 +156,7 @@ The art of dual-wielding long blades is often considered clumsy and impractical 
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/C02KVEL.D~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/C02KVELJ.D~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/SODDIALOG.D~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/SODPID.D~
 
 ////////////////////////////////////////
 /////////SCRIPTS////////////////////////

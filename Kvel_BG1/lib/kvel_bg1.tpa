@@ -180,7 +180,7 @@ STATISTICS:
 
 Equipped abilities:
 – 1 extra attack per round
-– When wielded by K'Vel, he gains an additional half attack per round, +10% Critical Hit Chance, and will never critically miss
+– When this weapon is equipped by K'Vel, he wields it with Grand Master proficiency, gains +10% Critical Hit Chance, and will never critically miss
 
 THAC0: +3
 Damage: 1d12+3 (slashing)
@@ -452,6 +452,7 @@ COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC12.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC13.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC14.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC15.BAF~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVC16.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVDR01.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KVNP01.BAF~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/BAF/C0KV4809.BAF~

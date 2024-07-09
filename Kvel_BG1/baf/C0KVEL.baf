@@ -257,3 +257,19 @@ THEN
 	SetGlobal("C0KvelBG1Talk1","GLOBAL",2)
     StartDialogueNoSet(Player1)
 END
+
+// TALK 2 TIMER
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C0KvelBG1Talk1","GLOBAL",3)
+THEN
+  RESPONSE #100
+	SetGlobal("C0KvelBG1Talk1","GLOBAL",4)
+	RealSetGlobalTimer("C0KvelTalk2RealTimer","GLOBAL",3600)
+	SetGlobalTimer("C0KvelTalk2Timer","GLOBAL",THREE_DAYS)
+END
+	
