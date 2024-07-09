@@ -326,6 +326,7 @@ COPY_TRANS PHANDA 0
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelPhandalyn","GLOBAL",1)~ THEN C0KVELJ C0KvelPhandalyn2
 ~He won't wake up for a while. We can leave.~
+DO ~SetGlobal("C0KvelPhandalyn","GLOBAL",1)~
 END
   ++ ~You sure you didn't kill him?~ + C0KvelPhandalyn2.1
   ++ ~Good job. I'll let you deal with this sort of thing from now on.~ EXIT
