@@ -32,11 +32,11 @@ INCLUDE ~%MOD_FOLDER%/lib/crossmod.tpa~
 /* EET compatibility: Biff is an BG1 (SoD) NPC only. His name will be mentioned on EET's fate spirit in ToB, but he will not be summonable (like all NPCs that didn't join the group in BGII). */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~C0AS#P01.SPL~ THEN BEGIN
-COPY ~%MOD_FOLDER%/cre/C0Kvel.cre~ ~override~
+COPY_EXISTING ~C0Kvel.cre~ ~override~
 REMOVE_MEMORIZED_SPELL ~SPCL423~
 ADD_KNOWN_SPELL ~C0AS#P01~ #1 ~INNATE~
 ADD_MEMORIZED_SPELL ~C0AS#P01~ #1 ~INNATE~ (1)
-COPY ~%MOD_FOLDER%/cre/C02Kvel.cre~ ~override~
+COPY_EXISTING ~C02Kvel.cre~ ~override~
 REMOVE_MEMORIZED_SPELL ~SPCL423~
 ADD_KNOWN_SPELL ~C0AS#P01~ #1 ~INNATE~
 ADD_MEMORIZED_SPELL ~C0AS#P01~ #1 ~INNATE~ (1)
