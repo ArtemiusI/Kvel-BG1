@@ -685,6 +685,7 @@ StartDialogNoSet(LastTalkedToBy)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDNeothelidDead","GLOBAL",1)~ THEN C02KVELJ KVEL-NEOTHELID
 ~Oloth pholor udossa...~
+DO ~SetGlobal("C0KvelSoDNeothelidDead","GLOBAL",2)~
 = ~No, surely it cannot... not here.~
 END
   ++ ~Are you alright, K'Vel?~ + KVEL-NEOTHELID-1
