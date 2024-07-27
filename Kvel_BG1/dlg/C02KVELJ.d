@@ -932,7 +932,7 @@ CHAIN C02KVELJ KVEL-LOVE-TALK-4
 ~It is not a story I like to recall. But perhaps there is a lesson to be learned in it somewhere, much as it has eluded me. So be it.~
 END
 IF ~Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5A
-IF ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5A
+IF ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5B
 
 CHAIN C02KVELJ KVEL-LOVE-TALK-5A
 ~You recall Jhan Zaer'iyon, I presume? Androsz's brother, the Butcher. He was not... entirely as you saw him, once. Though he has always been had a hunger for battle, there was once a time when I believed he could have been an ally.~
