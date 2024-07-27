@@ -1012,7 +1012,7 @@ DO ~SetGlobal("C0KvelSoDPoisonTalk","GLOBAL",2)~
 = ~If you... if you find this sight sickening... then I would prefer it if you looked away.~
 END
   ++ ~What's happening? Why are you coughing blood?~ + KVEL-POISON-TALK-1
-  ++ ~Are you injured from our last battle? Why didn't you say anything?~ + KVEL-POISON-TALK-1
+  ++ ~Are you injured from our last battle? Why didn't you say anything?~ + KVEL-POISON-TALK-2
   ++ ~Fine. I'll pretend I didn't see anything.~ + KVEL-POISON-TALK-0
 
 CHAIN C02KVELJ KVEL-POISON-TALK-0
