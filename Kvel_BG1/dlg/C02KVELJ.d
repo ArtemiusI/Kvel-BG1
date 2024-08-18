@@ -685,6 +685,7 @@ StartDialogNoSet(LastTalkedToBy)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDNeothelidDead","GLOBAL",1)~ THEN C02KVELJ KVEL-NEOTHELID
 ~Oloth pholor udossa...~
+DO ~SetGlobal("C0KvelSoDNeothelidDead","GLOBAL",2)~
 = ~No, surely it cannot... not here.~
 END
   ++ ~Are you alright, K'Vel?~ + KVEL-NEOTHELID-1
@@ -931,7 +932,7 @@ CHAIN C02KVELJ KVEL-LOVE-TALK-4
 ~It is not a story I like to recall. But perhaps there is a lesson to be learned in it somewhere, much as it has eluded me. So be it.~
 END
 IF ~Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5A
-IF ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5A
+IF ~!Global("C0KvelSoDFromBG1","GLOBAL",1)~ EXTERN C02KVELJ KVEL-LOVE-TALK-5B
 
 CHAIN C02KVELJ KVEL-LOVE-TALK-5A
 ~You recall Jhan Zaer'iyon, I presume? Androsz's brother, the Butcher. He was not... entirely as you saw him, once. Though he has always been had a hunger for battle, there was once a time when I believed he could have been an ally.~
@@ -1011,7 +1012,7 @@ DO ~SetGlobal("C0KvelSoDPoisonTalk","GLOBAL",2)~
 = ~If you... if you find this sight sickening... then I would prefer it if you looked away.~
 END
   ++ ~What's happening? Why are you coughing blood?~ + KVEL-POISON-TALK-1
-  ++ ~Are you injured from our last battle? Why didn't you say anything?~ + KVEL-POISON-TALK-1
+  ++ ~Are you injured from our last battle? Why didn't you say anything?~ + KVEL-POISON-TALK-2
   ++ ~Fine. I'll pretend I didn't see anything.~ + KVEL-POISON-TALK-0
 
 CHAIN C02KVELJ KVEL-POISON-TALK-0
