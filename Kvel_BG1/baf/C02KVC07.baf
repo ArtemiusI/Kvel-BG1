@@ -104,4 +104,6 @@ THEN
     ApplySpellRES("bdunhide",Player6)  // No such index
 	RestorePartyLocations()
 	RestParty()
+	EndCutSceneMode()
+	FadeFromColor([30.0],0)
 END
