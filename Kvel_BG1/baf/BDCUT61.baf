@@ -1,9 +1,9 @@
 IF
-  InParty("C0Aura")
+  InParty("C0Kvel")
 THEN
   RESPONSE #100
     CutSceneId(Player1)
-    SetGlobal("C0Aura_party_epilogue","global",1)
-    ActionOverride("C0Aura",LeaveParty())
-    ActionOverride("C0Aura",DestroyAllDestructableEquipment())
+    SetGlobal("C0Kvel_party_epilogue","global",1)
+    ActionOverride("C0Kvel",LeaveParty())
+    ActionOverride("C0Kvel",DestroyAllDestructableEquipment())
 END

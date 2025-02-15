@@ -20,7 +20,7 @@ IF
 	True()
 THEN
 	RESPONSE #100
-		CutSceneId("xxBiff")  
+		CutSceneId("C0KVEL")  
 		ApplySpellRES("BDSLOW",Myself)  // sets the movement rate to "6" for 15 realtime seconds
 		Wait(2)
 		SmallWait(109)
