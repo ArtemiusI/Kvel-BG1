@@ -33,3 +33,24 @@ THEN BEGIN
   PRINT ~Adding crossmod banters between K'Vel and Vienxay~
 COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/skitianpcs/vienxay.d~
 END
+
+// K'Vel-Sirene
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Siren.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Sirene~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/sirene.d~
+END
+
+// K'Vel-Sirene
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Drake.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Drake~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/drake.d~
+END
+
+// K'Vel-Sirene
+ACTION_IF FILE_EXISTS_IN_GAME ~BC0Aura.dlg~
+THEN BEGIN
+  PRINT ~Adding crossmod banters between K'Vel and Aura~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/dlg/crossmod/aura.d~
+END

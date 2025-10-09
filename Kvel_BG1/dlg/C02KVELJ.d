@@ -451,6 +451,7 @@ END
 
 CHAIN C02KVELJ KVEL-CLOVISTA
 ~A height disadvantage in combat is impossible to overcome. I have fought too many smaller foes who believed speed and reflexes would be enough to reach my weak points. They only delivered themselves into their doom.~
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~
 == BDCLOVIS ~S–so there's nothing I can do?~
 == C02KVELJ ~Consider what the difference gives you in advantage. Strike lower, where it is slower for a larger man to react. I have learned that lesson through experience as well.~
 EXTERN BDCLOVIS 5
@@ -463,7 +464,7 @@ END
 
 CHAIN C02KVELJ KVEL-DANINE
 ~Too many wasted movements. This one has the reflexes to fight well. She merely needs to learn how to force an opportunity and then strike efficiently.~
-EXTERN BDDANINE 6
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~ EXTERN BDDANINE 6
 
 // DARNAS
 
@@ -486,6 +487,7 @@ END
 
 CHAIN C02KVELJ KVEL-GARROLD
 ~...~
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~
 == C02KVELJ ~I cannot help this one.~
 == BDGARROL ~*sigh* I knew it. I'm hopeless, aren't I?~
 END
@@ -557,6 +559,7 @@ StartDialogNoSet(Player1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelSoDHester","GLOBAL",1)~ THEN BDHESTER KVEL-HESTER2
 ~Oww...~
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~
 == C02KVELJ ~You fell. Why did you fall?~
 == BDHESTER ~B–because... you hit me.~
 == C02KVELJ ~And why did you not react to my strike?~
@@ -573,6 +576,31 @@ SetGlobal("BD_TRAINED_HESTER","BD3000",1)
 IncrementGlobal("BD_TROOPS_TRAINED","BD3000",1)
 MoveToPointNoInterrupt([198.882])
 Face(W)~ EXIT
+
+// IRINA
+
+EXTEND_BOTTOM BDIRINA 22
+ IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C02KVELJ KVEL-IRINA
+END
+
+CHAIN C02KVELJ KVEL-IRINA
+~Hmph. This is all that you are concerned about? You have quite the nerve to consider yourself the head of the kitchen if such a trifling matter is enough to drive you to such panic.~
+== BDIRINA ~Oh, what do you know? You're just the new hand—don't think that just because you're one of those sorts that I'm supposed to be scared of you! Up until a while ago I was officially your boss, you know!~
+== C02KVELJ ~Hmph. I suppose, given my recent circumstances, I am duty-bound to provide some assistance while I am still here. Though it is your call to make, <CHARNAME>, on whether this is necessary.~
+END
+  ++ ~Why not. Do you have an idea in mind?~ + KVEL-IRINA-1
+  + ~Class(LastTalkedToBy,MAGE_ALL)~ + ~I am a wizard of some skill. I may be able to turn a barrel of normal wine into ruby wine.~ EXTERN BDIRINA 39
+  + ~!Class(LastTalkedToBy,SHAMAN)
+Class(LastTalkedToBy,DRUID_ALL)~ + ~As a druid, I understand the nature of such beverages. I might be able to turn regular wine into ruby wine.~ EXTERN BDIRINA 39
+  + ~Race(LastTalkedToBy,DWARF)~ + ~Ruby drinkers wouldn't know good wine if it poured itself down their throats! Let me show you a REAL drink.~ EXTERN BDIRINA 36
+  ++ ~We don't have time for this.~ EXTERN BDIRINA 27
+
+CHAIN C02KVELJ KVEL-IRINA-1
+~Winemaking is not my specialty. But I have some knowledge regardless, and I expect some drinks I know will be suitable for the palate of humans here. It will likely be more than satisfactory for them.~
+== BDIRINA ~What are you talking about? What kind of drink?~
+== C02KVELJ ~Begin with an ordinary barrel of red, aged as well as you can find. Add to a pot and place it over a flame. Add cinnamon, sugar, thelas spice, black honey, dried grey-ear mushrooms, and blackwing mushrooms in that order, waiting exactly three minutes between each ingredient.~
+== C02KVELJ ~Keep it warm at all times, and it is best served with the new recipe for whitefish. You should remember the one.~
+EXTERN BDIRINA 37
 
 // KAELET
 
@@ -660,6 +688,7 @@ END
 
 CHAIN C02KVELJ KVEL-MORLIS
 ~You remind me of a warrior I once knew. The technique is different, but the drive behind each blow is the same. Furious, brutal, bloodthirsty.~
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~
 == BDMORLIS ~And... you're saying I'm like that? I–I have always felt like killing is natural to me...~
 == C02KVELJ ~In that as well, you are alike.~
 == BDMORLIS ~Where is this warrior now? I'd like to meet him one day, if it were possible.~
@@ -680,6 +709,32 @@ SmallWait(8)
 ApplySpellRES("BDMORLIS","BDTAIELD")
 Wait(1)
 StartDialogNoSet(LastTalkedToBy)~ EXIT
+
+// MYCONIDS
+
+EXTEND_BOTTOM BDMYCELD 8 9
+ IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C02KVELJ KVEL-MYCONID
+END
+
+CHAIN C02KVELJ KVEL-MYCONID
+~I have some understanding of myconids from past encounters in the Underdark. Their language is expressed through body and scent. This one is angered. We must have treaded up on the resting place of its kind.~
+DO ~SetGlobal("C0KvelSoDMyconid","GLOBAL",1)~ COPY_TRANS BDMYCELD 1
+
+EXTEND_BOTTOM BDMYCELD 2
+ IF ~Global("C0KvelSoDMyconid","GLOBAL",1)~ THEN EXTERN C02KVELJ KVEL-MYCONID-1
+END
+
+EXTEND_BOTTOM BDMYCELD 3
+ IF ~Global("C0KvelSoDMyconid","GLOBAL",1)~ THEN EXTERN C02KVELJ KVEL-MYCONID-2
+END
+
+CHAIN C02KVELJ KVEL-MYCONID-1
+~It will matter soon enough.~
+EXTERN BDMYCELD 11 
+
+CHAIN C02KVELJ KVEL-MYCONID-2
+~It does not care.~
+EXTERN BDMYCELD 11 
 
 // NEOTHELID
 
@@ -712,6 +767,7 @@ END
 
 CHAIN C02KVELJ KVEL-TAIELD
 ~He is not a poor fighter, but his conviction is lacking.~
+DO ~SetGlobal("C0KvelSoDTrainedRecruits","GLOBAL",1)~
 == C02KVELJ ~Look upon me, half-elf. What do you see?~
 == BDTAIELD ~Is this a trick question?~
 == C02KVELJ ~Answer me.~
@@ -833,8 +889,26 @@ EXTERN BDTRISTI 15
 // TSOLAK
 
 I_C_T BDTSOLAK 2 C0KvelTsolak
-== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~By simply assessment of risk, the fanatics may still be worthy of more trust than this creature.~
+== C02KVELJ IF ~InParty("C0Kvel")~ THEN ~By simple assessment of risk, the fanatics may still be worthy of more trust than this creature.~
 END
+
+// ULORI
+
+EXTEND_BOTTOM BDULORI 0
+ IF ~IsGabber("C0Kvel")~ THEN EXTERN C02KVELJ KVEL-ULORI
+END
+
+CHAIN C02KVELJ KVEL-ULORI
+~Tsk. It has been some time since the last time I wrangled a troll. This scrawny creature should not be so difficult.~
+EXTERN BDULORI 3
+
+EXTEND_BOTTOM BDULORI 0
+ IF ~IsGabber("C0Kvel")~ THEN EXTERN C02KVELJ KVEL-ULORI-2
+END
+
+CHAIN C02KVELJ KVEL-ULORI-2
+~Stop struggling. Your kind may not fear death in as many forms, but you still know pain. And I know many forms of inflicting pain.~
+EXTERN BDULORI 5
 
 // WILHELMINA
 

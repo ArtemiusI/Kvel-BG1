@@ -273,3 +273,59 @@ THEN
 	SetGlobalTimer("C0KvelTalk2Timer","GLOBAL",THREE_DAYS)
 END
 	
+// TALK 3
+
+IF
+    InParty(Myself)
+	GlobalGT("C0KvelBG1Talk1","GLOBAL",1)
+    Global("C0KvelBG1Talk3","GLOBAL",0)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C0KvelBG1TalkRealTimer","GLOBAL",THIRTY_MINUTES)
+    SetGlobalTimer("C0KvelBG1TalkTimer","GLOBAL",ONE_DAY)
+    SetGlobal("C0KvelBG1Talk3","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    RealGlobalTimerExpired("C0KvelBG1TalkRealTimer","GLOBAL")
+    GlobalTimerExpired("C0KvelBG1TalkTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+	Global("C0KvelBG1Talk3","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C0KvelBG1Talk3","GLOBAL",2)
+    StartDialogueNoSet(Player1)
+END
+
+// DRADEEL'S BOOK
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	HasItem("BOOK88",Myself)
+	Global("C0KvelBG1TalkDradeel","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelBG1TalkDradeel","GLOBAL",1)
+	RealSetGlobalTimer("C0KvelBG1TalkDradeelTimer","GLOBAL",12)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    RealGlobalTimerExpired("C0KvelBG1TalkDradeelTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+	Global("C0KvelBG1TalkDradeel","GLOBAL",1)
+THEN
+  RESPONSE #100
+	SetGlobal("C0KvelBG1TalkDradeel","GLOBAL",2)
+    StartDialogueNoSet(Player1)
+END

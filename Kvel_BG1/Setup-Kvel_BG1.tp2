@@ -1,4 +1,4 @@
-BACKUP ~Kvel_BG1/backup~
+BACKUP ~weidu_external/backup/Kvel_BG1~
 AUTHOR ~The Artisan~
 AUTO_TRA ~%MOD_FOLDER%/translations/%s~
 

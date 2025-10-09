@@ -370,6 +370,9 @@ COPY ~%MOD_FOLDER%/cre/C0KVDR05.cre~ ~override/C0KVDR05.CRE~
   SAY NAME1 ~Drow Assassin~
   SAY NAME2 ~Drow Assassin~
 
+COPY_EXISTING ~GANTOL1.cre~ ~override~
+  WRITE_ASCII SCRIPT_OVERRIDE ~GANTOL~ #8  //override script
+
 ////////////////////////////////////////
 /////////DIALOGUE///////////////////////
 ////////////////////////////////////////
@@ -389,11 +392,13 @@ APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
   ~0x80101FEF CD_STATE_NOTVALID~
   UNLESS ~CD_STATE_NOTVALID~
 
-COMPILE ~%MOD_FOLDER%/DLG/BC0KVEL.D~
-COMPILE ~%MOD_FOLDER%/DLG/C0KVEL.D~
-COMPILE ~%MOD_FOLDER%/DLG/C0KVELJ.D~
-COMPILE ~%MOD_FOLDER%/DLG/DIALOG.D~
-COMPILE ~%MOD_FOLDER%/DLG/PID.D~
+OUTER_SET gantolandan_1 = RESOLVE_STR_REF (~*sniff* Hngh...? Mff... *snoooore*~)
+
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/BC0KVEL.D~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/C0KVEL.D~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/C0KVELJ.D~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/DIALOG.D~
+COMPILE EVALUATE_BUFFER ~%MOD_FOLDER%/DLG/PID.D~
 
 ////////////////////////////////////////
 /////////STORES/////////////////////////

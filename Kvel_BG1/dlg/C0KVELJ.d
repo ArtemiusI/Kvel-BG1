@@ -163,6 +163,12 @@ END
   ++ ~Show me what you have.~ DO ~StartStore("C0KVST01",LastTalkedToBy(Myself))~ EXIT
   ++ ~Thank you, Ecthel, but I'm good for now.~ EXIT
 
+// ELMINSTER
+
+INTERJECT ELMINS4 4 C0KvelElminsterDop
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~<CHARNAME>, you cannot truly be so blind as to fall prey to this level of deception. I will not follow you into this foolish trap. Your stolen faces will not deter me, changlings. Die as you should!~
+EXTERN ELMINS4 5
+
 // FLAMING FIST
 
 EXTEND_TOP FFHUNT 0
@@ -462,6 +468,11 @@ I_C_T ALATOS 0 C0KvelAlatos
 == C0KVELJ IF ~InParty("C0Kvel")~ THEN ~I, too, would prefer to avoid hostility, but I have found keeping my weapon close to be the preferable deterrent against this one's ilk.~
 END
 
+I_C_T BAELOTH 6 C0KvelBaeloth
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~Tch. I have heard some tales of this one and his arena of barbarity. We would do best to leave while he continues to rant obliviously. Or else, silence him however we might.~
+== BAELOTH ~I beg your pardon, were you speaking? I was too busy losing myself to the sound of my voice. Yes, you may speak now. But remember to kneel first.~
+END
+
 I_C_T2 DELTAN2 0 C0KvelDukeEltan
 == C0KVELJ IF ~InParty("C0Kvel")~ THEN ~It is fortunate that this Duke has enough influence to ensure a sudden death would provoke chaos. The poison is slow acting. He can survive with proper treatment.~
 END
@@ -470,9 +481,105 @@ I_C_T2 DESRET 3 C0KvelDesreta
 == C0KVELJ IF ~InParty("C0Kvel")~ THEN ~What an absurd philosophy. If one will seek no meaning in life and so easily discard it as worthless, then let us grant these fools what they desire.~
 END
 
+I_C_T2 DUN 1 C0KvelDun
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~I see the future of a certain foolish acquaintance before my very eyes.~
+== DUN ~Well, whoever they are, if they can learn from my mistakes then that'll be one good thing I've done in my life. So, anything else you want to ask?~
+END
+
+INTERJECT GRETEK 0 C0KvelGretek
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~Maulers of Undermountain... your craven whelps broke your contract with the Circle of Friends to save your own hides, leaving their emmisaries behind at the mercy of their bloodthirsty rivals. I owe you quite the debt for leaving your mess behind to clean up personally.~
+== GRETEK ~What?! Who dares to slander the Maulers!~
+== C0KVELJ ~I presume you still remember me, Gretek? I see your wound has recovered, and your bluster twicefold alongside it. It seems you have yet to learn your lesson.~
+== GRETEK ~YOU! It's high time we settled old affairs, men. Cut this drow and his cronies to pieces and feed them to the dogs!~
+COPY_TRANS GRETEK 1
+
+I_C_T LUCKY 0 C0KvelLuckyAello
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~Ecthel was foolish enough to almost purchase something from there. I nearly allowed him to suffer the consequences of his own idiocy. I expect you will not repeat his mistake.~
+END
+
 I_C_T SLYTHE 2 C0KvelSlythe
 == C0KVELJ IF ~InParty("C0Kvel")~ THEN ~Ridiculous prattlers. Let us dispose of these two to make up for the time wasted listening to this drivel.~
 END
+
+EXTEND_BOTTOM ZHALIM 0 1 2
+ IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelZhalimar
+END
+
+CHAIN C0KVELJ C0KvelZhalimar
+~Your names will be less than dust in the wind soon enough.~
+== ZHALIM ~Quite the opposite, for they will be the last that you ever hear, sword of Au'dayrr. Or did you believe we were so ignorant as to be unaware of your own?~
+== C0KVELJ ~...!~
+== ZHALIM ~Oh, yes. We have met your like, and from your expression, it appears that you have received their welcome. A shame that we will claim your life now, and your challenger will return to his home in disappointment. At them, brothers!~
+EXIT
+
+INTERJECT DRIZZT 0 C0KvelDrizzt
+== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~The drow ranger Drizzt Do'Urden, once of the fallen house of Menzoberranzan. I doubted I would encounter him in person, vast as the surface is.~
+END
+
+EXTEND_BOTTOM GANTOL 1 5 7
+ IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelGantolandan
+END
+
+CHAIN C0KVELJ C0KvelGantolandan
+~...Hmph.~
+DO ~SetGlobal("C0KvelGantolandan","GLOBAL",1)
+ClearAllActions()
+StartCutSceneMode()
+MoveToObject("GANTOL")
+Wait(1)
+ForceSpellRES("C0KVSP09","GANTOL")
+Wait(2)
+DisplayStringHead("GANTOL",%gantolandan_1%)
+Wait(1)
+StartDialogNoSet(Myself)~ EXIT
+
+EXTEND_BOTTOM KIRINHAL 0
+ IF ~IsGabber("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelKirinhale
+END
+
+CHAIN C0KVELJ C0KvelKirinhale
+~Your efforts are wasted on me, tanar'ri. I know of your tricks, and your wiles are useless.~
+EXTERN KIRINHAL 2
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelGantolandan","GLOBAL",1)~ THEN C0KVELJ C0KvelGantolandan2
+~To think I must spend my efforts on petty larceny. This dose of ashthorne leaf will keep you sedated long enough.~
+= ~Now, time to get this over with.~
+DO ~SetGlobal("C0KvelGantolandan","GLOBAL",2)~
+EXIT
+
+EXTEND_BOTTOM NEB 5
+ IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelNeb
+END
+
+CHAIN C0KVELJ C0KvelNeb
+~...~
+== NEB ~Heh heh... feeling frustrated, aren't you? Don't you worry, we can—*GLRK*!~
+== C0KVELJ ~...~
+== NEB ~*glgh!*... *gack!*~
+== C0KVELJ ~There is a much simpler solution to this insane riddle. You will tell us all that you know. Or, I snap your neck. Nothing of worth will be lost.~
+== NEB ~*gnngnhgnh!*... heh... *NNGH!*~
+== C0KVELJ ~You had best decide whilst you may still breathe.~
+END
+  ++ ~(Do nothing)~ + C0KvelNeb.3
+  ++ ~Finish him off. The piece of filth deserves it.~ + C0KvelNeb.1
+  ++ ~Stop it, K'Vel. We might need him to get out of here.~ + C0KvelNeb.2
+
+CHAIN C0KVELJ C0KvelNeb.1
+~With pleasure.~
+EXTERN C0KVELJ C0KvelNeb.3
+
+CHAIN C0KVELJ C0KvelNeb.2
+~...~
+= ~...hmph.~
+== NEB ~*cough* *hack* Heh, heh... just a little bit of... little bit of fun, eh? No harm done. We can play this game all day...~
+EXIT
+
+CHAIN C0KVELJ C0KvelNeb.3
+~...~
+== NEB ~*ggrgghh* E—eno—*chokes*... I... I'll tell...~
+== C0KVELJ ~...You are a fortunate worm this day.~
+== NEB ~*cough* *gasp*... I—I...~
+EXTERN NEB 17
 
 // TALK 1
 
@@ -620,3 +727,76 @@ CHAIN C0KVELJ KVEL-TALK2-9
 DO ~GiveItemCreate("BOOK38",Player1,1,0,0)
 GiveItemCreate("BOOK39",Player1,1,0,0)
 RestParty()~ EXIT
+
+// TALK 3
+
+CHAIN IF WEIGHT #-1 ~!NumInPartyGT(3)
+Global("C0KvelBG1Talk3","GLOBAL",1)~ THEN C0KVELJ KVEL-TALK3
+~You have chosen to walk alongside few in this journey.~
+DO ~SetGlobal("C0KvelBG1Talk3","GLOBAL",2)~
+= ~Perhaps you believe my blade alone worthy of preserving your life. Though I follow my word, I can only perform my role to the extent of my ability.~
+EXTERN C0KVELJ KVEL-TALK3-1
+
+CHAIN IF WEIGHT #-1 ~NumInPartyGT(3)
+Global("C0KvelBG1Talk3","GLOBAL",1)~ THEN C0KVELJ KVEL-TALK3
+~You have gathered a motley group of individuals.~
+DO ~SetGlobal("C0KvelBG1Talk3","GLOBAL",2)~
+= ~I hope you consider each of them worthy of trust, as your life may depend on them at any hour. As my well-being is tied to yours, I speak for both our sakes.~
+EXTERN C0KVELJ KVEL-TALK3-1
+
+CHAIN C0KVELJ KVEL-TALK3-1
+~Leadership is no simple affair. Too few comrades at your sides, or too many unworthy of trust, will both lead to an untimely end.~
+END
+  ++ ~What would a drow know of leadership or trust?~ + KVEL-TALK3-2
+  ++ ~I choose my allies carefully. You need not worry on that end.~ + KVEL-TALK3-3
+  ++ ~It is equally important to trust one's leader.~ + KVEL-TALK3-4
+  ++ ~Now really isn't the time for this sort of discussion.~ + KVEL-TALK3-0
+
+CHAIN C0KVELJ KVEL-TALK3-0
+~As you wish. I just hope my words will remain at the back of your mind, if nowhere else.~
+EXIT
+
+CHAIN C0KVELJ KVEL-TALK3-2
+~You are not entirely wrong to question. But I understand more than you may believe. While many drow consider the path towards rising in station to be painted with the blood of rivals, there is also power in unity.~
+EXTERN C0KVELJ KVEL-TALK3-5
+
+CHAIN C0KVELJ KVEL-TALK3-3
+~I do not doubt it. That you have achieved much in so short a time is a testament to your judgement.~
+EXTERN C0KVELJ KVEL-TALK3-5
+
+CHAIN C0KVELJ KVEL-TALK3-4
+~Point taken.~
+EXTERN C0KVELJ KVEL-TALK3-5
+
+CHAIN C0KVELJ KVEL-TALK3-5
+~My intention is not to question your ability to lead. Your instinct and ability to ascetain the intentions of others, to seek those who might aid you, is without doubt. Were it not so, you would not have lived to this day.~
+= ~I have little such ability. My experience is that of a commander and his platoon. I have little experience in other methods of leadership, nor do I consider it my forte.~
+END
+  ++ ~You have commanded soldiers before? During your time in Eryndlyn, I presume.~ + KVEL-TALK3-6
+  ++ ~I don't believe the leadership needed to command a militia is that inferior to that of an adventuring party.~ + KVEL-TALK3-7
+  ++ ~What sorts of skills would be demanded of a drow commander?~ + KVEL-TALK3-8
+
+CHAIN C0KVELJ KVEL-TALK3-6
+~That is the highest station a drow of my circumstances could possibly afford. An important role, but one with little ambition of greater standing.~
+EXTERN C0KVELJ KVEL-TALK3-8
+
+CHAIN C0KVELJ KVEL-TALK3-7
+~It is different enough. The relationship of a leader and subordinate is a far cry from what is expected of traveling companions.~
+EXTERN C0KVELJ KVEL-TALK3-8
+
+CHAIN C0KVELJ KVEL-TALK3-8
+~I cannot speak for most drow. But as a commander, it was expected of me to shape those under my command into the types of men necessary for the survival of my House. But drow—male drow in particular—care for their House insofar as it ensures their own safety and wellbeing.~
+= ~The act of betrayal for petty reasons is not unexpected among drow, but for my role, it was a threat I had to suppress by any means. I could not demand that those under me place the lives of their fellows of equal importance to their own, but I could instill the belief that those in their position can also serve as their allies, and reliance upon allies may become their path to survival.~
+= ~That is a difficult, even impossible lesson for many drow to understand. But for one such as myself, there was no other way to ensure that I could stand against the deceit and ruthless nature of Eryndlyn, without finding the rare few I could trust to see what I could not.~
+= ~In that, I believe our methods of leadership are alike. You should question, above all else, whose eyes you can trust to watch over you, and what skills are needed that you lack yourself. Should you have the answers, you may yet succeed. Otherwise...~
+= ~I will do what I can, of course, as is expected of me. But do not expect my blade alone to keep you alive forever.~
+EXIT
+
+// DRADEEL
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelBG1TalkDradeel","GLOBAL",2)~ THEN C0KVELJ KVEL-TALK-DRADEEL
+~I would not have imagined one in such dire straits to place their priorities in recording their efforts at cookery.~
+= ~The years of isolation have undoubtedly eroded away at his sanity. Though perhaps I am not one to speak.~
+= ~These attempts at recipes appear amateurish at their best, and inane at their worst. Still, some things may still be worth attempting...~
+= ~...hmph. Excepting the last page. Hardly worth the parchment it's written on.~
+EXIT
