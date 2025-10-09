@@ -907,7 +907,7 @@ EXTEND_BOTTOM BDULORI 0
 END
 
 CHAIN C02KVELJ KVEL-ULORI-2
-~Stop struggling. Your kind may not fear death in as many forms, but you still know pain. And I know many forms of inflicting pain.~
+~Stop struggling. Your kind may not fear death in as many forms, but you still know pain. Pain that I will not hesistate to inflict, should you continue resisting.~
 EXTERN BDULORI 5
 
 // WILHELMINA
