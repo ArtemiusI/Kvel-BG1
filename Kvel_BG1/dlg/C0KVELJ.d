@@ -512,10 +512,6 @@ CHAIN C0KVELJ C0KvelZhalimar
 == ZHALIM ~Oh, yes. We have met your like, and from your expression, it appears that you have received their welcome. A shame that we will claim your life now, and your challenger will return to his home in disappointment. At them, brothers!~
 EXIT
 
-INTERJECT DRIZZT 0 C0KvelDrizzt
-== C0KVELJ IF ~InParty("C0Kvel")~ THEN ~The drow ranger Drizzt Do'Urden, once of the fallen house of Menzoberranzan. I doubted I would encounter him in person, vast as the surface is.~
-END
-
 EXTEND_BOTTOM GANTOL 1 5 7
  IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelGantolandan
 END
