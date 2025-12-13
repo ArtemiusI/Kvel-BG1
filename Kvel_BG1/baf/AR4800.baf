@@ -9,3 +9,24 @@ RESPONSE #100
 	CreateCreature("C0KVEL",[2178.2303],NW)
 	StartCutScene("C0KVC01")
 END
+
+IF
+	Global("C0KvelBegin","GLOBAL",6)
+	Global("C0KvelMerchantsTalk","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0KvelMerchantsTalk","GLOBAL",1)
+	CreateCreature("C0KVME01",[1711.897],SE)
+	CreateCreature("C0KVME02",[1741.926],NW)
+END
+
+IF
+	GlobalGT("C0KvelBegin","GLOBAL",6)
+	OR(2)
+	InMyArea("C0KVME01")
+	InMyArea("C0KVME02")
+THEN
+RESPONSE #100
+	ActionOverride("C0KVME01",DestroySelf())
+	ActionOverride("C0KVME02",DestroySelf())
+END

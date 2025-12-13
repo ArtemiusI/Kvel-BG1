@@ -373,6 +373,15 @@ COPY ~%MOD_FOLDER%/cre/C0KVDR05.cre~ ~override/C0KVDR05.CRE~
 COPY_EXISTING ~GANTOL1.cre~ ~override~
   WRITE_ASCII SCRIPT_OVERRIDE ~GANTOL~ #8  //override script
 
+COPY_EXISTING ~MERCH2.cre~ ~override/C0KVME01.CRE~
+  WRITE_ASCII SCRIPT_OVERRIDE ~SHOUTDLG~ #8
+  WRITE_ASCII DEATHVAR ~C0KVME01~ #32
+  WRITE_ASCII DIALOG ~C0KVME01~ #8
+
+COPY_EXISTING ~MERCH3.cre~ ~override/C0KVME02.CRE~
+  WRITE_ASCII DEATHVAR ~C0KVME02~ #32
+  WRITE_ASCII DIALOG ~C0KVME02~ #8
+
 ////////////////////////////////////////
 /////////DIALOGUE///////////////////////
 ////////////////////////////////////////

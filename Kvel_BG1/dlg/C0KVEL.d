@@ -7,6 +7,19 @@ BEGIN C0KVNP04
 BEGIN C0KVNP05
 BEGIN C0KVNP06
 BEGIN C0KVNP07
+BEGIN C0KVME01
+BEGIN C0KVME02
+
+CHAIN IF WEIGHT #-1 ~Global("C0KvelMerchantsTalk","GLOBAL",1)~ THEN C0KVME01 KVEL-MERCHANTS
+~You saw the Darcourt boy down at the Belching Dragon?~
+DO ~SetGlobal("C0KvelMerchantsTalk","GLOBAL",2)~
+== C0KVME02 ~Almost didn't recognize 'im. Looked all down in the dumps... business probably hasn't been going so well for his company.~
+== C0KVME01 ~Easy enough to guess why. Them Darcourts are all of upstanding morals. The Throne's chafing of the usual trade routes wouldn't sit well with them. And they certainly wouldn't conform to it.~
+== C0KVME02 ~Agreed. I don't share their scruples, but I can respect 'em. Can't help but feel for the lad.~
+== C0KVME01 ~Hopefully he doesn't drown in his drink, the way he's been downing cup after cup.~
+== C0KVME02 ~Well, we should just mind our own business. 'Course, if the boy swallows his pride an' asks any o' us for a hand, none of us merchants could say no to Darcourt Enterprises owin' us a favor either, wouldn't you say? See you around.~
+DO ~ActionOverride("C0KVME01",EscapeArea())
+EscapeArea()~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("C0KvelBentleyBook","GLOBAL",0)~ THEN BENTLY KVEL-BENTLEY-BOOK
 ~By Garl, that boy'll run his family's business into the ground if he doesn't get his head on straight... Nessie? Nessie, are you free right now? Blast it, the girl's carrying too many hot plates to even move.~
