@@ -1,6 +1,7 @@
 
 IF
-    Global("C0KvelBegin","GLOBAL",17)
+    GlobalGT("C0KvelBegin","GLOBAL",15)
+    GlobalLT("C0KvelBegin","GLOBAL",18)
 THEN
     RESPONSE #100
         SetGlobal("C0KvelBegin","GLOBAL",18)
