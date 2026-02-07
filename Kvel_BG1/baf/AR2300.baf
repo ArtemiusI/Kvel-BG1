@@ -14,7 +14,7 @@ RESPONSE #100
 END
 
 IF
-	GlobalGT("Chapter","GLOBAL",1)
+	GlobalGT("Chapter","GLOBAL",%tutu_chapter_1%)
 	Global("C0KvelSpawn","%bg1_eet_symbol%2300",1)
 THEN
 RESPONSE #100

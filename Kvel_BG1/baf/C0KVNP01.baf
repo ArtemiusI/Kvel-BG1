@@ -19,7 +19,7 @@ END
 IF
 	AreaCheck("%bg1_eet_symbol%4809")
 	!BeenInParty("C0KVEL")
-	GlobalGT("Chapter","GLOBAL",3)
+	GlobalGT("Chapter","GLOBAL",%tutu_chapter_3%)
 THEN
 RESPONSE #100
 	ActionOverride("C0KVEL",DestroySelf())

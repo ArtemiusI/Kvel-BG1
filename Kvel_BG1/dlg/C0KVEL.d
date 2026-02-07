@@ -92,7 +92,7 @@ EXTERN C0KVNP01 KVEL-START-0-6
 
 CHAIN C0KVNP01 KVEL-START-0-5
 ~Well, you do see miracles of nature now and again. Tall elves, short humans, skinny dwarves...~
-== KAGAIJ IF ~InParty("KAGAIN")~ THEN ~Watch yer mouth, longlimbs.~
+== %KAGAIN_JOINED% IF ~InParty("KAGAIN")~ THEN ~Watch yer mouth, longlimbs.~
 == C0KVNP01 IF ~InParty("KAGAIN")~ THEN ~I—I'm just speaking conceptually.~
 == C0KVNP01 ~Not that I don't understand what you mean. It's quite intimidating, but I find it useful when I'm on the road. Even if he is about as cold as a white dragon in winter.~
 EXTERN C0KVNP01 KVEL-START-0-6
@@ -535,7 +535,7 @@ END
 
 CHAIN C0KVEL KVEL-START-15-3
 ~Get to the point. I have a job to do.~
-== VICONJ IF ~InParty("VICONIA")~ THEN ~To serve the interests of a simple human drunkard? You have fallen hard, male.~
+== %VICONIA_JOINED% IF ~InParty("VICONIA")~ THEN ~To serve the interests of a simple human drunkard? You have fallen hard, male.~
 == C0KVEL IF ~InParty("VICONIA")~ THEN ~No more than you have, from what I can see.~
 END
   ++ ~You don't deny it?~ + KVEL-START-15-4
@@ -1000,18 +1000,18 @@ CHAIN C0KVELP C0KvelTorture-3
 ~It would have been preferable if we had not surrendered ourselves at all. Do not expect a performance like that to work a second time... gah. We had best leave before we are captured again.~
 DO ~JoinParty()~ EXIT
 
-CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",0)~ THEN C0KVELP KVEL-KICKED
+CHAIN IF WEIGHT #-1 ~Global("%KICKED_OUT%","LOCALS",0)~ THEN C0KVELP KVEL-KICKED
 ~You seek for me to leave your company for now?~
 END
   ++ ~Yes.~ EXTERN C0KVELP KVEL-KICKED-1
   ++ ~No.~ DO ~JoinParty()~ EXIT
-  ++ ~I still need your help, but wait for me here first.~ DO ~SetGlobal("KickedOut","LOCALS",1)~ EXIT
+  ++ ~I still need your help, but wait for me here first.~ DO ~SetGlobal("%KICKED_OUT%","LOCALS",1)~ EXIT
 
 CHAIN C0KVELP KVEL-KICKED-1
 ~So be it. I will return to the Elfsong Tavern and wait for you there, as the proprietor has offered to help to hide my presence from other humans.~
-DO ~EscapeAreaMove("%bg1_eet_symbol%0112",548,239,NE) SetGlobal("KickedOut","LOCALS",1)~ EXIT
+DO ~EscapeAreaMove("%bg1_eet_symbol%0112",548,239,NE) SetGlobal("%KICKED_OUT%","LOCALS",1)~ EXIT
 
-CHAIN IF WEIGHT #-1 ~Global("KickedOut","LOCALS",1)~ THEN C0KVELP KVEL-REJOIN
+CHAIN IF WEIGHT #-1 ~Global("%KICKED_OUT%","LOCALS",1)~ THEN C0KVELP KVEL-REJOIN
 ~You are back. I am prepared to honor my contract and rejoin you should you require my service.~
 END
   ++ ~Very well.~ EXTERN C0KVELP KVEL-REJOIN-1
@@ -1019,4 +1019,4 @@ END
 
 CHAIN C0KVELP KVEL-REJOIN-1
 ~As directed.~
-DO ~JoinParty() SetGlobal("KickedOut","GLOBAL",0)~ EXIT
+DO ~JoinParty() SetGlobal("%KICKED_OUT%","GLOBAL",0)~ EXIT

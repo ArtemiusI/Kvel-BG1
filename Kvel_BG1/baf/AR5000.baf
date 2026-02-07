@@ -1,6 +1,6 @@
 
 IF
-    GlobalLT("Chapter","GLOBAL",4)
+    GlobalLT("Chapter","GLOBAL",%tutu_chapter_4%)
     GlobalLT("C0KvelBegin","GLOBAL",3)
 THEN
     RESPONSE #100

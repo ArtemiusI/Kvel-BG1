@@ -421,7 +421,7 @@ END
 
 CHAIN C0KVELJ KVEL-OXLEY-9
 ~A drow city such as Menzoberranzan or Ust Natha indeed would not. But if it were drow from Eryndlyn, or even Ched Nasad... that is a different story.~
-== VICONJ IF ~InParty("Viconia")~ THEN ~And what am I then, jaluk? Chopped dro'vk?~
+== %VICONIA_JOINED% IF ~InParty("Viconia")~ THEN ~And what am I then, jaluk? Chopped dro'vk?~
 == BAELOTHJ IF ~InParty("Baeloth")~ THEN ~Correctly, my current concordat is but a matter of convenience, in lieu of preferable possibilities.~
 == C0KVELJ IF ~OR(2) InParty("Viconia") InParty("Baeloth")~ THEN ~Present company, with no supporting house to lean upon, does not count.~
 == C0KVELJ ~In places where the watchful eyes of Lolth's followers are fewer, drow seek power from more material sources. Wealth and connections... and for the pragmatic, they see only profit in dealing with similarly unscrupulous groups. Even surfacers.~
@@ -675,7 +675,7 @@ CHAIN C0KVELJ KVEL-TALK2-1
 ~I was familiarizing myself with some of the more common texts in human lands. This has been a common habit for me since coming to the surface, initially to nurture my understanding of Common so that I may survive.~
 = ~In time, I suppose you could consider this becoming a more personal interest. With my history, I fully expect to finish my life here, and so I may as well be more knowledgable of your literatures and customs.~
 END
-  + ~GlobalLT("chapter","GLOBAL",6)~ + ~You like to read? I should introduce you to my old home of Candlekeep.~ + KVEL-TALK2-2
+  + ~GlobalLT("chapter","GLOBAL",%tutu_chapter_6%)~ + ~You like to read? I should introduce you to my old home of Candlekeep.~ + KVEL-TALK2-2
   ++ ~So what book are you going through now? I may know of it.~ + KVEL-TALK2-3
   + ~!InParty("Viconia")~ + ~I expected you might look down on surfacers and our ways.~ + KVEL-TALK2-4
   + ~InParty("Viconia")~ + ~I expected you might look down on surfacers and our ways.~ + KVEL-TALK2-5
