@@ -543,17 +543,17 @@ CHAIN IF WEIGHT #-1 ~Global("C0KvelGantolandan","GLOBAL",1)~ THEN C0KVELJ C0Kvel
 DO ~SetGlobal("C0KvelGantolandan","GLOBAL",2)~
 EXIT
 
-EXTEND_BOTTOM NEB 5
+EXTEND_BOTTOM %eet_neb% 5
  IF ~IsValidForPartyDialog("C0Kvel")~ THEN EXTERN C0KVELJ C0KvelNeb
 END
 
 CHAIN C0KVELJ C0KvelNeb
 ~...~
-== NEB ~Heh heh... feeling frustrated, aren't you? Don't you worry, we can—*GLRK*!~
+== %eet_neb% ~Heh heh... feeling frustrated, aren't you? Don't you worry, we can—*GLRK*!~
 == C0KVELJ ~...~
-== NEB ~*glgh!*... *gack!*~
+== %eet_neb% ~*glgh!*... *gack!*~
 == C0KVELJ ~There is a much simpler solution to this insane riddle. You will tell us all that you know. Or, I snap your neck. Nothing of worth will be lost.~
-== NEB ~*gnngnhgnh!*... heh... *NNGH!*~
+== %eet_neb% ~*gnngnhgnh!*... heh... *NNGH!*~
 == C0KVELJ ~You had best decide whilst you may still breathe.~
 END
   ++ ~(Do nothing)~ + C0KvelNeb.3
@@ -567,15 +567,15 @@ EXTERN C0KVELJ C0KvelNeb.3
 CHAIN C0KVELJ C0KvelNeb.2
 ~...~
 = ~...hmph.~
-== NEB ~*cough* *hack* Heh, heh... just a little bit of... little bit of fun, eh? No harm done. We can play this game all day...~
+== %eet_neb% ~*cough* *hack* Heh, heh... just a little bit of... little bit of fun, eh? No harm done. We can play this game all day...~
 EXIT
 
 CHAIN C0KVELJ C0KvelNeb.3
 ~...~
-== NEB ~*ggrgghh* E—eno—*chokes*... I... I'll tell...~
+== %eet_neb% ~*ggrgghh* E—eno—*chokes*... I... I'll tell...~
 == C0KVELJ ~...You are a fortunate worm this day.~
-== NEB ~*cough* *gasp*... I—I...~
-EXTERN NEB 17
+== %eet_neb% ~*cough* *gasp*... I—I...~
+EXTERN %eet_neb% 17
 
 // TALK 1
 
