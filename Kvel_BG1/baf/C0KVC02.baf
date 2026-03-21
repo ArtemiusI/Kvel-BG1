@@ -6,8 +6,6 @@ THEN
 ClearAllActions()
 StartCutSceneMode()
 	EquipRanged()
-GiveItemCreate("IMOENHP1","C0KVEL",0,0,0)
-ActionOverride("C0KVEL",FillSlot(SLOT_BELT))
 	GiveItemCreate("IMOENHP1",Myself,0,0,0)
 FillSlot(SLOT_BELT)
 MoveViewPoint([997.713],INSTANT)

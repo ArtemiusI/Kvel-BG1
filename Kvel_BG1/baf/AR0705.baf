@@ -5,7 +5,8 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("C0KvelBegin","GLOBAL",18)
-	    CreateCreature("C0KVEL",[596.440],SE)
+	    MoveGlobal("%bg1_eet_symbol%0705","C0KVEL",[596.440])
+		ActionOverride("C0KVEL",Face(SE))
 	    CreateCreature("C0KVNP01",[597.500],SW)
 		SmallWait(1)
 		ActionOverride("C0KVEL",DestroyItem("DAGG05"))

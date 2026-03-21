@@ -12,7 +12,8 @@ IF
 THEN
 RESPONSE #100
 	SetGlobal("C0KvelBegin","GLOBAL",17)
-	CreateCreature("C0KVEL",[238.239],NW)
+	    MoveGlobal("%bg1_eet_symbol%4809","C0KVEL",[238.239])
+		ActionOverride("C0KVEL",Face(NW))
 	Continue()
 END
 
@@ -22,7 +23,6 @@ IF
 	GlobalGT("Chapter","GLOBAL",%tutu_chapter_3%)
 THEN
 RESPONSE #100
-	ActionOverride("C0KVEL",DestroySelf())
 	DestroySelf()
 	Continue()
 END

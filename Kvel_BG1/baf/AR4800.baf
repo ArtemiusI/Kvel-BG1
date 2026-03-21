@@ -6,7 +6,7 @@ RESPONSE #100
 	ClearAllActions()
 	StartCutSceneMode()
 	CreateCreature("CUTSPY",[2229.2249],S)
-	CreateCreature("C0KVEL",[2178.2303],NW)
+	MoveGlobal("%bg1_eet_symbol%4800","C0KVEL",[596.440])
 	StartCutScene("C0KVC01")
 END
 

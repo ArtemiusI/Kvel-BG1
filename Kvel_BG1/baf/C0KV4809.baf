@@ -4,7 +4,8 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("C0KvelBegin","GLOBAL",7)
-	    CreateCreature("C0KVEL",[279.181],SW)
+	    MoveGlobal("%bg1_eet_symbol%4809","C0KVEL",[279.181])
+		ActionOverride("C0KVEL",Face(SW))
 	    CreateCreature("C0KVNP01",[338.160],SE)
 		DestroySelf()
 END

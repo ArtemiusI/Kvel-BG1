@@ -19,7 +19,6 @@ IF
 THEN
 RESPONSE #100
 	SetGlobal("C0KvelSpawn","%bg1_eet_symbol%2300",2)
-	ActionOverride("C0KVEL",DestroySelf())
 	ActionOverride("C0KVNP01",DestroySelf())
 	ActionOverride("C0KVNP02",DestroySelf())
 	ActionOverride("C0KVNP03",DestroySelf())

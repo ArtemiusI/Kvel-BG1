@@ -1439,5 +1439,8 @@ DO ~GiveItemCreate("C02KVM01",Player1,1,0,0)~
 = ~When that time comes, deliver this coin to any tavern proprietor within the Sword Coast, or even as far as Amn. Its origins are elaborate, and I will spare you the boredom of its story at this moment.~
 = ~Should I be within its borders, as I most likely will be, it will reach me in time. And I will know to find you.~
 = ~And so, our association reaches its end for now, <CHARNAME>. But I expect we will see each other again sooner than we expect. May you live well, and... aluve.~
-DO ~LeaveParty()
+END
+IF ~~ DO ~LeaveParty()
+EscapeArea()~ EXIT
+IF ~HasItem("C0KVCH01",Myself)~ DO ~SetGlobal("C0KvelImportItem1","GLOBAL",1)LeaveParty()
 EscapeArea()~ EXIT
